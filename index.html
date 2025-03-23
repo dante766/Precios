@@ -94,7 +94,7 @@ const precios = {
     }
 
     // Primero se evalúan condiciones específicas que contengan "ENVIOS GRATIS"	
-else if (/envios gratis/i.test(userInput)) {
+else if (/envios gratis|envíos gratis/i.test(userInput)) {
   let proveedoresConEnvioGratis = [];
   
   // Recorrer los proveedores para encontrar los que tienen envío gratis
@@ -115,7 +115,7 @@ else if (/envios gratis/i.test(userInput)) {
   response += "</ul>";
 }
 
-else if (/envios ems/i.test(userInput)) {
+else if (/envios ems|envíos ems/i.test(userInput)) {
   let proveedoresConEMS = [];
   
   // Recorrer los proveedores para encontrar los que ofrecen envíos EMS
