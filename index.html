@@ -42,26 +42,26 @@
 <script>
   // Datos de proveedores y precios
 const precios = {
-  "LIU": { "FAN": 11, "RETRO": 16, "PLAYER ADIDAS": 13, "PLAYER NIKE": 14, "PLAYER PUMA": 14, "SHORT FAN": 8, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "5 Camisetas", "ENVIO EMS": 20 },
-  "BOND": { "FAN": 11, "RETRO": 16, "PLAYER ADIDAS": 14, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 8, "SHORT PLAYER": 12, "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A" },
-  "STARTJERSEY": { "FAN": 12, "RETRO": 17, "PLAYER ADIDAS": 15, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 10, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "3 Camisetas", "ENVIO EMS": 10 },
-  "PINHUI": { "FAN": 11, "RETRO": 17, "PLAYER ADIDAS": 13, "PLAYER NIKE": 17, "PLAYER PUMA": 15, "SHORT FAN": 10, "SHORT PLAYER": 15, "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A" },
-  "HUANG (HOMBRE)": { "FAN": 12, "RETRO": 17, "PLAYER ADIDAS": 15, "PLAYER NIKE": 17, "PLAYER PUMA": 17, "SHORT FAN": 9, "SHORT PLAYER": 14, "ENVIO GRATIS": "4 Camisetas", "ENVIO EMS": "N/A" },
-  "BENE": { "FAN": 11, "RETRO": 16, "PLAYER ADIDAS": 15, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 9, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "3 Camisetas", "ENVIO EMS": "N/A" },
-  "HUANG (MUJER)": { "FAN": 10, "RETRO": 15, "PLAYER ADIDAS": 15, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 8, "SHORT PLAYER": 12, "ENVIO GRATIS": "N/A", "ENVIO EMS": 25 },
-  "MAO GU": { "FAN": 12, "RETRO": 17, "PLAYER ADIDAS": 17, "PLAYER NIKE": 17, "PLAYER PUMA": 17, "SHORT FAN": 10, "SHORT PLAYER": 17, "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A" },
-  "XIAO HAO": { "FAN": 12, "RETRO": 17, "PLAYER ADIDAS": 16, "PLAYER NIKE": 16, "PLAYER PUMA": 16, "SHORT FAN": 12, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A" },
-  "ANNE": { "FAN": 12, "RETRO": 18, "PLAYER ADIDAS": 18, "PLAYER NIKE": 18, "PLAYER PUMA": 18, "SHORT FAN": 10, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": 15 },
-  "JERRY": { "FAN": 11, "RETRO": 16, "PLAYER ADIDAS": 15, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 8, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": 15 },
-  "FORNECEDOR (ANNE)": { "FAN": 10, "RETRO": 16, "PLAYER ADIDAS": 15, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 10, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A" },
-  "POACHED EGG": { "FAN": 12, "RETRO": 15, "PLAYER ADIDAS": 13, "PLAYER NIKE": 15, "PLAYER PUMA": 14, "SHORT FAN": 8, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A" },
-  "SPORTWEAR": { "FAN": 11, "RETRO": 16, "PLAYER ADIDAS": 16, "PLAYER NIKE": 16, "PLAYER PUMA": 16, "SHORT FAN": 9, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A" },
-  "YAOQUAN": { "FAN": 11, "RETRO": 15, "PLAYER ADIDAS": 14, "PLAYER NIKE": 16, "PLAYER PUMA": 16, "SHORT FAN": 8, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A" },
-  "WU JI ZHEN": { "FAN": 12, "RETRO": 18, "PLAYER ADIDAS": 17, "PLAYER NIKE": 17, "PLAYER PUMA": 17, "SHORT FAN": 12, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A" },
-  "HANG": { "FAN": 13, "RETRO": 19, "PLAYER ADIDAS": 16, "PLAYER NIKE": 18, "PLAYER PUMA": 18, "SHORT FAN": 11, "SHORT PLAYER": 15, "ENVIO GRATIS": "4 Camisetas", "ENVIO EMS": "N/A" },
-  "LIANG": { "FAN": 11, "RETRO": 16, "PLAYER ADIDAS": 14, "PLAYER NIKE": 15, "PLAYER PUMA": 14, "SHORT FAN": 9, "SHORT PLAYER": 12, "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A" },
-  "WILID": { "FAN": 13, "RETRO": 19, "PLAYER ADIDAS": 16, "PLAYER NIKE": 18, "PLAYER PUMA": 18, "SHORT FAN": 11, "SHORT PLAYER": 15, "ENVIO GRATIS": "4 Camisetas", "ENVIO EMS": "N/A" },
-  "XIAO LI": { "FAN": 12, "RETRO": 16, "PLAYER ADIDAS": 15, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 10, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A" }
+  "LIU": { "FAN": 11, "RETRO": 16, "PLAYER ADIDAS": 13, "PLAYER NIKE": 14, "PLAYER PUMA": 14, "SHORT FAN": 8, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "5 Camisetas", "ENVIO EMS": 20, "CONTACTO": "https://api.whatsapp.com/send/?phone=8617724352637&text&type=phone_number&app_absent=0" },
+  "BOND": { "FAN": 11, "RETRO": 16, "PLAYER ADIDAS": 14, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 8, "SHORT PLAYER": 12, "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8615361409693&text&type=phone_number&app_absent=0" },
+  "STARTJERSEY": { "FAN": 12, "RETRO": 17, "PLAYER ADIDAS": 15, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 10, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "3 Camisetas", "ENVIO EMS": 10, "CONTACTO": "https://api.whatsapp.com/send/?phone=8615207598085&text&type=phone_number&app_absent=0" },
+  "PINHUI": { "FAN": 11, "RETRO": 17, "PLAYER ADIDAS": 13, "PLAYER NIKE": 17, "PLAYER PUMA": 15, "SHORT FAN": 10, "SHORT PLAYER": 15, "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8613416127767&text&type=phone_number&app_absent=0" },
+  "HUANG (HOMBRE)": { "FAN": 12, "RETRO": 17, "PLAYER ADIDAS": 15, "PLAYER NIKE": 17, "PLAYER PUMA": 17, "SHORT FAN": 9, "SHORT PLAYER": 14, "ENVIO GRATIS": "4 Camisetas", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8613535386151&text&type=phone_number&app_absent=0" },
+  "BENE": { "FAN": 11, "RETRO": 16, "PLAYER ADIDAS": 15, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 9, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "3 Camisetas", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8618813326573&text&type=phone_number&app_absent=0" },
+  "HUANG (MUJER)": { "FAN": 10, "RETRO": 15, "PLAYER ADIDAS": 15, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 8, "SHORT PLAYER": 12, "ENVIO GRATIS": "N/A", "ENVIO EMS": 25, "CONTACTO": "https://api.whatsapp.com/send/?phone=8613729056249&text&type=phone_number&app_absent=0" },
+  "MAO GU": { "FAN": 12, "RETRO": 17, "PLAYER ADIDAS": 17, "PLAYER NIKE": 17, "PLAYER PUMA": 17, "SHORT FAN": 10, "SHORT PLAYER": 17, "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8615860039751&text&type=phone_number&app_absent=0" },
+  "XIAO HAO": { "FAN": 12, "RETRO": 17, "PLAYER ADIDAS": 16, "PLAYER NIKE": 16, "PLAYER PUMA": 16, "SHORT FAN": 12, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8617827247734&text&type=phone_number&app_absent=0" },
+  "ANNE": { "FAN": 12, "RETRO": 18, "PLAYER ADIDAS": 18, "PLAYER NIKE": 18, "PLAYER PUMA": 18, "SHORT FAN": 10, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": 15, "CONTACTO": "https://api.whatsapp.com/send/?phone=8613620452224&text&type=phone_number&app_absent=0" },
+  "JERRY": { "FAN": 11, "RETRO": 16, "PLAYER ADIDAS": 15, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 8, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": 15, "CONTACTO": "https://api.whatsapp.com/send/?phone=8619330347364&text&type=phone_number&app_absent=0" },
+  "FORNECEDOR (ANNE)": { "FAN": 10, "RETRO": 16, "PLAYER ADIDAS": 15, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 10, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8619584828798&text&type=phone_number&app_absent=0" },
+  "POACHED EGG": { "FAN": 12, "RETRO": 15, "PLAYER ADIDAS": 13, "PLAYER NIKE": 15, "PLAYER PUMA": 14, "SHORT FAN": 8, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8619849504898&text&type=phone_number&app_absent=0" },
+  "SPORTWEAR": { "FAN": 11, "RETRO": 16, "PLAYER ADIDAS": 16, "PLAYER NIKE": 16, "PLAYER PUMA": 16, "SHORT FAN": 9, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8618476319864&text&type=phone_number&app_absent=0" },
+  "YAOQUAN": { "FAN": 11, "RETRO": 15, "PLAYER ADIDAS": 14, "PLAYER NIKE": 16, "PLAYER PUMA": 16, "SHORT FAN": 8, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8615707508070&text&type=phone_number&app_absent=0" },
+  "WU JI ZHEN": { "FAN": 12, "RETRO": 18, "PLAYER ADIDAS": 17, "PLAYER NIKE": 17, "PLAYER PUMA": 17, "SHORT FAN": 12, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=553182946337&text&type=phone_number&app_absent=0" },
+  "HANG": { "FAN": 13, "RETRO": 19, "PLAYER ADIDAS": 16, "PLAYER NIKE": 18, "PLAYER PUMA": 18, "SHORT FAN": 11, "SHORT PLAYER": 15, "ENVIO GRATIS": "4 Camisetas", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=553182946337&text&type=phone_number&app_absent=0" },
+  "LIANG": { "FAN": 11, "RETRO": 16, "PLAYER ADIDAS": 14, "PLAYER NIKE": 15, "PLAYER PUMA": 14, "SHORT FAN": 9, "SHORT PLAYER": 12, "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8613713803864&text&type=phone_number&app_absent=0" },
+  "WILID": { "FAN": 13, "RETRO": 19, "PLAYER ADIDAS": 16, "PLAYER NIKE": 18, "PLAYER PUMA": 18, "SHORT FAN": 11, "SHORT PLAYER": 15, "ENVIO GRATIS": "4 Camisetas", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8613536398769&text&type=phone_number&app_absent=0" },
+  "XIAO LI": { "FAN": 12, "RETRO": 16, "PLAYER ADIDAS": 15, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 10, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8613650919444&text&type=phone_number&app_absent=0" }
 };
 
   // Función para manejar la entrada y mostrar precios
@@ -92,6 +92,98 @@ const precios = {
       }
       response += "</ul>";
     }
+
+else if (/FAN|fan/i.test(userInput)) {
+      let result = "<strong>Proveedores y precios para FAN:</strong><ul>";
+      
+      for (let proveedor in precios) {
+        if (precios[proveedor]["FAN"] !== "N/A") {
+          result += `<li>${proveedor}: $${precios[proveedor]["FAN"]}</li>`;
+        }
+      }
+      
+      result += "</ul>";
+      response = result;
+    } 
+
+    else if (/RETRO|retro/i.test(userInput)) {
+      let result = "<strong>Proveedores y precios para RETRO:</strong><ul>";
+      
+      for (let proveedor in precios) {
+        if (precios[proveedor]["RETRO"] !== "N/A") {
+          result += `<li>${proveedor}: $${precios[proveedor]["RETRO"]}</li>`;
+        }
+      }
+      
+      result += "</ul>";
+      response = result;
+    }
+	
+	else if (/PLAYER ADIDAS|player adidas/i.test(userInput)) {
+      let result = "<strong>Proveedores y precios para PLAYER ADIDAS:</strong><ul>";
+      
+      for (let proveedor in precios) {
+        if (precios[proveedor]["PLAYER ADIDAS"] !== "N/A") {
+          result += `<li>${proveedor}: $${precios[proveedor]["PLAYER ADIDAS"]}</li>`;
+        }
+      }
+      
+      result += "</ul>";
+      response = result;
+    }
+	else if (/PLAYER NIKE|player nike/i.test(userInput)) {
+      let result = "<strong>Proveedores y precios para PLAYER NIKE:</strong><ul>";
+      
+      for (let proveedor in precios) {
+        if (precios[proveedor]["PLAYER NIKE"] !== "N/A") {
+          result += `<li>${proveedor}: $${precios[proveedor]["PLAYER NIKE"]}</li>`;
+        }
+      }
+      
+      result += "</ul>";
+      response = result;
+    }
+	else if (/PLAYER PUMA|player puma/i.test(userInput)) {
+      let result = "<strong>Proveedores y precios para PLAYER PUMA:</strong><ul>";
+      
+      for (let proveedor in precios) {
+        if (precios[proveedor]["PLAYER PUMA"] !== "N/A") {
+          result += `<li>${proveedor}: $${precios[proveedor]["PLAYER PUMA"]}</li>`;
+        }
+      }
+      
+      result += "</ul>";
+      response = result;
+    }	
+	
+
+    // Corregir error de sintaxis en la condición de "SHORT FAN"
+    else if (/SHORT FAN|short fan/i.test(userInput)) {
+      let result = "<strong>Proveedores y precios para SHORT FAN:</strong><ul>";
+      
+      for (let proveedor in precios) {
+        if (precios[proveedor]["SHORT FAN"] !== "N/A") {
+          result += `<li>${proveedor}: $${precios[proveedor]["SHORT FAN"]}</li>`;
+        }
+      }
+      
+      result += "</ul>";
+      response = result;
+    }
+    // Corregir error de sintaxis en la condición de "SHORT PLAYER"
+    else if (/SHORT PLAYER|short player/i.test(userInput)) {
+      let result = "<strong>Proveedores y precios para SHORT PLAYER:</strong><ul>";
+      
+      for (let proveedor in precios) {
+        if (precios[proveedor]["SHORT PLAYER"] !== "N/A") {
+          result += `<li>${proveedor}: $${precios[proveedor]["SHORT PLAYER"]}</li>`;
+        }
+      }
+      
+      result += "</ul>";
+      response = result;
+    }
+
 
     // Primero se evalúan condiciones específicas que contengan "ENVIOS GRATIS"	
 else if (/envios gratis|envíos gratis/i.test(userInput)) {
@@ -266,39 +358,52 @@ else if (/envios ems|envíos ems/i.test(userInput)) {
     }
 
     // Nueva función: búsqueda por proveedor y producto(s)
-    else {
-      // Buscar si en el input se menciona algún proveedor de la lista
-      let foundSupplier = "";
-      for (let proveedor in precios) {
-        if (userInput.includes(proveedor.toUpperCase())) {
-          foundSupplier = proveedor;
-          break;
-        }
-      }
-      if (foundSupplier !== "") {
-        // Lista de productos a buscar
-        const productsList = ["FAN", "RETRO", "PLAYER ADIDAS", "PLAYER NIKE", "PLAYER PUMA", "SHORT FAN", "SHORT PLAYER"];
-        let foundProducts = [];
-        productsList.forEach(product => {
-          if (userInput.includes(product)) {
-            foundProducts.push(product);
-          }
-        });
-        if (foundProducts.length > 0) {
-          response = `<strong>Precios para ${foundSupplier}:</strong><ul>`;
-          foundProducts.forEach(product => {
-            response += `<li>${product}: $${precios[foundSupplier][product]}</li>`;
-          });
-          response += "</ul>";
-        } else {
-          response = `<strong>Todos los precios para ${foundSupplier}:</strong><ul>`;
-          for (let product in precios[foundSupplier]) {
-            response += `<li>${product}: $${precios[foundSupplier][product]}</li>`;
-          }
-          response += "</ul>";
-        }
-      }
+else {
+  // Buscar si en el input se menciona algún proveedor de la lista
+  let foundSupplier = "";
+  for (let proveedor in precios) {
+    if (userInput.includes(proveedor.toUpperCase())) {
+      foundSupplier = proveedor;
+      break;
     }
+  }
+  if (foundSupplier !== "") {
+    // Lista de productos a buscar
+    const productsList = ["FAN", "RETRO", "PLAYER ADIDAS", "PLAYER NIKE", "PLAYER PUMA", "SHORT FAN", "SHORT PLAYER"];
+    let foundProducts = [];
+    productsList.forEach(product => {
+      if (userInput.includes(product)) {
+        foundProducts.push(product);
+      }
+    });
+    if (foundProducts.length > 0) {
+      response = `<strong>Precios para ${foundSupplier}:</strong><ul>`;
+      foundProducts.forEach(product => {
+        // Si el producto es "CONTACTO", generar un enlace
+        if (product.toUpperCase() === "CONTACTO") {
+          response += `<li>${product}: <a href="${precios[foundSupplier][product]}" target="_blank">Contactalo por WhatsApp</a></li>`;
+        } else {
+          // Para otros productos, mostrar el precio con $
+          response += `<li>${product}: $${precios[foundSupplier][product]}</li>`;
+        }
+      });
+      response += "</ul>";
+    } else {
+      response = `<strong>Todos los precios para ${foundSupplier}:</strong><ul>`;
+      for (let product in precios[foundSupplier]) {
+        // Si el producto es "CONTACTO", generar un enlace
+        if (product.toUpperCase() === "CONTACTO") {
+          response += `<li>${product}: <a href="${precios[foundSupplier][product]}" target="_blank">Contactalo por WhatsApp</a></li>`;
+        } else {
+          // Para otros productos, mostrar el precio con $
+          response += `<li>${product}: $${precios[foundSupplier][product]}</li>`;
+        }
+      }
+      response += "</ul>";
+    }
+  }
+}
+
 
     // Mostrar respuesta del bot
     let botMessage = document.createElement("p");
