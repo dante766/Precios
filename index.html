@@ -9,8 +9,8 @@
       font-family: Arial, sans-serif;
       display: flex;
       flex-direction: column;
-      align-items: center; /* Centra horizontalmente */
-      justify-content: center; /* Centra verticalmente */
+      align-items: center;
+      justify-content: center;
       min-height: 100vh;
       margin: 0;
       padding: 20px;
@@ -24,7 +24,7 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      margin-bottom: 10px; /* Espacio para la versión */
+      margin-bottom: 10px;
     }
     #chatbox { 
       flex-grow: 1; 
@@ -43,13 +43,12 @@
       font-size: 0.9em;
       margin-top: 5px;
     }
-    /* Estilo para todos los enlaces */
     a {
-      color: #0066cc; /* Color azul estándar para enlaces */
-      text-decoration: none; /* Opcional: quita el subrayado */
+      color: #0066cc;
+      text-decoration: none;
     }
     a:hover {
-      text-decoration: underline; /* Opcional: subrayado al pasar el mouse */
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -66,50 +65,42 @@
 <div class="version">Versión del bot 2.0</div>
 
 <script>
-  // Datos de proveedores y precios
-const precios = {
-  "LIU": { "FAN": 11, "RETRO": 16, "PLAYER ADIDAS": 13, "PLAYER NIKE": 14, "PLAYER PUMA": 14, "SHORT FAN": 8, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "5 Camisetas", "ENVIO EMS": 20, "CONTACTO": "https://api.whatsapp.com/send/?phone=8617724352637&text&type=phone_number&app_absent=0" },
-  "BOND": { "FAN": 11, "RETRO": 16, "PLAYER ADIDAS": 14, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 8, "SHORT PLAYER": 12, "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8615361409693&text&type=phone_number&app_absent=0" },
-  "STARTJERSEY": { "FAN": 12, "RETRO": 17, "PLAYER ADIDAS": 15, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 10, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "3 Camisetas", "ENVIO EMS": 10, "CONTACTO": "https://api.whatsapp.com/send/?phone=8615207598085&text&type=phone_number&app_absent=0" },
-  "PINHUI": { "FAN": 11, "RETRO": 17, "PLAYER ADIDAS": 13, "PLAYER NIKE": 17, "PLAYER PUMA": 15, "SHORT FAN": 10, "SHORT PLAYER": 15, "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8613416127767&text&type=phone_number&app_absent=0" },
-  "HUANG (HOMBRE)": { "FAN": 12, "RETRO": 17, "PLAYER ADIDAS": 15, "PLAYER NIKE": 17, "PLAYER PUMA": 17, "SHORT FAN": 9, "SHORT PLAYER": 14, "ENVIO GRATIS": "4 Camisetas", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8613535386151&text&type=phone_number&app_absent=0" },
-  "BENE": { "FAN": 11, "RETRO": 16, "PLAYER ADIDAS": 15, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 9, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "3 Camisetas", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8618813326573&text&type=phone_number&app_absent=0" },
-  "HUANG (MUJER)": { "FAN": 13, "RETRO": 18, "PLAYER ADIDAS": 16, "PLAYER NIKE": 18, "PLAYER PUMA": 18, "SHORT FAN": 11, "SHORT PLAYER": 15, "ENVIO GRATIS": "N/A", "ENVIO EMS": 25, "CONTACTO": "https://api.whatsapp.com/send/?phone=8613729056249&text&type=phone_number&app_absent=0" },
-  "MAO GU": { "FAN": 12, "RETRO": 17, "PLAYER ADIDAS": 17, "PLAYER NIKE": 17, "PLAYER PUMA": 17, "SHORT FAN": 10, "SHORT PLAYER": 17, "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8615860039751&text&type=phone_number&app_absent=0" },
-  "XIAO HAO": { "FAN": 12, "RETRO": 17, "PLAYER ADIDAS": 16, "PLAYER NIKE": 16, "PLAYER PUMA": 16, "SHORT FAN": 12, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8617827247734&text&type=phone_number&app_absent=0" },
-  "ANNE": { "FAN": 12, "RETRO": 18, "PLAYER ADIDAS": 18, "PLAYER NIKE": 18, "PLAYER PUMA": 18, "SHORT FAN": 10, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": 15, "CONTACTO": "https://api.whatsapp.com/send/?phone=8613620452224&text&type=phone_number&app_absent=0" },
-  "JERRY": { "FAN": 11, "RETRO": 16, "PLAYER ADIDAS": 15, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 8, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": 15, "CONTACTO": "https://api.whatsapp.com/send/?phone=8619330347364&text&type=phone_number&app_absent=0" },
-  "FORNECEDOR (ANNE)": { "FAN": 10, "RETRO": 16, "PLAYER ADIDAS": 15, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 10, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8619584828798&text&type=phone_number&app_absent=0" },
-  "POACHED EGG": { "FAN": 12, "RETRO": 15, "PLAYER ADIDAS": 13, "PLAYER NIKE": 15, "PLAYER PUMA": 14, "SHORT FAN": 8, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8619849504898&text&type=phone_number&app_absent=0" },
-  "SPORTWEAR": { "FAN": 11, "RETRO": 16, "PLAYER ADIDAS": 16, "PLAYER NIKE": 16, "PLAYER PUMA": 16, "SHORT FAN": 9, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8618476319864&text&type=phone_number&app_absent=0" },
-  "YAOQUAN": { "FAN": 11, "RETRO": 15, "PLAYER ADIDAS": 14, "PLAYER NIKE": 16, "PLAYER PUMA": 16, "SHORT FAN": 8, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8615707508070&text&type=phone_number&app_absent=0" },
-  "WU JI ZHEN": { "FAN": 12, "RETRO": 18, "PLAYER ADIDAS": 17, "PLAYER NIKE": 17, "PLAYER PUMA": 17, "SHORT FAN": 12, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=553182946337&text&type=phone_number&app_absent=0" },
-  "HANG": { "FAN": 13, "RETRO": 19, "PLAYER ADIDAS": 16, "PLAYER NIKE": 18, "PLAYER PUMA": 18, "SHORT FAN": 11, "SHORT PLAYER": 15, "ENVIO GRATIS": "4 Camisetas", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=553182946337&text&type=phone_number&app_absent=0" },
-  "LIANG": { "FAN": 11, "RETRO": 16, "PLAYER ADIDAS": 14, "PLAYER NIKE": 15, "PLAYER PUMA": 14, "SHORT FAN": 9, "SHORT PLAYER": 12, "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8613713803864&text&type=phone_number&app_absent=0" },
-  "WILID": { "FAN": 13, "RETRO": 19, "PLAYER ADIDAS": 16, "PLAYER NIKE": 18, "PLAYER PUMA": 18, "SHORT FAN": 11, "SHORT PLAYER": 15, "ENVIO GRATIS": "4 Camisetas", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8613536398769&text&type=phone_number&app_absent=0" },
-  "XIAO LI": { "FAN": 12, "RETRO": 16, "PLAYER ADIDAS": 15, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 10, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8613650919444&text&type=phone_number&app_absent=0" }
-};
+  const precios = {
+    "LIU": { "FAN": 11, "RETRO": 16, "PLAYER ADIDAS": 13, "PLAYER NIKE": 14, "PLAYER PUMA": 14, "SHORT FAN": 8, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "5 Camisetas", "ENVIO EMS": 20, "CONTACTO": "https://api.whatsapp.com/send/?phone=8617724352637&text&type=phone_number&app_absent=0" },
+    "BOND": { "FAN": 11, "RETRO": 16, "PLAYER ADIDAS": 14, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 8, "SHORT PLAYER": 12, "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8615361409693&text&type=phone_number&app_absent=0" },
+    "STARTJERSEY": { "FAN": 12, "RETRO": 17, "PLAYER ADIDAS": 15, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 10, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "3 Camisetas", "ENVIO EMS": 10, "CONTACTO": "https://api.whatsapp.com/send/?phone=8615207598085&text&type=phone_number&app_absent=0" },
+    "PINHUI": { "FAN": 11, "RETRO": 17, "PLAYER ADIDAS": 13, "PLAYER NIKE": 17, "PLAYER PUMA": 15, "SHORT FAN": 10, "SHORT PLAYER": 15, "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8613416127767&text&type=phone_number&app_absent=0" },
+    "HUANG (HOMBRE)": { "FAN": 12, "RETRO": 17, "PLAYER ADIDAS": 15, "PLAYER NIKE": 17, "PLAYER PUMA": 17, "SHORT FAN": 9, "SHORT PLAYER": 14, "ENVIO GRATIS": "4 Camisetas", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8613535386151&text&type=phone_number&app_absent=0" },
+    "BENE": { "FAN": 11, "RETRO": 16, "PLAYER ADIDAS": 15, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 9, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "3 Camisetas", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8618813326573&text&type=phone_number&app_absent=0" },
+    "HUANG (MUJER)": { "FAN": 13, "RETRO": 18, "PLAYER ADIDAS": 16, "PLAYER NIKE": 18, "PLAYER PUMA": 18, "SHORT FAN": 11, "SHORT PLAYER": 15, "ENVIO GRATIS": "N/A", "ENVIO EMS": 25, "CONTACTO": "https://api.whatsapp.com/send/?phone=8613729056249&text&type=phone_number&app_absent=0" },
+    "MAO GU": { "FAN": 12, "RETRO": 17, "PLAYER ADIDAS": 17, "PLAYER NIKE": 17, "PLAYER PUMA": 17, "SHORT FAN": 10, "SHORT PLAYER": 17, "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8615860039751&text&type=phone_number&app_absent=0" },
+    "XIAO HAO": { "FAN": 12, "RETRO": 17, "PLAYER ADIDAS": 16, "PLAYER NIKE": 16, "PLAYER PUMA": 16, "SHORT FAN": 12, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8617827247734&text&type=phone_number&app_absent=0" },
+    "ANNE": { "FAN": 12, "RETRO": 18, "PLAYER ADIDAS": 18, "PLAYER NIKE": 18, "PLAYER PUMA": 18, "SHORT FAN": 10, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": 15, "CONTACTO": "https://api.whatsapp.com/send/?phone=8613620452224&text&type=phone_number&app_absent=0" },
+    "JERRY": { "FAN": 11, "RETRO": 16, "PLAYER ADIDAS": 15, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 8, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": 15, "CONTACTO": "https://api.whatsapp.com/send/?phone=8619330347364&text&type=phone_number&app_absent=0" },
+    "FORNECEDOR (ANNE)": { "FAN": 10, "RETRO": 16, "PLAYER ADIDAS": 15, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 10, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8619584828798&text&type=phone_number&app_absent=0" },
+    "POACHED EGG": { "FAN": 12, "RETRO": 15, "PLAYER ADIDAS": 13, "PLAYER NIKE": 15, "PLAYER PUMA": 14, "SHORT FAN": 8, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8619849504898&text&type=phone_number&app_absent=0" },
+    "SPORTWEAR": { "FAN": 11, "RETRO": 16, "PLAYER ADIDAS": 16, "PLAYER NIKE": 16, "PLAYER PUMA": 16, "SHORT FAN": 9, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8618476319864&text&type=phone_number&app_absent=0" },
+    "YAOQUAN": { "FAN": 11, "RETRO": 15, "PLAYER ADIDAS": 14, "PLAYER NIKE": 16, "PLAYER PUMA": 16, "SHORT FAN": 8, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8615707508070&text&type=phone_number&app_absent=0" },
+    "WU JI ZHEN": { "FAN": 12, "RETRO": 18, "PLAYER ADIDAS": 17, "PLAYER NIKE": 17, "PLAYER PUMA": 17, "SHORT FAN": 12, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=553182946337&text&type=phone_number&app_absent=0" },
+    "HANG": { "FAN": 13, "RETRO": 19, "PLAYER ADIDAS": 16, "PLAYER NIKE": 18, "PLAYER PUMA": 18, "SHORT FAN": 11, "SHORT PLAYER": 15, "ENVIO GRATIS": "4 Camisetas", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=553182946337&text&type=phone_number&app_absent=0" },
+    "LIANG": { "FAN": 11, "RETRO": 16, "PLAYER ADIDAS": 14, "PLAYER NIKE": 15, "PLAYER PUMA": 14, "SHORT FAN": 9, "SHORT PLAYER": 12, "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8613713803864&text&type=phone_number&app_absent=0" },
+    "WILID": { "FAN": 13, "RETRO": 19, "PLAYER ADIDAS": 16, "PLAYER NIKE": 18, "PLAYER PUMA": 18, "SHORT FAN": 11, "SHORT PLAYER": 15, "ENVIO GRATIS": "4 Camisetas", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8613536398769&text&type=phone_number&app_absent=0" },
+    "XIAO LI": { "FAN": 12, "RETRO": 16, "PLAYER ADIDAS": 15, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 10, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8613650919444&text&type=phone_number&app_absent=0" }
+  };
 
-  // Función para obtener el icono correspondiente a un producto (CORREGIDA)
   function obtenerIcono(producto) {
     producto = producto.toUpperCase();
-    // Primero verificamos los shorts
     if (producto.includes("SHORT")) return "🩳";
-    // Luego verificamos los envíos
     if (producto.includes("ENVIO")) return "✈️";
-    // Luego verificamos el contacto
     if (producto.includes("CONTACTO")) return "📒";
-    // Finalmente, cualquier otro producto es una camiseta
     if (producto.includes("FAN") || producto.includes("RETRO") || producto.includes("PLAYER")) return "👕";
-    return "🔹"; // Icono por defecto
+    return "🔹";
   }
 
-  // Función para formatear el nombre del producto con su icono
   function formatearProducto(producto) {
     return `${obtenerIcono(producto)} ${producto}`;
   }
 
-  // Función para manejar la entrada y mostrar precios
   document.getElementById("sendBtn").addEventListener("click", sendMessage);
   document.getElementById("inputBox").addEventListener("keypress", function(event) {
     if (event.key === "Enter") sendMessage();
@@ -121,18 +112,33 @@ const precios = {
 
     if (userInput === "") return;
 
-    // Mostrar mensaje del usuario
     let userMessage = document.createElement("p");
     userMessage.innerHTML = `<strong>Tú:</strong> ${userInput}`;
     chatbox.appendChild(userMessage);
 
-    // Respuesta predeterminada
     let response = "Lo siento, no tengo información sobre ese producto o proveedor.";
-
-    // Normalizar el input para comparación (eliminar acentos y convertir a minúsculas)
+    const inputUpper = userInput.toUpperCase();
     const normalizedInput = userInput.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
-    // Lógica para buscar la lista de proveedores
+    function encontrarMasBarato(producto) {
+      let minPrice = Infinity;
+      let proveedoresBaratos = [];
+      
+      for (let proveedor in precios) {
+        const precio = precios[proveedor][producto];
+        if (typeof precio === 'number') {
+          if (precio < minPrice) {
+            minPrice = precio;
+            proveedoresBaratos = [{ nombre: proveedor, precio: precio }];
+          } else if (precio === minPrice) {
+            proveedoresBaratos.push({ nombre: proveedor, precio: precio });
+          }
+        }
+      }
+      
+      return { minPrice, proveedoresBaratos };
+    }
+
     if (normalizedInput.includes("lista de proveedores")) {
       response = "<strong>Proveedores:</strong><ul>";
       for (let proveedor in precios) {
@@ -140,119 +146,131 @@ const precios = {
       }
       response += "</ul>";
     }
-// Lógica para mostrar las mejores páginas
-else if (normalizedInput.includes("mejores paginas") || normalizedInput.includes("mejores páginas") || 
-         normalizedInput.includes("paginas recomendadas") || normalizedInput.includes("páginas recomendadas") ||
-         normalizedInput.includes("sitios recomendados") || normalizedInput.includes("webs recomendadas")) {
-  response = `
-    <strong>🔝 10 Mejores Páginas para Comprar Camisetas:</strong>
-    <ol>
-      <li>🌐 <a href="https://www.kitmm.com" target="_blank">WWW.KITMM.COM</a></li>
-      <li>🌐 <a href="https://www.kitgg7.com" target="_blank">WWW.KITGG7.COM</a></li>
-      <li>🌐 <a href="https://www.fballshirt.com" target="_blank">WWW.FBALLSHIRT.COM</a></li>
-      <li>🌐 <a href="https://www.grkits3.com" target="_blank">WWW.GRKITS3.COM</a></li>
-      <li>🌐 <a href="https://www.minejerseys.cc" target="_blank">WWW.MINEJERSEYS.CC</a></li>
-      <li>🌐 <a href="https://www.bestzv1.com" target="_blank">WWW.BESTZV1.COM</a></li>
-      <li>🌐 <a href="https://www.koko101.com" target="_blank">WWW.KOKO101.COM</a></li>
-      <li>🌐 <a href="https://www.aagodb.com" target="_blank">WWW.AAGODB.COM</a></li>
-      <li>🌐 <a href="https://www.yyjersey.com" target="_blank">WWW.YYJERSEY.COM</a></li>
-      <li>🌐 <a href="https://www.spfoot1.com" target="_blank">WWW.SPFOOT1.COM</a></li>
-    </ol>
-    <p>Estas son las páginas más confiables y con mejores reseñas según la comunidad de FUTBOL XL.</p>
-    <p>📽️ <a href="https://www.youtube.com/watch?v=T1tP98acheI" target="_blank">VIDEO RESEÑA FUTBOL XL</a></p>  
-  `;
-}
+    else if (normalizedInput.includes("mejores paginas") || normalizedInput.includes("mejores páginas") || 
+             normalizedInput.includes("paginas recomendadas") || normalizedInput.includes("páginas recomendadas") ||
+             normalizedInput.includes("sitios recomendados") || normalizedInput.includes("webs recomendadas")) {
+      response = `
+        <strong>🔝 10 Mejores Páginas para Comprar Camisetas:</strong>
+        <ol>
+          <li>🌐 <a href="https://www.kitmm.com" target="_blank">WWW.KITMM.COM</a></li>
+          <li>🌐 <a href="https://www.kitgg7.com" target="_blank">WWW.KITGG7.COM</a></li>
+          <li>🌐 <a href="https://www.fballshirt.com" target="_blank">WWW.FBALLSHIRT.COM</a></li>
+          <li>🌐 <a href="https://www.grkits3.com" target="_blank">WWW.GRKITS3.COM</a></li>
+          <li>🌐 <a href="https://www.minejerseys.cc" target="_blank">WWW.MINEJERSEYS.CC</a></li>
+          <li>🌐 <a href="https://www.bestzv1.com" target="_blank">WWW.BESTZV1.COM</a></li>
+          <li>🌐 <a href="https://www.koko101.com" target="_blank">WWW.KOKO101.COM</a></li>
+          <li>🌐 <a href="https://www.aagodb.com" target="_blank">WWW.AAGODB.COM</a></li>
+          <li>🌐 <a href="https://www.yyjersey.com" target="_blank">WWW.YYJERSEY.COM</a></li>
+          <li>🌐 <a href="https://www.spfoot1.com" target="_blank">WWW.SPFOOT1.COM</a></li>
+        </ol>
+        <p>Estas son las páginas más confiables y con mejores reseñas según la comunidad de FUTBOL XL.</p>
+        <p>📽️ <a href="https://www.youtube.com/watch?v=T1tP98acheI" target="_blank">VIDEO RESEÑA FUTBOL XL</a></p>  
+      `;
+    }
+    else if (/BARATO|BARATA|ECONOMICO|ECONOMICA/i.test(inputUpper)) {
+      let productoBuscado = "";
+      const productos = ["SHORT FAN", "SHORT PLAYER", "PLAYER ADIDAS", "PLAYER NIKE", "PLAYER PUMA", "RETRO", "FAN"];
+      
+      for (let producto of productos) {
+        if (inputUpper.includes(producto)) {
+          productoBuscado = producto;
+          break;
+        }
+      }
+      
+      if (productoBuscado) {
+        const { minPrice, proveedoresBaratos } = encontrarMasBarato(productoBuscado);
+        
+        if (proveedoresBaratos.length > 0) {
+          response = `<strong>Proveedor(es) con el ${productoBuscado} más barato ($${minPrice}):</strong><ul>`;
+          proveedoresBaratos.forEach(({ nombre, precio }) => {
+            const contacto = precios[nombre]["CONTACTO"];
+            if (contacto) {
+              response += `<li>${nombre}: $${precio} - <a href="${contacto}" target="_blank">Contactar</a></li>`;
+            } else {
+              response += `<li>${nombre}: $${precio}</li>`;
+            }
+          });
+          response += "</ul>";
+        } else {
+          response = `No encontré proveedores con precios disponibles para ${productoBuscado}`;
+        }
+      } else {
+        response = "Por favor, especifica qué producto buscas (ej: 'fan más barato', 'player nike económico')";
+      }
+    }
     else if (/FAN|fan/i.test(userInput)) {
       let result = "<strong>Proveedores y precios para FAN:</strong><ul>";
-      
       for (let proveedor in precios) {
         if (precios[proveedor]["FAN"] !== "N/A") {
           result += `<li>${proveedor}: $${precios[proveedor]["FAN"]}</li>`;
         }
       }
-      
       result += "</ul>";
       response = result;
     } 
-
     else if (/RETRO|retro/i.test(userInput)) {
       let result = "<strong>Proveedores y precios para RETRO:</strong><ul>";
-      
       for (let proveedor in precios) {
         if (precios[proveedor]["RETRO"] !== "N/A") {
           result += `<li>${proveedor}: $${precios[proveedor]["RETRO"]}</li>`;
         }
       }
-      
       result += "</ul>";
       response = result;
     }
-    
     else if (/PLAYER ADIDAS|player adidas/i.test(userInput)) {
       let result = "<strong>Proveedores y precios para PLAYER ADIDAS:</strong><ul>";
-      
       for (let proveedor in precios) {
         if (precios[proveedor]["PLAYER ADIDAS"] !== "N/A") {
           result += `<li>${proveedor}: $${precios[proveedor]["PLAYER ADIDAS"]}</li>`;
         }
       }
-      
       result += "</ul>";
       response = result;
     }
     else if (/PLAYER NIKE|player nike/i.test(userInput)) {
       let result = "<strong>Proveedores y precios para PLAYER NIKE:</strong><ul>";
-      
       for (let proveedor in precios) {
         if (precios[proveedor]["PLAYER NIKE"] !== "N/A") {
           result += `<li>${proveedor}: $${precios[proveedor]["PLAYER NIKE"]}</li>`;
         }
       }
-      
       result += "</ul>";
       response = result;
     }
     else if (/PLAYER PUMA|player puma/i.test(userInput)) {
       let result = "<strong>Proveedores y precios para PLAYER PUMA:</strong><ul>";
-      
       for (let proveedor in precios) {
         if (precios[proveedor]["PLAYER PUMA"] !== "N/A") {
           result += `<li>${proveedor}: $${precios[proveedor]["PLAYER PUMA"]}</li>`;
         }
       }
-      
       result += "</ul>";
       response = result;
     }    
-    
     else if (/SHORT FAN|short fan/i.test(userInput)) {
       let result = "<strong>Proveedores y precios para SHORT FAN:</strong><ul>";
-      
       for (let proveedor in precios) {
         if (precios[proveedor]["SHORT FAN"] !== "N/A") {
           result += `<li>${proveedor}: $${precios[proveedor]["SHORT FAN"]}</li>`;
         }
       }
-      
       result += "</ul>";
       response = result;
     }
     else if (/SHORT PLAYER|short player/i.test(userInput)) {
       let result = "<strong>Proveedores y precios para SHORT PLAYER:</strong><ul>";
-      
       for (let proveedor in precios) {
         if (precios[proveedor]["SHORT PLAYER"] !== "N/A") {
           result += `<li>${proveedor}: $${precios[proveedor]["SHORT PLAYER"]}</li>`;
         }
       }
-      
       result += "</ul>";
       response = result;
     }
-
     else if (/envios gratis|envíos gratis/i.test(userInput)) {
       let proveedoresConEnvioGratis = [];
-      
       for (let proveedor in precios) {
         if (precios[proveedor]["ENVIO GRATIS"] !== "N/A") {
           proveedoresConEnvioGratis.push({
@@ -261,17 +279,14 @@ else if (normalizedInput.includes("mejores paginas") || normalizedInput.includes
           });
         }
       }
-
       response = `<strong>Proveedores que ofrecen envío gratis:</strong><ul>`;
       proveedoresConEnvioGratis.forEach(({ nombre, condicion }) => {
         response += `<li>${nombre}: Envío gratis apartir de ${condicion}</li>`;
       });
       response += "</ul>";
     }
-
     else if (/envios ems|envíos ems/i.test(userInput)) {
       let proveedoresConEMS = [];
-      
       for (let proveedor in precios) {
         if (precios[proveedor]["ENVIO EMS"] !== "N/A") {
           proveedoresConEMS.push({
@@ -280,144 +295,16 @@ else if (normalizedInput.includes("mejores paginas") || normalizedInput.includes
           });
         }
       }
-
       response = `<strong>Proveedores que ofrecen envíos EMS:</strong><ul>`;
       proveedoresConEMS.forEach(({ nombre, condicion }) => {
         response += `<li>${nombre}: Envíos EMS disponibles por $ ${condicion}</li>`;
       });
       response += "</ul>";
     }
-
-    else if (userInput.includes("SHORT FAN") && /BARATO|BARATA|ECONOMICO|ECONOMICA/.test(userInput)) {
-      let minPrice = Infinity;
-      let cheapestProveedores = [];
-      for (let proveedor in precios) {
-        if (precios[proveedor]["SHORT FAN"] < minPrice) {
-          minPrice = precios[proveedor]["SHORT FAN"];
-          cheapestProveedores = [{ nombre: proveedor, precio: precios[proveedor]["SHORT FAN"] }];
-        } else if (precios[proveedor]["SHORT FAN"] === minPrice) {
-          cheapestProveedores.push({ nombre: proveedor, precio: precios[proveedor]["SHORT FAN"] });
-        }
-      }
-      response = `<strong>Proveedores con el SHORT FAN más barato:</strong><ul>`;
-      cheapestProveedores.forEach(({ nombre, precio }) => {
-        response += `<li>${nombre}: $${precio}</li>`;
-      });
-      response += "</ul>";
-    }
-
-    else if (userInput.includes("FAN") && /BARATO|BARATA|ECONOMICO|ECONOMICA/.test(userInput)) {
-      let minPrice = Infinity;
-      let cheapestProveedores = [];
-      for (let proveedor in precios) {
-        if (precios[proveedor]["FAN"] < minPrice) {
-          minPrice = precios[proveedor]["FAN"];
-          cheapestProveedores = [{ nombre: proveedor, precio: precios[proveedor]["FAN"] }];
-        } else if (precios[proveedor]["FAN"] === minPrice) {
-          cheapestProveedores.push({ nombre: proveedor, precio: precios[proveedor]["FAN"] });
-        }
-      }
-      response = `<strong>Proveedores con el FAN más barato:</strong><ul>`;
-      cheapestProveedores.forEach(({ nombre, precio }) => {
-        response += `<li>${nombre}: $${precio}</li>`;
-      });
-      response += "</ul>";
-    }
-
-    else if (userInput.includes("RETRO") && /BARATO|BARATA|ECONOMICO|ECONOMICA/.test(userInput)) {
-      let minPrice = Infinity;
-      let cheapestProveedores = [];
-      for (let proveedor in precios) {
-        if (precios[proveedor]["RETRO"] < minPrice) {
-          minPrice = precios[proveedor]["RETRO"];
-          cheapestProveedores = [{ nombre: proveedor, precio: precios[proveedor]["RETRO"] }];
-        } else if (precios[proveedor]["RETRO"] === minPrice) {
-          cheapestProveedores.push({ nombre: proveedor, precio: precios[proveedor]["RETRO"] });
-        }
-      }
-      response = `<strong>Proveedores con el RETRO más barato:</strong><ul>`;
-      cheapestProveedores.forEach(({ nombre, precio }) => {
-        response += `<li>${nombre}: $${precio}</li>`;
-      });
-      response += "</ul>";
-    }
-
-    else if (userInput.includes("PLAYER ADIDAS") && /BARATO|BARATA|ECONOMICO|ECONOMICA/.test(userInput)) {
-      let minPrice = Infinity;
-      let cheapestProveedores = [];
-      for (let proveedor in precios) {
-        if (precios[proveedor]["PLAYER ADIDAS"] < minPrice) {
-          minPrice = precios[proveedor]["PLAYER ADIDAS"];
-          cheapestProveedores = [{ nombre: proveedor, precio: precios[proveedor]["PLAYER ADIDAS"] }];
-        } else if (precios[proveedor]["PLAYER ADIDAS"] === minPrice) {
-          cheapestProveedores.push({ nombre: proveedor, precio: precios[proveedor]["PLAYER ADIDAS"] });
-        }
-      }
-      response = `<strong>Proveedores con el PLAYER ADIDAS más barato:</strong><ul>`;
-      cheapestProveedores.forEach(({ nombre, precio }) => {
-        response += `<li>${nombre}: $${precio}</li>`;
-      });
-      response += "</ul>";
-    }
-
-    else if (userInput.includes("PLAYER NIKE") && /BARATO|BARATA|ECONOMICO|ECONOMICA/.test(userInput)) {
-      let minPrice = Infinity;
-      let cheapestProveedores = [];
-      for (let proveedor in precios) {
-        if (precios[proveedor]["PLAYER NIKE"] < minPrice) {
-          minPrice = precios[proveedor]["PLAYER NIKE"];
-          cheapestProveedores = [{ nombre: proveedor, precio: precios[proveedor]["PLAYER NIKE"] }];
-        } else if (precios[proveedor]["PLAYER NIKE"] === minPrice) {
-          cheapestProveedores.push({ nombre: proveedor, precio: precios[proveedor]["PLAYER NIKE"] });
-        }
-      }
-      response = `<strong>Proveedores con el PLAYER NIKE más barato:</strong><ul>`;
-      cheapestProveedores.forEach(({ nombre, precio }) => {
-        response += `<li>${nombre}: $${precio}</li>`;
-      });
-      response += "</ul>";
-    }
-
-    else if (userInput.includes("PLAYER PUMA") && /BARATO|BARATA|ECONOMICO|ECONOMICA/.test(userInput)) {
-      let minPrice = Infinity;
-      let cheapestProveedores = [];
-      for (let proveedor in precios) {
-        if (precios[proveedor]["PLAYER PUMA"] < minPrice) {
-          minPrice = precios[proveedor]["PLAYER PUMA"];
-          cheapestProveedores = [{ nombre: proveedor, precio: precios[proveedor]["PLAYER PUMA"] }];
-        } else if (precios[proveedor]["PLAYER PUMA"] === minPrice) {
-          cheapestProveedores.push({ nombre: proveedor, precio: precios[proveedor]["PLAYER PUMA"] });
-        }
-      }
-      response = `<strong>Proveedores con el PLAYER PUMA más barato:</strong><ul>`;
-      cheapestProveedores.forEach(({ nombre, precio }) => {
-        response += `<li>${nombre}: $${precio}</li>`;
-      });
-      response += "</ul>";
-    }
-
-    else if (userInput.includes("SHORT PLAYER") && /BARATO|BARATA|ECONOMICO|ECONOMICA/.test(userInput)) {
-      let minPrice = Infinity;
-      let cheapestProveedores = [];
-      for (let proveedor in precios) {
-        if (precios[proveedor]["SHORT PLAYER"] < minPrice) {
-          minPrice = precios[proveedor]["SHORT PLAYER"];
-          cheapestProveedores = [{ nombre: proveedor, precio: precios[proveedor]["SHORT PLAYER"] }];
-        } else if (precios[proveedor]["SHORT PLAYER"] === minPrice) {
-          cheapestProveedores.push({ nombre: proveedor, precio: precios[proveedor]["SHORT PLAYER"] });
-        }
-      }
-      response = `<strong>Proveedores con el SHORT PLAYER más barato:</strong><ul>`;
-      cheapestProveedores.forEach(({ nombre, precio }) => {
-        response += `<li>${nombre}: $${precio}</li>`;
-      });
-      response += "</ul>";
-    }
-
     else {
       let foundSupplier = "";
       for (let proveedor in precios) {
-        if (userInput.toUpperCase().includes(proveedor.toUpperCase())) {
+        if (inputUpper.includes(proveedor.toUpperCase())) {
           foundSupplier = proveedor;
           break;
         }
@@ -426,7 +313,7 @@ else if (normalizedInput.includes("mejores paginas") || normalizedInput.includes
         const productsList = ["FAN", "RETRO", "PLAYER ADIDAS", "PLAYER NIKE", "PLAYER PUMA", "SHORT FAN", "SHORT PLAYER", "ENVIO GRATIS", "ENVIO EMS", "CONTACTO"];
         let foundProducts = [];
         productsList.forEach(product => {
-          if (userInput.toUpperCase().includes(product)) {
+          if (inputUpper.includes(product)) {
             foundProducts.push(product);
           }
         });
@@ -482,12 +369,10 @@ else if (normalizedInput.includes("mejores paginas") || normalizedInput.includes
       }
     }
 
-    // Mostrar respuesta del bot
     let botMessage = document.createElement("p");
     botMessage.innerHTML = `<strong>Bot:</strong> ${response}`;
     chatbox.appendChild(botMessage);
 
-    // Limpiar el campo de entrada
     document.getElementById("inputBox").value = "";
     chatbox.scrollTop = chatbox.scrollHeight;
   }
