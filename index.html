@@ -108,7 +108,7 @@ const precios = {
   });
 
   function sendMessage() {
-    let userInput = document.getElementById("inputBox").value.trim().toUpperCase();
+    let userInput = document.getElementById("inputBox").value.trim();
     let chatbox = document.getElementById("chatbox");
 
     if (userInput === "") return;
@@ -121,15 +121,38 @@ const precios = {
     // Respuesta predeterminada
     let response = "Lo siento, no tengo información sobre ese producto o proveedor.";
 
+    // Normalizar el input para comparación (eliminar acentos y convertir a minúsculas)
+    const normalizedInput = userInput.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
     // Lógica para buscar la lista de proveedores
-    if (userInput.includes("LISTA DE PROVEEDORES")) {
+    if (normalizedInput.includes("lista de proveedores")) {
       response = "<strong>Proveedores:</strong><ul>";
       for (let proveedor in precios) {
         response += `<li>${proveedor}</li>`;
       }
       response += "</ul>";
     }
-
+    // Lógica para mostrar las mejores páginas
+    else if (normalizedInput.includes("mejores paginas") || normalizedInput.includes("mejores páginas") || 
+             normalizedInput.includes("paginas recomendadas") || normalizedInput.includes("páginas recomendadas") ||
+             normalizedInput.includes("sitios recomendados") || normalizedInput.includes("webs recomendadas")) {
+      response = `
+        <strong>🔝 Top 10 Mejores Páginas para Comprar Camisetas:</strong>
+        <ol>
+          <li>🌐 <a href="https://www.kitmm.com" target="_blank">WWW.KITMM.COM</a></li>
+          <li>🌐 <a href="https://www.kitgg7.com" target="_blank">WWW.KITGG7.COM</a></li>
+          <li>🌐 <a href="https://www.fballshirt.com" target="_blank">WWW.FBALLSHIRT.COM</a></li>
+          <li>🌐 <a href="https://www.grkits3.com" target="_blank">WWW.GRKITS3.COM</a></li>
+          <li>🌐 <a href="https://www.minejerseys.cc" target="_blank">WWW.MINEJERSEYS.CC</a></li>
+          <li>🌐 <a href="https://www.bestzv1.com" target="_blank">WWW.BESTZV1.COM</a></li>
+          <li>🌐 <a href="https://www.koko101.com" target="_blank">WWW.KOKO101.COM</a></li>
+          <li>🌐 <a href="https://www.aagodb.com" target="_blank">WWW.AAGODB.COM</a></li>
+          <li>🌐 <a href="https://www.yyjersey.com" target="_blank">WWW.YYJERSEY.COM</a></li>
+          <li>🌐 <a href="https://www.spfoot1.com" target="_blank">WWW.SPFOOT1.COM</a></li>
+        </ol>
+        <p>Estas son las páginas más confiables y con mejores reseñas según la comunidad.</p>
+      `;
+    }
     else if (/FAN|fan/i.test(userInput)) {
       let result = "<strong>Proveedores y precios para FAN:</strong><ul>";
       
@@ -385,7 +408,7 @@ const precios = {
     else {
       let foundSupplier = "";
       for (let proveedor in precios) {
-        if (userInput.includes(proveedor.toUpperCase())) {
+        if (userInput.toUpperCase().includes(proveedor.toUpperCase())) {
           foundSupplier = proveedor;
           break;
         }
@@ -394,7 +417,7 @@ const precios = {
         const productsList = ["FAN", "RETRO", "PLAYER ADIDAS", "PLAYER NIKE", "PLAYER PUMA", "SHORT FAN", "SHORT PLAYER", "ENVIO GRATIS", "ENVIO EMS", "CONTACTO"];
         let foundProducts = [];
         productsList.forEach(product => {
-          if (userInput.includes(product)) {
+          if (userInput.toUpperCase().includes(product)) {
             foundProducts.push(product);
           }
         });
