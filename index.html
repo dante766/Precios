@@ -5,7 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dantebot Comparador de Precios</title>
   <style>
-    body { font-family: Arial, sans-serif; }
+    body { 
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Centra horizontalmente */
+      justify-content: center; /* Centra verticalmente */
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+    }
     #chat-container {
       width: 400px;
       height: 400px;
@@ -14,6 +24,7 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      margin-bottom: 10px; /* Espacio para la versión */
     }
     #chatbox { 
       flex-grow: 1; 
@@ -26,6 +37,12 @@
     #inputBox { flex-grow: 1; padding: 8px; border: none; outline: none; }
     #sendBtn { padding: 8px; background-color: #007bff; color: white; border: none; cursor: pointer; }
     #sendBtn:hover { background-color: #0056b3; }
+    .version {
+      text-align: center;
+      color: #666;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
   </style>
 </head>
 <body>
@@ -38,6 +55,7 @@
     <button id="sendBtn">Enviar</button>
   </div>
 </div>
+<div class="version">Versión del bot 2.0</div>
 
 <script>
   // Datos de proveedores y precios
@@ -63,6 +81,25 @@ const precios = {
   "WILID": { "FAN": 13, "RETRO": 19, "PLAYER ADIDAS": 16, "PLAYER NIKE": 18, "PLAYER PUMA": 18, "SHORT FAN": 11, "SHORT PLAYER": 15, "ENVIO GRATIS": "4 Camisetas", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8613536398769&text&type=phone_number&app_absent=0" },
   "XIAO LI": { "FAN": 12, "RETRO": 16, "PLAYER ADIDAS": 15, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 10, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8613650919444&text&type=phone_number&app_absent=0" }
 };
+
+  // Función para obtener el icono correspondiente a un producto (CORREGIDA)
+  function obtenerIcono(producto) {
+    producto = producto.toUpperCase();
+    // Primero verificamos los shorts
+    if (producto.includes("SHORT")) return "🩳";
+    // Luego verificamos los envíos
+    if (producto.includes("ENVIO")) return "✈️";
+    // Luego verificamos el contacto
+    if (producto.includes("CONTACTO")) return "📒";
+    // Finalmente, cualquier otro producto es una camiseta
+    if (producto.includes("FAN") || producto.includes("RETRO") || producto.includes("PLAYER")) return "👕";
+    return "🔹"; // Icono por defecto
+  }
+
+  // Función para formatear el nombre del producto con su icono
+  function formatearProducto(producto) {
+    return `${obtenerIcono(producto)} ${producto}`;
+  }
 
   // Función para manejar la entrada y mostrar precios
   document.getElementById("sendBtn").addEventListener("click", sendMessage);
@@ -93,7 +130,7 @@ const precios = {
       response += "</ul>";
     }
 
-else if (/FAN|fan/i.test(userInput)) {
+    else if (/FAN|fan/i.test(userInput)) {
       let result = "<strong>Proveedores y precios para FAN:</strong><ul>";
       
       for (let proveedor in precios) {
@@ -118,8 +155,8 @@ else if (/FAN|fan/i.test(userInput)) {
       result += "</ul>";
       response = result;
     }
-	
-	else if (/PLAYER ADIDAS|player adidas/i.test(userInput)) {
+    
+    else if (/PLAYER ADIDAS|player adidas/i.test(userInput)) {
       let result = "<strong>Proveedores y precios para PLAYER ADIDAS:</strong><ul>";
       
       for (let proveedor in precios) {
@@ -131,7 +168,7 @@ else if (/FAN|fan/i.test(userInput)) {
       result += "</ul>";
       response = result;
     }
-	else if (/PLAYER NIKE|player nike/i.test(userInput)) {
+    else if (/PLAYER NIKE|player nike/i.test(userInput)) {
       let result = "<strong>Proveedores y precios para PLAYER NIKE:</strong><ul>";
       
       for (let proveedor in precios) {
@@ -143,7 +180,7 @@ else if (/FAN|fan/i.test(userInput)) {
       result += "</ul>";
       response = result;
     }
-	else if (/PLAYER PUMA|player puma/i.test(userInput)) {
+    else if (/PLAYER PUMA|player puma/i.test(userInput)) {
       let result = "<strong>Proveedores y precios para PLAYER PUMA:</strong><ul>";
       
       for (let proveedor in precios) {
@@ -154,10 +191,8 @@ else if (/FAN|fan/i.test(userInput)) {
       
       result += "</ul>";
       response = result;
-    }	
-	
-
-    // Corregir error de sintaxis en la condición de "SHORT FAN"
+    }    
+    
     else if (/SHORT FAN|short fan/i.test(userInput)) {
       let result = "<strong>Proveedores y precios para SHORT FAN:</strong><ul>";
       
@@ -170,7 +205,6 @@ else if (/FAN|fan/i.test(userInput)) {
       result += "</ul>";
       response = result;
     }
-    // Corregir error de sintaxis en la condición de "SHORT PLAYER"
     else if (/SHORT PLAYER|short player/i.test(userInput)) {
       let result = "<strong>Proveedores y precios para SHORT PLAYER:</strong><ul>";
       
@@ -184,51 +218,44 @@ else if (/FAN|fan/i.test(userInput)) {
       response = result;
     }
 
+    else if (/envios gratis|envíos gratis/i.test(userInput)) {
+      let proveedoresConEnvioGratis = [];
+      
+      for (let proveedor in precios) {
+        if (precios[proveedor]["ENVIO GRATIS"] !== "N/A") {
+          proveedoresConEnvioGratis.push({
+            nombre: proveedor,
+            condicion: precios[proveedor]["ENVIO GRATIS"]
+          });
+        }
+      }
 
-    // Primero se evalúan condiciones específicas que contengan "ENVIOS GRATIS"	
-else if (/envios gratis|envíos gratis/i.test(userInput)) {
-  let proveedoresConEnvioGratis = [];
-  
-  // Recorrer los proveedores para encontrar los que tienen envío gratis
-  for (let proveedor in precios) {
-    if (precios[proveedor]["ENVIO GRATIS"] !== "N/A") {
-      proveedoresConEnvioGratis.push({
-        nombre: proveedor,
-        condicion: precios[proveedor]["ENVIO GRATIS"]
+      response = `<strong>Proveedores que ofrecen envío gratis:</strong><ul>`;
+      proveedoresConEnvioGratis.forEach(({ nombre, condicion }) => {
+        response += `<li>${nombre}: Envío gratis apartir de ${condicion}</li>`;
       });
+      response += "</ul>";
     }
-  }
 
-  // Generar la respuesta con los proveedores y su condición de envío gratis
-  response = `<strong>Proveedores que ofrecen envío gratis:</strong><ul>`;
-  proveedoresConEnvioGratis.forEach(({ nombre, condicion }) => {
-    response += `<li>${nombre}: Envío gratis apartir de ${condicion}</li>`;
-  });
-  response += "</ul>";
-}
+    else if (/envios ems|envíos ems/i.test(userInput)) {
+      let proveedoresConEMS = [];
+      
+      for (let proveedor in precios) {
+        if (precios[proveedor]["ENVIO EMS"] !== "N/A") {
+          proveedoresConEMS.push({
+            nombre: proveedor,
+            condicion: precios[proveedor]["ENVIO EMS"]
+          });
+        }
+      }
 
-else if (/envios ems|envíos ems/i.test(userInput)) {
-  let proveedoresConEMS = [];
-  
-  // Recorrer los proveedores para encontrar los que ofrecen envíos EMS
-  for (let proveedor in precios) {
-    if (precios[proveedor]["ENVIO EMS"] !== "N/A") {
-      proveedoresConEMS.push({
-        nombre: proveedor,
-        condicion: precios[proveedor]["ENVIO EMS"]
+      response = `<strong>Proveedores que ofrecen envíos EMS:</strong><ul>`;
+      proveedoresConEMS.forEach(({ nombre, condicion }) => {
+        response += `<li>${nombre}: Envíos EMS disponibles por $ ${condicion}</li>`;
       });
+      response += "</ul>";
     }
-  }
 
-  // Generar la respuesta con los proveedores y su condición de envío EMS
-  response = `<strong>Proveedores que ofrecen envíos EMS:</strong><ul>`;
-  proveedoresConEMS.forEach(({ nombre, condicion }) => {
-    response += `<li>${nombre}: Envíos EMS disponibles por $ ${condicion}</li>`;
-  });
-  response += "</ul>";
-}
-
-    // Primero se evalúan condiciones específicas que contengan "SHORT FAN"
     else if (userInput.includes("SHORT FAN") && /BARATO|BARATA|ECONOMICO|ECONOMICA/.test(userInput)) {
       let minPrice = Infinity;
       let cheapestProveedores = [];
@@ -247,7 +274,6 @@ else if (/envios ems|envíos ems/i.test(userInput)) {
       response += "</ul>";
     }
 
-    // Luego se evalúan las condiciones para FAN
     else if (userInput.includes("FAN") && /BARATO|BARATA|ECONOMICO|ECONOMICA/.test(userInput)) {
       let minPrice = Infinity;
       let cheapestProveedores = [];
@@ -266,7 +292,6 @@ else if (/envios ems|envíos ems/i.test(userInput)) {
       response += "</ul>";
     }
 
-    // Condiciones para RETRO, PLAYER ADIDAS, PLAYER NIKE, PLAYER PUMA, SHORT PLAYER se mantienen sin cambios
     else if (userInput.includes("RETRO") && /BARATO|BARATA|ECONOMICO|ECONOMICA/.test(userInput)) {
       let minPrice = Infinity;
       let cheapestProveedores = [];
@@ -357,79 +382,73 @@ else if (/envios ems|envíos ems/i.test(userInput)) {
       response += "</ul>";
     }
 
-// Nueva función: búsqueda por proveedor y producto(s)
-else {
-  // Buscar si en el input se menciona algún proveedor de la lista
-  let foundSupplier = "";
-  for (let proveedor in precios) {
-    if (userInput.includes(proveedor.toUpperCase())) {
-      foundSupplier = proveedor;
-      break;
-    }
-  }
-  if (foundSupplier !== "") {
-    // Lista de productos a buscar
-    const productsList = ["FAN", "RETRO", "PLAYER ADIDAS", "PLAYER NIKE", "PLAYER PUMA", "SHORT FAN", "SHORT PLAYER", "ENVIO GRATIS", "ENVIO EMS"];
-    let foundProducts = [];
-    productsList.forEach(product => {
-      if (userInput.includes(product)) {
-        foundProducts.push(product);
-      }
-    });
-    if (foundProducts.length > 0) {
-      response = `<strong>Precios para ${foundSupplier}:</strong><ul>`;
-      foundProducts.forEach(product => {
-        // Si el producto es "CONTACTO", generar un enlace
-        if (product.toUpperCase() === "CONTACTO") {
-          response += `<li>${product}: <a href="${precios[foundSupplier][product]}" target="_blank">Contactalo por WhatsApp</a></li>`;
-        } else if (product.toUpperCase() === "ENVIO GRATIS") {
-          
-		// Si el producto es "ENVIO GRATIS", aplicar la regla especial
-          let envioGratis = precios[foundSupplier][product];
-          if (envioGratis === "N/A") {
-            response += `<li>${product}: No disponible</li>`;
-          } else {
-            response += `<li>${product}: A partir de ${envioGratis}</li>`;
-          }
-        } else if (product.toUpperCase() === "ENVIO EMS") {
-        
-		// Para "ENVIO EMS", mostrar el precio con $
-          response += `<li>${product}: $${precios[foundSupplier][product]}</li>`;
-        } else {
-        
-		// Para otros productos, mostrar el precio con $
-          response += `<li>${product}: $${precios[foundSupplier][product]}</li>`;
-        }
-      });
-      response += "</ul>";
-    } else {
-      response = `<strong>Todos los precios para ${foundSupplier}:</strong><ul>`;
-      for (let product in precios[foundSupplier]) {
-        
-		// Si el producto es "CONTACTO", generar un enlace
-        if (product.toUpperCase() === "CONTACTO") {
-          response += `<li>${product}: <a href="${precios[foundSupplier][product]}" target="_blank">Contactalo por WhatsApp</a></li>`;
-        } else if (product.toUpperCase() === "ENVIO GRATIS") {
-          // Si el producto es "ENVIO GRATIS", aplicar la regla especial
-          let envioGratis = precios[foundSupplier][product];
-          if (envioGratis === "N/A") {
-            response += `<li>${product}: No disponible</li>`;
-          } else {
-            response += `<li>${product}: A partir de ${envioGratis}</li>`;
-          }
-        } else if (product.toUpperCase() === "ENVIO EMS") {
-          // Para "ENVIO EMS", mostrar el precio con $
-          response += `<li>${product}: $${precios[foundSupplier][product]}</li>`;
-        } else {
-          // Para otros productos, mostrar el precio con $
-          response += `<li>${product}: $${precios[foundSupplier][product]}</li>`;
+    else {
+      let foundSupplier = "";
+      for (let proveedor in precios) {
+        if (userInput.includes(proveedor.toUpperCase())) {
+          foundSupplier = proveedor;
+          break;
         }
       }
-      response += "</ul>";
+      if (foundSupplier !== "") {
+        const productsList = ["FAN", "RETRO", "PLAYER ADIDAS", "PLAYER NIKE", "PLAYER PUMA", "SHORT FAN", "SHORT PLAYER", "ENVIO GRATIS", "ENVIO EMS", "CONTACTO"];
+        let foundProducts = [];
+        productsList.forEach(product => {
+          if (userInput.includes(product)) {
+            foundProducts.push(product);
+          }
+        });
+        if (foundProducts.length > 0) {
+          response = `<strong>Precios para ${foundSupplier}:</strong><ul>`;
+          foundProducts.forEach(product => {
+            if (product.toUpperCase() === "CONTACTO") {
+              response += `<li>${formatearProducto(product)}: <a href="${precios[foundSupplier][product]}" target="_blank">Contactalo por WhatsApp</a></li>`;
+            } else if (product.toUpperCase() === "ENVIO GRATIS") {
+              let envioGratis = precios[foundSupplier][product];
+              if (envioGratis === "N/A") {
+                response += `<li>${formatearProducto(product)}: No disponible</li>`;
+              } else {
+                response += `<li>${formatearProducto(product)}: A partir de ${envioGratis}</li>`;
+              }
+            } else if (product.toUpperCase() === "ENVIO EMS") {
+              let envioEMS = precios[foundSupplier][product];
+              if (envioEMS === "N/A") {
+                response += `<li>${formatearProducto(product)}: No disponible</li>`;
+              } else {
+                response += `<li>${formatearProducto(product)}: $${envioEMS}</li>`;
+              }
+            } else {
+              response += `<li>${formatearProducto(product)}: $${precios[foundSupplier][product]}</li>`;
+            }
+          });
+          response += "</ul>";
+        } else {
+          response = `<strong>Todos los precios para ${foundSupplier}:</strong><ul>`;
+          for (let product in precios[foundSupplier]) {
+            if (product.toUpperCase() === "CONTACTO") {
+              response += `<li>${formatearProducto(product)}: <a href="${precios[foundSupplier][product]}" target="_blank">Contactalo por WhatsApp</a></li>`;
+            } else if (product.toUpperCase() === "ENVIO GRATIS") {
+              let envioGratis = precios[foundSupplier][product];
+              if (envioGratis === "N/A") {
+                response += `<li>${formatearProducto(product)}: No disponible</li>`;
+              } else {
+                response += `<li>${formatearProducto(product)}: A partir de ${envioGratis}</li>`;
+              }
+            } else if (product.toUpperCase() === "ENVIO EMS") {
+              let envioEMS = precios[foundSupplier][product];
+              if (envioEMS === "N/A") {
+                response += `<li>${formatearProducto(product)}: No disponible</li>`;
+              } else {
+                response += `<li>${formatearProducto(product)}: $${envioEMS}</li>`;
+              }
+            } else {
+              response += `<li>${formatearProducto(product)}: $${precios[foundSupplier][product]}</li>`;
+            }
+          }
+          response += "</ul>";
+        }
+      }
     }
-  }
-}
-
 
     // Mostrar respuesta del bot
     let botMessage = document.createElement("p");
