@@ -43,6 +43,14 @@
       font-size: 0.9em;
       margin-top: 5px;
     }
+    /* Estilo para todos los enlaces */
+    a {
+      color: #0066cc; /* Color azul estándar para enlaces */
+      text-decoration: none; /* Opcional: quita el subrayado */
+    }
+    a:hover {
+      text-decoration: underline; /* Opcional: subrayado al pasar el mouse */
+    }
   </style>
 </head>
 <body>
@@ -132,27 +140,28 @@ const precios = {
       }
       response += "</ul>";
     }
-    // Lógica para mostrar las mejores páginas
-    else if (normalizedInput.includes("mejores paginas") || normalizedInput.includes("mejores páginas") || 
-             normalizedInput.includes("paginas recomendadas") || normalizedInput.includes("páginas recomendadas") ||
-             normalizedInput.includes("sitios recomendados") || normalizedInput.includes("webs recomendadas")) {
-      response = `
-        <strong>🔝 Top 10 Mejores Páginas para Comprar Camisetas:</strong>
-        <ol>
-          <li>🌐 <a href="https://www.kitmm.com" target="_blank">WWW.KITMM.COM</a></li>
-          <li>🌐 <a href="https://www.kitgg7.com" target="_blank">WWW.KITGG7.COM</a></li>
-          <li>🌐 <a href="https://www.fballshirt.com" target="_blank">WWW.FBALLSHIRT.COM</a></li>
-          <li>🌐 <a href="https://www.grkits3.com" target="_blank">WWW.GRKITS3.COM</a></li>
-          <li>🌐 <a href="https://www.minejerseys.cc" target="_blank">WWW.MINEJERSEYS.CC</a></li>
-          <li>🌐 <a href="https://www.bestzv1.com" target="_blank">WWW.BESTZV1.COM</a></li>
-          <li>🌐 <a href="https://www.koko101.com" target="_blank">WWW.KOKO101.COM</a></li>
-          <li>🌐 <a href="https://www.aagodb.com" target="_blank">WWW.AAGODB.COM</a></li>
-          <li>🌐 <a href="https://www.yyjersey.com" target="_blank">WWW.YYJERSEY.COM</a></li>
-          <li>🌐 <a href="https://www.spfoot1.com" target="_blank">WWW.SPFOOT1.COM</a></li>
-        </ol>
-        <p>Estas son las páginas más confiables y con mejores reseñas según la comunidad.</p>
-      `;
-    }
+// Lógica para mostrar las mejores páginas
+else if (normalizedInput.includes("mejores paginas") || normalizedInput.includes("mejores páginas") || 
+         normalizedInput.includes("paginas recomendadas") || normalizedInput.includes("páginas recomendadas") ||
+         normalizedInput.includes("sitios recomendados") || normalizedInput.includes("webs recomendadas")) {
+  response = `
+    <strong>🔝 10 Mejores Páginas para Comprar Camisetas:</strong>
+    <ol>
+      <li>🌐 <a href="https://www.kitmm.com" target="_blank">WWW.KITMM.COM</a></li>
+      <li>🌐 <a href="https://www.kitgg7.com" target="_blank">WWW.KITGG7.COM</a></li>
+      <li>🌐 <a href="https://www.fballshirt.com" target="_blank">WWW.FBALLSHIRT.COM</a></li>
+      <li>🌐 <a href="https://www.grkits3.com" target="_blank">WWW.GRKITS3.COM</a></li>
+      <li>🌐 <a href="https://www.minejerseys.cc" target="_blank">WWW.MINEJERSEYS.CC</a></li>
+      <li>🌐 <a href="https://www.bestzv1.com" target="_blank">WWW.BESTZV1.COM</a></li>
+      <li>🌐 <a href="https://www.koko101.com" target="_blank">WWW.KOKO101.COM</a></li>
+      <li>🌐 <a href="https://www.aagodb.com" target="_blank">WWW.AAGODB.COM</a></li>
+      <li>🌐 <a href="https://www.yyjersey.com" target="_blank">WWW.YYJERSEY.COM</a></li>
+      <li>🌐 <a href="https://www.spfoot1.com" target="_blank">WWW.SPFOOT1.COM</a></li>
+    </ol>
+    <p>Estas son las páginas más confiables y con mejores reseñas según la comunidad de FUTBOL XL.</p>
+    <p>📽️ <a href="https://www.youtube.com/watch?v=T1tP98acheI" target="_blank">VIDEO RESEÑA FUTBOL XL</a></p>  
+  `;
+}
     else if (/FAN|fan/i.test(userInput)) {
       let result = "<strong>Proveedores y precios para FAN:</strong><ul>";
       
