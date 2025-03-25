@@ -15,6 +15,7 @@
       margin: 0;
       padding: 20px;
       box-sizing: border-box;
+      background-color: #f5f5f5;
     }
     #chat-container {
       width: 400px;
@@ -25,6 +26,8 @@
       display: flex;
       flex-direction: column;
       margin-bottom: 10px;
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     #chatbox { 
       flex-grow: 1; 
@@ -34,8 +37,21 @@
       word-wrap: break-word;
     }
     #input-container { display: flex; border-top: 1px solid #ccc; }
-    #inputBox { flex-grow: 1; padding: 8px; border: none; outline: none; }
-    #sendBtn { padding: 8px; background-color: #007bff; color: white; border: none; cursor: pointer; }
+    #inputBox { 
+      flex-grow: 1; 
+      padding: 8px; 
+      border: none; 
+      outline: none;
+      font-size: 14px;
+    }
+    #sendBtn { 
+      padding: 8px 15px; 
+      background-color: #007bff; 
+      color: white; 
+      border: none; 
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
     #sendBtn:hover { background-color: #0056b3; }
     .version {
       text-align: center;
@@ -50,6 +66,90 @@
     a:hover {
       text-decoration: underline;
     }
+    
+    /* Estilos para el popup de ayuda */
+    #help-popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 350px;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      z-index: 1000;
+      animation: fadeIn 0.3s;
+    }
+    
+    #help-popup h3 {
+      margin-top: 0;
+      color: #007bff;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+    }
+    
+    #help-popup ul {
+      padding-left: 20px;
+    }
+    
+    #help-popup li {
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    
+    #help-popup button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      float: right;
+      margin-top: 10px;
+    }
+    
+    #help-popup button:hover {
+      background: #0056b3;
+    }
+    
+    #overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 999;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, -40%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
+    }
+    
+    /* Botón de ayuda flotante */
+    #help-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      z-index: 100;
+    }
+    
+    #help-btn:hover {
+      background: #0056b3;
+    }
   </style>
 </head>
 <body>
@@ -58,11 +158,33 @@
 <div id="chat-container">
   <div id="chatbox"></div>
   <div id="input-container">
-    <input type="text" id="inputBox" placeholder="Pregunta por precios,lista de proveedores,etc...">
+    <input type="text" id="inputBox" placeholder="Pregunta por precios, lista de proveedores, etc...">
     <button id="sendBtn">Enviar</button>
   </div>
 </div>
 <div class="version">Versión del bot 2.0</div>
+
+<!-- Botón de ayuda flotante -->
+<button id="help-btn">?</button>
+
+<!-- Popup de ayuda -->
+<div id="overlay"></div>
+<div id="help-popup">
+  <h3>📌 ¿Cómo puedo ayudarte?</h3>
+  <p>Puedes preguntar sobre:</p>
+  <ul>
+    <li><strong>"lista de proveedores"</strong> - Muestra todos los proveedores disponibles</li>
+    <li><strong>"mejores páginas"</strong> - Recomendaciones de sitios para comprar</li>
+    <li><strong>"[producto] más barato"</strong> - Compara precios (ej: "player nike más barato")</li>
+    <li><strong>"envíos gratis"</strong> - Proveedores con envío gratuito</li>
+    <li><strong>"[proveedor]"</strong> - Precios de un proveedor específico (ej: "LIU")</li>
+    <li><strong>"fan"</strong> - Precios de camisetas fan</li>
+    <li><strong>"retro"</strong> - Precios de camisetas retro</li>
+    <li><strong>"player adidas/nike/puma"</strong> - Precios de camisetas player</li>
+    <li><strong>"short fan/player"</strong> - Precios de shorts</li>
+  </ul>
+  <button onclick="closeHelp()">Cerrar</button>
+</div>
 
 <script>
   const precios = {
@@ -100,6 +222,33 @@
   function formatearProducto(producto) {
     return `${obtenerIcono(producto)} ${producto}`;
   }
+
+  // Función para mostrar el popup de ayuda
+  function showHelp() {
+    document.getElementById('overlay').style.display = 'block';
+    document.getElementById('help-popup').style.display = 'block';
+  }
+
+  // Función para cerrar el popup de ayuda
+  function closeHelp() {
+    document.getElementById('overlay').style.display = 'none';
+    document.getElementById('help-popup').style.display = 'none';
+  }
+
+  // Evento para el botón de ayuda flotante
+  document.getElementById('help-btn').addEventListener('click', showHelp);
+
+  // Evento para cerrar al hacer clic en el overlay
+  document.getElementById('overlay').addEventListener('click', closeHelp);
+
+  // Detectar cuando el usuario escribe "ayuda"
+  document.getElementById('inputBox').addEventListener('input', function(e) {
+    const userInput = e.target.value.toLowerCase();
+    if (userInput.includes('ayuda') || userInput.includes('preguntas')) {
+      showHelp();
+      e.target.value = ''; // Limpiar el input
+    }
+  });
 
   document.getElementById("sendBtn").addEventListener("click", sendMessage);
   document.getElementById("inputBox").addEventListener("keypress", function(event) {
