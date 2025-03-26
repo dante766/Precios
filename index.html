@@ -61,7 +61,7 @@
     }
     a {
       color: #0066cc;
-      text-decoration: none;
+      text-decoration: underline;
     }
     a:hover {
       text-decoration: underline;
@@ -158,6 +158,69 @@
       margin-top: 10px;
       border: 1px solid #ddd;
       border-radius: 4px;
+      cursor: pointer;
+    }
+
+    /* Estilo para la imagen de proveedores */
+    .proveedores-image {
+      max-width: 100%;
+      height: auto;
+      margin-top: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    /* Estilo para el modal de imagen */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1001;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+      overflow: auto;
+    }
+
+    .modal-content {
+      display: block;
+      margin: auto;
+      max-width: 90%;
+      max-height: 90%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #bbb;
+    }
+
+    /* Estilo para el enlace del Excel */
+    .excel-link {
+      margin-top: 5px;
+      font-size: 0.9em;
+      color: #000000;
+      text-align: center;
+    }
+    
+    .excel-link a {
+      color: #0066cc;
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -194,6 +257,12 @@
     <li><strong>"pedir"</strong> - Muestra información para realizar pedidos</li>
   </ul>
   <button onclick="closeHelp()">Cerrar</button>
+</div>
+
+<!-- Modal para imágenes -->
+<div id="imageModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImage">
 </div>
 
 <script>
@@ -246,6 +315,19 @@
     document.getElementById('help-popup').style.display = 'none';
   }
 
+  // Función para mostrar la imagen en modal
+  function showImageModal(src) {
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    modal.style.display = "block";
+    modalImg.src = src;
+  }
+
+  // Evento para cerrar el modal
+  document.getElementsByClassName("close")[0].addEventListener("click", function() {
+    document.getElementById("imageModal").style.display = "none";
+  });
+
   // Evento para el botón de ayuda flotante
   document.getElementById('help-btn').addEventListener('click', showHelp);
 
@@ -292,8 +374,43 @@
         image.src = "https://raw.githubusercontent.com/dante766/Precios/fa907c8ababcac38311ed824da57e1b37f587080/Pedir.png";
         image.className = "pedir-image";
         image.alt = "Instrucciones para pedidos";
+        image.onclick = function() {
+          showImageModal(this.src);
+        };
         imageContainer.appendChild(image);
         chatbox.appendChild(imageContainer);
+        
+        document.getElementById("inputBox").value = "";
+        chatbox.scrollTop = chatbox.scrollHeight;
+        return;
+    }
+
+    // Verificar si el usuario menciona "lista completa de proveedores"
+    if (normalizedInput.includes("lista completa de proveedores") || 
+        normalizedInput.includes("lista completa proveedores") ||
+        normalizedInput.includes("lista de proveedores completa")) {
+        
+        let botMessage = document.createElement("p");
+        botMessage.innerHTML = `<strong>Bot:</strong> Aquí tienes la lista completa de proveedores:`;
+        chatbox.appendChild(botMessage);
+        
+        // Crear elemento de imagen
+        let imageContainer = document.createElement("div");
+        let image = document.createElement("img");
+        image.src = "https://raw.githubusercontent.com/dante766/Precios/5eaf4493de65302bcdf3f6011284ee9eb94d8f75/Lista2603.png";
+        image.className = "proveedores-image";
+        image.alt = "Lista completa de proveedores";
+        image.onclick = function() {
+          showImageModal(this.src);
+        };
+        imageContainer.appendChild(image);
+        chatbox.appendChild(imageContainer);
+        
+        // Añadir el enlace al Excel
+        let excelLink = document.createElement("p");
+        excelLink.className = "excel-link";
+        excelLink.innerHTML = `Accede al Excel desde este <a href="https://docs.google.com/spreadsheets/d/145xo2RmlYNt3g2I-U087mGu2B8vEmpfrC3P72c5ZgQg/edit?gid=0#gid=0" target="_blank">Link</a>`;
+        chatbox.appendChild(excelLink);
         
         document.getElementById("inputBox").value = "";
         chatbox.scrollTop = chatbox.scrollHeight;
