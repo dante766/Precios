@@ -262,7 +262,7 @@
     <button id="sendBtn">Enviar</button>
   </div>
 </div>
-<div class="version">Versión del bot 2.0</div>
+<div class="version">Versión del bot 3.0</div>
 
 <!-- Botón de ayuda flotante -->
 <button id="help-btn">?</button>
@@ -406,6 +406,9 @@
     let chatbox = document.getElementById("chatbox");
 
     if (userInput === "") return;
+
+    // Limpiar el chatbox antes de mostrar la nueva consulta
+    chatbox.innerHTML = '';
 
     let userMessage = document.createElement("p");
     userMessage.innerHTML = `<strong>Tú:</strong> ${userInput}`;
