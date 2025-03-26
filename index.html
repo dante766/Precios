@@ -222,6 +222,34 @@
       color: #0066cc;
       text-decoration: underline;
     }
+    
+    /* Estilo para el mensaje de apoyo */
+    .support-message {
+      margin-top: 10px;
+      padding: 8px;
+      background-color: #f0f8ff;
+      border-left: 4px solid #007bff;
+      font-size: 0.9em;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .support-message .collapsed {
+      display: block;
+    }
+    
+    .support-message .expanded {
+      display: none;
+      margin-top: 5px;
+    }
+    
+    .support-message.active .collapsed {
+      display: none;
+    }
+    
+    .support-message.active .expanded {
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -323,6 +351,30 @@
     modalImg.src = src;
   }
 
+  // Función para agregar el mensaje de apoyo
+  function addSupportMessage(chatbox) {
+    let supportMessage = document.createElement("div");
+    supportMessage.className = "support-message";
+    supportMessage.innerHTML = `
+      <div class="collapsed">Apoyá a Fútbol XL ⚽💙 (click para más info)</div>
+      <div class="expanded">
+        <p>Si la comunidad Fútbol XL te ayudó más de una vez, considerá hacer una donación para seguir creciendo.</p>
+        <p>Podés colaborar a través de:</p>
+        <p>✅ Mercado Pago 📝 lucas.caselli</p>
+        <p>✅ PayPal 📝 futbolxlradio@gmail.com</p>
+        <p>✅ Cafecito 📝 cafecito.app/futbolxl</p>
+        <p>¡Gracias por tu apoyo! 🙌⚽</p>
+      </div>
+    `;
+    
+    // Agregar evento click para expandir/colapsar
+    supportMessage.addEventListener("click", function() {
+      this.classList.toggle("active");
+    });
+    
+    chatbox.appendChild(supportMessage);
+  }
+
   // Evento para cerrar el modal
   document.getElementsByClassName("close")[0].addEventListener("click", function() {
     document.getElementById("imageModal").style.display = "none";
@@ -380,6 +432,9 @@
         imageContainer.appendChild(image);
         chatbox.appendChild(imageContainer);
         
+        // Agregar mensaje de apoyo
+        addSupportMessage(chatbox);
+        
         document.getElementById("inputBox").value = "";
         chatbox.scrollTop = chatbox.scrollHeight;
         return;
@@ -411,6 +466,9 @@
         excelLink.className = "excel-link";
         excelLink.innerHTML = `Accede al Excel desde este <a href="https://docs.google.com/spreadsheets/d/145xo2RmlYNt3g2I-U087mGu2B8vEmpfrC3P72c5ZgQg/edit?gid=0#gid=0" target="_blank">Link</a>`;
         chatbox.appendChild(excelLink);
+        
+        // Agregar mensaje de apoyo
+        addSupportMessage(chatbox);
         
         document.getElementById("inputBox").value = "";
         chatbox.scrollTop = chatbox.scrollHeight;
@@ -669,6 +727,11 @@
     let botMessage = document.createElement("p");
     botMessage.innerHTML = `<strong>Bot:</strong> ${response}`;
     chatbox.appendChild(botMessage);
+
+    // Agregar mensaje de apoyo cuando la respuesta es relevante
+    if (response !== "Lo siento, no tengo información sobre ese producto o proveedor.") {
+      addSupportMessage(chatbox);
+    }
 
     document.getElementById("inputBox").value = "";
     chatbox.scrollTop = chatbox.scrollHeight;
