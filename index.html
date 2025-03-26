@@ -150,6 +150,15 @@
     #help-btn:hover {
       background: #0056b3;
     }
+
+    /* Estilo para la imagen de pedidos */
+    .pedir-image {
+      max-width: 100%;
+      height: auto;
+      margin-top: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
   </style>
 </head>
 <body>
@@ -182,6 +191,7 @@
     <li><strong>"retro"</strong> - Precios de camisetas retro</li>
     <li><strong>"player adidas/nike/puma"</strong> - Precios de camisetas player</li>
     <li><strong>"short fan/player"</strong> - Precios de shorts</li>
+    <li><strong>"pedir"</strong> - Muestra información para realizar pedidos</li>
   </ul>
   <button onclick="closeHelp()">Cerrar</button>
 </div>
@@ -269,6 +279,26 @@
     let response = "Lo siento, no tengo información sobre ese producto o proveedor.";
     const inputUpper = userInput.toUpperCase();
     const normalizedInput = userInput.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+    // Primero verificar si el usuario quiere "pedir"
+    if (normalizedInput.includes("pedir")) {
+        let botMessage = document.createElement("p");
+        botMessage.innerHTML = `<strong>Bot:</strong> Aquí tienes un ejemplo de como realizar un pedido:`;
+        chatbox.appendChild(botMessage);
+        
+        // Crear elemento de imagen
+        let imageContainer = document.createElement("div");
+        let image = document.createElement("img");
+        image.src = "https://raw.githubusercontent.com/dante766/Precios/fa907c8ababcac38311ed824da57e1b37f587080/Pedir.png";
+        image.className = "pedir-image";
+        image.alt = "Instrucciones para pedidos";
+        imageContainer.appendChild(image);
+        chatbox.appendChild(imageContainer);
+        
+        document.getElementById("inputBox").value = "";
+        chatbox.scrollTop = chatbox.scrollHeight;
+        return;
+    }
 
     function encontrarMasBarato(producto) {
       let minPrice = Infinity;
