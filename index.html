@@ -585,6 +585,47 @@ if (normalizedInput.includes("tabla de talle player") ||
     return;
 }
 
+// Verificar si el usuario pregunta sobre seguimiento de pedidos
+if (normalizedInput.includes("como hacer el seguimiento") || 
+    normalizedInput.includes("como rastrear mi pedido") ||
+    normalizedInput.includes("seguimiento de pedido") ||
+    normalizedInput.includes("rastrear pedido") ||
+    normalizedInput.includes("tracking pedido") ||
+    normalizedInput.includes("numero de seguimiento")) {
+    
+    let botMessage = document.createElement("p");
+    botMessage.innerHTML = `<strong>Bot:</strong> El seguimiento o rastreo de un pedido puedes hacerlo desde este <a href="https://www.17track.net/es" target="_blank">Link</a>:`;
+    chatbox.appendChild(botMessage);
+    
+    // Crear elemento de imagen
+    let imageContainer = document.createElement("div");
+    let image = document.createElement("img");
+    image.src = "https://raw.githubusercontent.com/dante766/Precios/58a11289736195d0c3cadde697306be3baacea96/17track.jpeg";
+    image.className = "pedir-image";
+    image.alt = "Instrucciones para rastreo de pedidos";
+    image.onclick = function() {
+      showImageModal(this.src);
+    };
+    imageContainer.appendChild(image);
+    chatbox.appendChild(imageContainer);
+
+    // Agregar las dos líneas de texto debajo de la imagen
+    let textLine1 = document.createElement("p");
+    textLine1.innerHTML = `<em>1️⃣ Ingresa tu número de seguimiento.</em>`;
+    chatbox.appendChild(textLine1);
+    
+    let textLine2 = document.createElement("p");
+    textLine2.innerHTML = `<em>2️⃣ Presiona el boton Buscar.</em>`;
+    chatbox.appendChild(textLine2);
+    
+    // Agregar mensaje de apoyo
+    addSupportMessage(chatbox);
+    
+    document.getElementById("inputBox").value = "";
+    chatbox.scrollTop = chatbox.scrollHeight;
+    return;
+}
+
     function encontrarMasBarato(producto) {
       let minPrice = Infinity;
       let proveedoresBaratos = [];
