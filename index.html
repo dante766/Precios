@@ -262,7 +262,7 @@
     <button id="sendBtn">Enviar</button>
   </div>
 </div>
-<div class="version">Versión del bot 3.0</div>
+<div class="version">Versión del bot 4.0</div>
 
 <!-- Botón de ayuda flotante -->
 <button id="help-btn">?</button>
@@ -478,6 +478,112 @@
         chatbox.scrollTop = chatbox.scrollHeight;
         return;
     }
+// Verificar si el usuario pregunta por la tabla de talles FAN
+if (normalizedInput.includes("tabla de talle fan") || 
+    normalizedInput.includes("tabla de talles fan") ||
+    normalizedInput.includes("tabla talles fan") ||
+    normalizedInput.includes("talle fan") ||
+    normalizedInput.includes("talles fan")) {
+    
+    let botMessage = document.createElement("p");
+    botMessage.innerHTML = `<strong>Bot:</strong> Aquí tienes la tabla de talles FAN:`;
+    chatbox.appendChild(botMessage);
+    
+    // Crear elemento de imagen
+    let imageContainer = document.createElement("div");
+    let image = document.createElement("img");
+    image.src = "https://raw.githubusercontent.com/dante766/Precios/0cd21b898fd358eff9a4b1fd37390e44d239ce13/fan.jpeg";
+    image.className = "pedir-image";
+    image.alt = "Tabla de talles FAN";
+    image.onclick = function() {
+      showImageModal(this.src);
+    };
+    imageContainer.appendChild(image);
+    chatbox.appendChild(imageContainer);
+    
+    // Agregar texto explicativo
+    let explanation = document.createElement("p");
+    explanation.innerHTML = `<em>⚠️ Las tallas mostradas son a modo de referencia. Para mayor precisión, te recomendamos usar una cinta métrica y medir tu prenda de ropa.</em>`;
+    chatbox.appendChild(explanation);
+    
+    // Agregar mensaje de apoyo
+    addSupportMessage(chatbox);
+    
+    document.getElementById("inputBox").value = "";
+    chatbox.scrollTop = chatbox.scrollHeight;
+    return;
+}
+// Verificar si el usuario pregunta por la tabla de talles RETRO
+if (normalizedInput.includes("tabla de talle retro") || 
+    normalizedInput.includes("tabla de talles retro") ||
+    normalizedInput.includes("tabla talles retro") ||
+    normalizedInput.includes("talle retro") ||
+    normalizedInput.includes("talles retro")) {
+    
+    let botMessage = document.createElement("p");
+    botMessage.innerHTML = `<strong>Bot:</strong> Aquí tienes la tabla de talles RETRO:`;
+    chatbox.appendChild(botMessage);
+    
+    // Crear elemento de imagen
+    let imageContainer = document.createElement("div");
+    let image = document.createElement("img");
+    image.src = "https://raw.githubusercontent.com/dante766/Precios/0cd21b898fd358eff9a4b1fd37390e44d239ce13/retro.jpeg";
+    image.className = "pedir-image";
+    image.alt = "Tabla de talles RETRO";
+    image.onclick = function() {
+      showImageModal(this.src);
+    };
+    imageContainer.appendChild(image);
+    chatbox.appendChild(imageContainer);
+    
+    // Agregar texto explicativo
+    let explanation = document.createElement("p");
+    explanation.innerHTML = `<em>⚠️ Las tallas mostradas son a modo de referencia. Para mayor precisión, te recomendamos usar una cinta métrica y medir tu prenda de ropa.</em>`;
+    chatbox.appendChild(explanation);
+    
+    // Agregar mensaje de apoyo
+    addSupportMessage(chatbox);
+    
+    document.getElementById("inputBox").value = "";
+    chatbox.scrollTop = chatbox.scrollHeight;
+    return;
+}
+
+// Verificar si el usuario pregunta por la tabla de talles PLAYER
+if (normalizedInput.includes("tabla de talle player") || 
+    normalizedInput.includes("tabla de talles player") ||
+    normalizedInput.includes("tabla talles player") ||
+    normalizedInput.includes("talle player") ||
+    normalizedInput.includes("talles player")) {
+    
+    let botMessage = document.createElement("p");
+    botMessage.innerHTML = `<strong>Bot:</strong> Aquí tienes la tabla de talles PLAYER:`;
+    chatbox.appendChild(botMessage);
+    
+    // Crear elemento de imagen
+    let imageContainer = document.createElement("div");
+    let image = document.createElement("img");
+    image.src = "https://raw.githubusercontent.com/dante766/Precios/0cd21b898fd358eff9a4b1fd37390e44d239ce13/player.jpeg";
+    image.className = "pedir-image";
+    image.alt = "Tabla de talles PLAYER";
+    image.onclick = function() {
+      showImageModal(this.src);
+    };
+    imageContainer.appendChild(image);
+    chatbox.appendChild(imageContainer);
+    
+    // Agregar texto explicativo
+    let explanation = document.createElement("p");
+    explanation.innerHTML = `<em>⚠️ Las tallas mostradas son a modo de referencia. Para mayor precisión, te recomendamos usar una cinta métrica y medir tu prenda de ropa.</em>`;
+    chatbox.appendChild(explanation);
+    
+    // Agregar mensaje de apoyo
+    addSupportMessage(chatbox);
+    
+    document.getElementById("inputBox").value = "";
+    chatbox.scrollTop = chatbox.scrollHeight;
+    return;
+}
 
     function encontrarMasBarato(producto) {
       let minPrice = Infinity;
