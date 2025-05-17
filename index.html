@@ -1,897 +1,116 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dantebot Comparador de Precios</title>
+  <title>Chatbot Estilo WhatsApp</title>
+  <link rel="stylesheet" href="style.css">
   <style>
-    body { 
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      margin: 0;
-      padding: 20px;
-      box-sizing: border-box;
-      background-color: #f5f5f5;
-    }
-    #chat-container {
-      width: 400px;
-      height: 400px;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 10px;
-      background-color: white;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    #chatbox { 
-      flex-grow: 1; 
-      padding: 10px; 
-      overflow-y: auto; 
-      background-color: #f9f9f9; 
-      word-wrap: break-word;
-    }
-    #input-container { display: flex; border-top: 1px solid #ccc; }
-    #inputBox { 
-      flex-grow: 1; 
-      padding: 8px; 
-      border: none; 
-      outline: none;
-      font-size: 14px;
-    }
-    #sendBtn { 
-      padding: 8px 15px; 
-      background-color: #007bff; 
-      color: white; 
-      border: none; 
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    #sendBtn:hover { background-color: #0056b3; }
-    .version {
-      text-align: center;
-      color: #666;
-      font-size: 0.9em;
-      margin-top: 5px;
-    }
-    a {
-      color: #0066cc;
-      text-decoration: underline;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    
-    /* Estilos para el popup de ayuda */
-    #help-popup {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 350px;
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-      z-index: 1000;
-      animation: fadeIn 0.3s;
-    }
-    
-    #help-popup h3 {
-      margin-top: 0;
-      color: #007bff;
-      border-bottom: 1px solid #eee;
-      padding-bottom: 10px;
-    }
-    
-    #help-popup ul {
-      padding-left: 20px;
-    }
-    
-    #help-popup li {
-      margin-bottom: 8px;
-      line-height: 1.4;
-    }
-    
-    #help-popup button {
-      background: #007bff;
-      color: white;
-      border: none;
-      padding: 8px 15px;
-      border-radius: 4px;
-      cursor: pointer;
-      float: right;
-      margin-top: 10px;
-    }
-    
-    #help-popup button:hover {
-      background: #0056b3;
-    }
-    
-    #overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
-      z-index: 999;
-    }
-    
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translate(-50%, -40%); }
-      to { opacity: 1; transform: translate(-50%, -50%); }
-    }
-    
-    /* Botón de ayuda flotante */
-    #help-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #007bff;
-      color: white;
-      border: none;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      font-size: 20px;
-      cursor: pointer;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-      z-index: 100;
-    }
-    
-    #help-btn:hover {
-      background: #0056b3;
-    }
-
-    /* Estilo para la imagen de pedidos */
-    .pedir-image {
-      max-width: 100%;
-      height: auto;
-      margin-top: 10px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    /* Estilo para la imagen de proveedores */
-    .proveedores-image {
-      max-width: 100%;
-      height: auto;
-      margin-top: 10px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    /* Estilo para el modal de imagen */
+    /* Estilo para el popup modal */
     .modal {
       display: none;
       position: fixed;
-      z-index: 1001;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.9);
-      overflow: auto;
+      z-index: 999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.5);
     }
 
-    .modal-content {
-      display: block;
-      margin: auto;
-      max-width: 90%;
-      max-height: 90%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    .modal-contenido {
+      background-color: #fff;
+      margin: 15% auto;
+      padding: 20px;
+      width: 80%;
+      max-width: 500px;
+      border-radius: 10px;
+      position: relative;
     }
 
-    .close {
+    .cerrar {
       position: absolute;
-      top: 15px;
-      right: 35px;
-      color: #f1f1f1;
-      font-size: 40px;
+      top: 10px; right: 15px;
+      font-size: 24px;
       font-weight: bold;
-      transition: 0.3s;
+      color: #aaa;
       cursor: pointer;
     }
 
-    .close:hover {
-      color: #bbb;
-    }
-
-    /* Estilo para el enlace del Excel */
-    .excel-link {
-      margin-top: 5px;
-      font-size: 0.9em;
-      color: #000000;
-      text-align: center;
-    }
-    
-    .excel-link a {
-      color: #0066cc;
-      text-decoration: underline;
-    }
-    
-    /* Estilo para el mensaje de apoyo */
-    .support-message {
-      margin-top: 10px;
-      padding: 8px;
-      background-color: #f0f8ff;
-      border-left: 4px solid #007bff;
-      font-size: 0.9em;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    
-    .support-message .collapsed {
-      display: block;
-    }
-    
-    .support-message .expanded {
-      display: none;
-      margin-top: 5px;
-    }
-    
-    .support-message.active .collapsed {
-      display: none;
-    }
-    
-    .support-message.active .expanded {
-      display: block;
+    .cerrar:hover {
+      color: #000;
     }
   </style>
 </head>
 <body>
+  <!-- Contenedor principal del chat -->
+  <div class="chat-container">
+  <img src="C:\Users\dante.a.tolaba\Desktop\Chatbot\FUTBOLXL.png" alt="Encabezado" style="width: 50%; max-height: 150px; object-fit: cover;display: block; margin: 0 auto">
 
-<h2>Dantebot de Precios</h2>
-<div id="chat-container">
-  <div id="chatbox"></div>
-  <div id="input-container">
-    <input type="text" id="inputBox" placeholder="Pregunta por precios, lista de proveedores, etc...">
-    <button id="sendBtn">Enviar</button>
+    <!-- Zona donde se muestran los mensajes -->
+    <div class="chat-box" id="chat-box"></div>
+
+    <!-- Área de entrada de texto y botón para enviar -->
+    <div class="input-area">
+      <input type="text" id="user-input" placeholder="Escribe un mensaje...">
+      <button onclick="sendMessage()" style="background-color: #4CAF50; color: white;">Enviar</button>
+    </div>
+
+    <!-- Botones dentro del contenedor del chat -->
+    <div class="botones-externos">
+      <button class="donar-btn" onclick="mostrarModal()" style="background-color: orange; color: black;">Donar</button>
+      <button class="ayuda-btn" onclick="mostrarAyuda()">?</button>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal-donacion" class="modal">
+    <div class="modal-contenido">
+      <span class="cerrar" onclick="cerrarModal()">&times;</span>
+      <p>
+        Si la comunidad <strong>Futbol XL</strong> te ayudó más de una vez, considera hacer una donación para seguir creciendo.<br><br>
+        Podés colaborar a través de:<br>
+        - <strong>Mercado Pago:</strong> lucas.caselli<br>
+        - <strong>PayPal:</strong> futbolxlradio@gmail.com<br>
+        - <strong>Cafecito:</strong> <a href="https://cafecito.app/futbolxl" target="_blank">cafecito.app/futbolxl</a><br><br>
+        ¡Gracias por tu apoyo!
+      </p>
+    </div>
+  </div>
+
+<!-- Modal de Ayuda -->
+<div id="modal-ayuda" class="modal">
+  <div class="modal-contenido">
+    <span class="cerrar" onclick="cerrarAyuda()">&times;</span>
+    <h3>Preguntas que puedes hacer al bot:</h3>
+    <ul>
+      <li>📦 Precios de [Proveedor] (ej. Precios de Liu)</li>
+<!--  <li>🚚 ¿Qué proveedores ofrecen envío gratis?</li> -->
+<!--  <li>💬 Mostrar reseñas de camisetas</li> -->
+<!--  <li>🏷️ Ver promociones activas</li> -->
+<!--  <li>📞 Contacto de BESTZV1</li> -->
+<!--  <li>📊 Comparar precios entre proveedores</li> -->
+    </ul>
   </div>
 </div>
-<div class="version">Versión del bot 4.0</div>
 
-<!-- Botón de ayuda flotante -->
-<button id="help-btn">?</button>
 
-<!-- Popup de ayuda -->
-<div id="overlay"></div>
-<div id="help-popup">
-  <h3>📌 ¿Cómo puedo ayudarte?</h3>
-  <p>Puedes preguntar sobre:</p>
-  <ul>
-    <li><strong>"lista de proveedores"</strong> - Muestra todos los proveedores disponibles</li>
-	<li><strong>"lista completa proveedores"</strong> - Muestra el excel con todos los proveedores y precios</li>
-    <li><strong>"mejores páginas"</strong> - Recomendaciones de sitios para comprar</li>
-    <li><strong>"[producto] más barato"</strong> - Compara precios (ej: "player nike más barato")</li>
-    <li><strong>"envíos gratis"</strong> - Proveedores con envío gratuito</li>
-    <li><strong>"[proveedor]"</strong> - Precios de un proveedor específico (ej: "LIU")</li>
-    <li><strong>"fan"</strong> - Precios de camisetas fan</li>
-    <li><strong>"retro"</strong> - Precios de camisetas retro</li>
-    <li><strong>"player adidas/nike/puma"</strong> - Precios de camisetas player</li>
-    <li><strong>"short fan/player"</strong> - Precios de shorts</li>
-    <li><strong>"pedir"</strong> - Muestra información para realizar pedidos</li>
-  </ul>
-  <button onclick="closeHelp()">Cerrar</button>
-</div>
-
-<!-- Modal para imágenes -->
-<div id="imageModal" class="modal">
-  <span class="close">&times;</span>
-  <img class="modal-content" id="modalImage">
-</div>
-
-<script>
-  const precios = {
-    "LIU": { "FAN": 11, "RETRO": 16, "PLAYER ADIDAS": 13, "PLAYER NIKE": 14, "PLAYER PUMA": 14, "SHORT FAN": 8, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "5 Items", "ENVIO EMS": 20, "CONTACTO": "https://api.whatsapp.com/send/?phone=8617724352637&text&type=phone_number&app_absent=0" },
-    "BOND": { "FAN": 11, "RETRO": 16, "PLAYER ADIDAS": 14, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 8, "SHORT PLAYER": 12, "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8615361409693&text&type=phone_number&app_absent=0" },
-    "STARTJERSEY": { "FAN": 13, "RETRO": 17, "PLAYER ADIDAS": 16, "PLAYER NIKE": 16, "PLAYER PUMA": 16, "SHORT FAN": 11, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "3 Items", "ENVIO EMS": 10, "CONTACTO": "https://api.whatsapp.com/send/?phone=8615207598085&text&type=phone_number&app_absent=0" },
-    "PINHUI": { "FAN": 11, "RETRO": 17, "PLAYER ADIDAS": 13, "PLAYER NIKE": 17, "PLAYER PUMA": 15, "SHORT FAN": 10, "SHORT PLAYER": 15, "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8613416127767&text&type=phone_number&app_absent=0" },
-    "HUANG (HOMBRE)": { "FAN": 12, "RETRO": 17, "PLAYER ADIDAS": 15, "PLAYER NIKE": 17, "PLAYER PUMA": 17, "SHORT FAN": 9, "SHORT PLAYER": 14, "ENVIO GRATIS": "4 Items", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8613535386151&text&type=phone_number&app_absent=0" },
-    "BENE": { "FAN": 11, "RETRO": 16, "PLAYER ADIDAS": 15, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 9, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "3 Items", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8618813326573&text&type=phone_number&app_absent=0" },
-    "HUANG (MUJER)": { "FAN": 13, "RETRO": 18, "PLAYER ADIDAS": 16, "PLAYER NIKE": 18, "PLAYER PUMA": 18, "SHORT FAN": 11, "SHORT PLAYER": 15, "ENVIO GRATIS": "N/A", "ENVIO EMS": 25, "CONTACTO": "https://api.whatsapp.com/send/?phone=8613729056249&text&type=phone_number&app_absent=0" },
-    "MAO GU": { "FAN": 12, "RETRO": 17, "PLAYER ADIDAS": 17, "PLAYER NIKE": 17, "PLAYER PUMA": 17, "SHORT FAN": 10, "SHORT PLAYER": 17, "ENVIO GRATIS": "5 Items", "ENVIO EMS": 10, "CONTACTO": "https://api.whatsapp.com/send/?phone=8615860039751&text&type=phone_number&app_absent=0" },
-    //"XIAO HAO": { "FAN": 12, "RETRO": 17, "PLAYER ADIDAS": 16, "PLAYER NIKE": 16, "PLAYER PUMA": 16, "SHORT FAN": 12, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8617827247734&text&type=phone_number&app_absent=0" },
-    "ANNE": { "FAN": 12, "RETRO": 18, "PLAYER ADIDAS": 18, "PLAYER NIKE": 18, "PLAYER PUMA": 18, "SHORT FAN": 10, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": 15, "CONTACTO": "https://api.whatsapp.com/send/?phone=8613620452224&text&type=phone_number&app_absent=0" },
-    //"JERRY": { "FAN": 11, "RETRO": 16, "PLAYER ADIDAS": 15, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 8, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": 15, "CONTACTO": "https://api.whatsapp.com/send/?phone=8619330347364&text&type=phone_number&app_absent=0" },
-    "FORNECEDOR (ANNE)": { "FAN": 10, "RETRO": 16, "PLAYER ADIDAS": 15, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 10, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8619584828798&text&type=phone_number&app_absent=0" },
-    "YAOQUAN": { "FAN": 11, "RETRO": 16, "PLAYER ADIDAS": 15, "PLAYER NIKE": 16, "PLAYER PUMA": 16, "SHORT FAN": 11, "SHORT PLAYER": 15, "ENVIO GRATIS": "7 Items", "ENVIO EMS": 15, "CONTACTO": "https://api.whatsapp.com/send/?phone=8615707508070&text&type=phone_number&app_absent=0" },
-    "WU JI ZHEN": { "FAN": 12, "RETRO": 18, "PLAYER ADIDAS": 17, "PLAYER NIKE": 17, "PLAYER PUMA": 17, "SHORT FAN": 12, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=553182946337&text&type=phone_number&app_absent=0" },
-    "HANG": { "FAN": 13, "RETRO": 19, "PLAYER ADIDAS": 16, "PLAYER NIKE": 18, "PLAYER PUMA": 18, "SHORT FAN": 11, "SHORT PLAYER": 15, "ENVIO GRATIS": "4 Items", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=553182946337&text&type=phone_number&app_absent=0" },
-    "LIANG": { "FAN": 11, "RETRO": 16, "PLAYER ADIDAS": 14, "PLAYER NIKE": 15, "PLAYER PUMA": 14, "SHORT FAN": 9, "SHORT PLAYER": 12, "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8613713803864&text&type=phone_number&app_absent=0" },
-    "WILID": { "FAN": 13, "RETRO": 19, "PLAYER ADIDAS": 16, "PLAYER NIKE": 18, "PLAYER PUMA": 18, "SHORT FAN": 11, "SHORT PLAYER": 15, "ENVIO GRATIS": "4 Items", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8613536398769&text&type=phone_number&app_absent=0" },
-    //"MONKEY": { "FAN": 12, "RETRO": 17, "PLAYER ADIDAS": 16, "PLAYER NIKE": 16, "PLAYER PUMA": 16, "SHORT FAN": "N/A", "SHORT PLAYER": "N/A", "ENVIO GRATIS": "5 Items", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8613643014614&text&type=phone_number&app_absent=0" },
-    "MO WENQIAN": { "FAN": 13, "RETRO": 17, "PLAYER ADIDAS": 16, "PLAYER NIKE": 16, "PLAYER PUMA": 16, "SHORT FAN": "11", "SHORT PLAYER": "N/A", "ENVIO GRATIS": "5 Items", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8613570519855&text&type=phone_number&app_absent=0" },
-"ASSON": { "FAN": 12, "RETRO": 19, "PLAYER ADIDAS": 15, "PLAYER NIKE": 16, "PLAYER PUMA": 16, "SHORT FAN": "10", "SHORT PLAYER": "12", "ENVIO GRATIS": "5 Items", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8613413637680&text&type=phone_number&app_absent=0" },	  
-"KKST": { "FAN": 13, "RETRO": 16, "PLAYER ADIDAS": 15, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": "8", "SHORT PLAYER": "N/A", "ENVIO GRATIS": "3 Items", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8617520528000&text&type=phone_number&app_absent=0" },	  
-"MOZHONGTONG": { "FAN": 12, "RETRO": 18, "PLAYER ADIDAS": 17, "PLAYER NIKE": 17, "PLAYER PUMA": 17, "SHORT FAN": "12", "SHORT PLAYER": "15", "ENVIO GRATIS": "5 Items", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8618820627836&text&type=phone_number&app_absent=0" },	  
-"XIAOGUANG": { "FAN": 13, "RETRO": 19, "PLAYER ADIDAS": 18, "PLAYER NIKE": 18, "PLAYER PUMA": 18, "SHORT FAN": "13", "SHORT PLAYER": "16", "ENVIO GRATIS": "6 Items", "ENVIO EMS": 10, "CONTACTO": "https://api.whatsapp.com/send/?phone=8615766574420&text&type=phone_number&app_absent=0" },	  
-"MAGGIE": { "FAN": 13, "RETRO": 18, "PLAYER ADIDAS": 18, "PLAYER NIKE": 18, "PLAYER PUMA": 18, "SHORT FAN": "12", "SHORT PLAYER": "17", "ENVIO GRATIS": "6 Items", "ENVIO EMS": 10, "CONTACTO": "https://api.whatsapp.com/send/?phone=8615875333462&text&type=phone_number&app_absent=0" },	  	  
-"XIAO LI": { "FAN": 12, "RETRO": 16, "PLAYER ADIDAS": 15, "PLAYER NIKE": 15, "PLAYER PUMA": 15, "SHORT FAN": 10, "SHORT PLAYER": "N/A", "ENVIO GRATIS": "N/A", "ENVIO EMS": "N/A", "CONTACTO": "https://api.whatsapp.com/send/?phone=8613650919444&text&type=phone_number&app_absent=0" }
-  };
-
-  function obtenerIcono(producto) {
-    producto = producto.toUpperCase();
-    if (producto.includes("SHORT")) return "🩳";
-    if (producto.includes("ENVIO")) return "✈️";
-    if (producto.includes("CONTACTO")) return "📒";
-    if (producto.includes("FAN") || producto.includes("RETRO") || producto.includes("PLAYER")) return "👕";
-    return "🔹";
-  }
-
-  function formatearProducto(producto) {
-    return `${obtenerIcono(producto)} ${producto}`;
-  }
-
-  // Función para mostrar el popup de ayuda
-  function showHelp() {
-    document.getElementById('overlay').style.display = 'block';
-    document.getElementById('help-popup').style.display = 'block';
-  }
-
-  // Función para cerrar el popup de ayuda
-  function closeHelp() {
-    document.getElementById('overlay').style.display = 'none';
-    document.getElementById('help-popup').style.display = 'none';
-  }
-
-  // Función para mostrar la imagen en modal
-  function showImageModal(src) {
-    const modal = document.getElementById("imageModal");
-    const modalImg = document.getElementById("modalImage");
-    modal.style.display = "block";
-    modalImg.src = src;
-  }
-
-  // Función para agregar el mensaje de apoyo
-  function addSupportMessage(chatbox) {
-    let supportMessage = document.createElement("div");
-    supportMessage.className = "support-message";
-    supportMessage.innerHTML = `
-      <div class="collapsed">Apoyá a Fútbol XL ⚽💙 (click para más info)</div>
-      <div class="expanded">
-        <p>Si la comunidad Fútbol XL te ayudó más de una vez, considerá hacer una donación para seguir creciendo.</p>
-        <p>Podés colaborar a través de:</p>
-        <p>✅ Mercado Pago 📝 lucas.caselli</p>
-        <p>✅ PayPal 📝 futbolxlradio@gmail.com</p>
-        <p>✅ Cafecito 📝 cafecito.app/futbolxl</p>
-        <p>¡Gracias por tu apoyo! 🙌⚽</p>
-      </div>
-    `;
-    
-    // Agregar evento click para expandir/colapsar
-    supportMessage.addEventListener("click", function() {
-      this.classList.toggle("active");
-    });
-    
-    chatbox.appendChild(supportMessage);
-  }
-
-  // Evento para cerrar el modal
-  document.getElementsByClassName("close")[0].addEventListener("click", function() {
-    document.getElementById("imageModal").style.display = "none";
-  });
-
-  // Evento para el botón de ayuda flotante
-  document.getElementById('help-btn').addEventListener('click', showHelp);
-
-  // Evento para cerrar al hacer clic en el overlay
-  document.getElementById('overlay').addEventListener('click', closeHelp);
-
-  // Detectar cuando el usuario escribe "ayuda"
-  document.getElementById('inputBox').addEventListener('input', function(e) {
-    const userInput = e.target.value.toLowerCase();
-    if (userInput.includes('ayuda') || userInput.includes('preguntas')) {
-      showHelp();
-      e.target.value = ''; // Limpiar el input
-    }
-  });
-
-  document.getElementById("sendBtn").addEventListener("click", sendMessage);
-  document.getElementById("inputBox").addEventListener("keypress", function(event) {
-    if (event.key === "Enter") sendMessage();
-  });
-
-  function sendMessage() {
-    let userInput = document.getElementById("inputBox").value.trim();
-    let chatbox = document.getElementById("chatbox");
-
-    if (userInput === "") return;
-
-    // Limpiar el chatbox antes de mostrar la nueva consulta
-    chatbox.innerHTML = '';
-
-    let userMessage = document.createElement("p");
-    userMessage.innerHTML = `<strong>Tú:</strong> ${userInput}`;
-    chatbox.appendChild(userMessage);
-
-    let response = "Lo siento, no tengo información sobre ese producto o proveedor.";
-    const inputUpper = userInput.toUpperCase();
-    const normalizedInput = userInput.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-
-    // Primero verificar si el usuario quiere "pedir"
-    if (normalizedInput.includes("pedir")) {
-        let botMessage = document.createElement("p");
-        botMessage.innerHTML = `<strong>Bot:</strong> Aquí tienes un ejemplo de como realizar un pedido:`;
-        chatbox.appendChild(botMessage);
-        
-        // Crear elemento de imagen
-        let imageContainer = document.createElement("div");
-        let image = document.createElement("img");
-        image.src = "https://raw.githubusercontent.com/dante766/Precios/fa907c8ababcac38311ed824da57e1b37f587080/Pedir.png";
-        image.className = "pedir-image";
-        image.alt = "Instrucciones para pedidos";
-        image.onclick = function() {
-          showImageModal(this.src);
-        };
-        imageContainer.appendChild(image);
-        chatbox.appendChild(imageContainer);
-        
-        // Agregar mensaje de apoyo
-        addSupportMessage(chatbox);
-        
-        document.getElementById("inputBox").value = "";
-        chatbox.scrollTop = chatbox.scrollHeight;
-        return;
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script>
+    function mostrarModal() {
+      document.getElementById("modal-donacion").style.display = "block";
     }
 
-    // Verificar si el usuario menciona "lista completa de proveedores"
-    if (normalizedInput.includes("lista completa de proveedores") || 
-        normalizedInput.includes("lista completa proveedores") ||
-        normalizedInput.includes("lista de proveedores completa")) {
-        
-        let botMessage = document.createElement("p");
-        botMessage.innerHTML = `<strong>Bot:</strong> Aquí tienes la lista completa de proveedores:`;
-        chatbox.appendChild(botMessage);
-        
-        // Crear elemento de imagen
-        let imageContainer = document.createElement("div");
-        let image = document.createElement("img");
-        image.src = "https://raw.githubusercontent.com/dante766/Precios/ac77e5e4cdc96017204c43fe1f97de9174292647/Lista2603.png";
-        image.className = "proveedores-image";
-        image.alt = "Lista completa de proveedores";
-        image.onclick = function() {
-          showImageModal(this.src);
-        };
-        imageContainer.appendChild(image);
-        chatbox.appendChild(imageContainer);
-        
-        // Añadir el enlace al Excel
-        let excelLink = document.createElement("p");
-        excelLink.className = "excel-link";
-        excelLink.innerHTML = `Accede al Excel desde este <a href="https://docs.google.com/spreadsheets/d/145xo2RmlYNt3g2I-U087mGu2B8vEmpfrC3P72c5ZgQg/edit?gid=0#gid=0" target="_blank">Link</a>`;
-        chatbox.appendChild(excelLink);
-        
-        // Agregar mensaje de apoyo
-        addSupportMessage(chatbox);
-        
-        document.getElementById("inputBox").value = "";
-        chatbox.scrollTop = chatbox.scrollHeight;
-        return;
-    }
-// Verificar si el usuario pregunta por la tabla de talles FAN
-if (normalizedInput.includes("tabla de talle fan") || 
-    normalizedInput.includes("tabla de talles fan") ||
-    normalizedInput.includes("tabla talles fan") ||
-    normalizedInput.includes("talle fan") ||
-    normalizedInput.includes("talles fan")) {
-    
-    let botMessage = document.createElement("p");
-    botMessage.innerHTML = `<strong>Bot:</strong> Aquí tienes la tabla de talles FAN:`;
-    chatbox.appendChild(botMessage);
-    
-    // Crear elemento de imagen
-    let imageContainer = document.createElement("div");
-    let image = document.createElement("img");
-    image.src = "https://raw.githubusercontent.com/dante766/Precios/0cd21b898fd358eff9a4b1fd37390e44d239ce13/fan.jpeg";
-    image.className = "pedir-image";
-    image.alt = "Tabla de talles FAN";
-    image.onclick = function() {
-      showImageModal(this.src);
-    };
-    imageContainer.appendChild(image);
-    chatbox.appendChild(imageContainer);
-    
-    // Agregar texto explicativo
-    let explanation = document.createElement("p");
-    explanation.innerHTML = `<em>⚠️ Las tallas mostradas son a modo de referencia. Para mayor precisión, te recomendamos usar una cinta métrica y medir tu prenda de ropa.</em>`;
-    chatbox.appendChild(explanation);
-    
-    // Agregar mensaje de apoyo
-    addSupportMessage(chatbox);
-    
-    document.getElementById("inputBox").value = "";
-    chatbox.scrollTop = chatbox.scrollHeight;
-    return;
-}
-// Verificar si el usuario pregunta por la tabla de talles RETRO
-if (normalizedInput.includes("tabla de talle retro") || 
-    normalizedInput.includes("tabla de talles retro") ||
-    normalizedInput.includes("tabla talles retro") ||
-    normalizedInput.includes("talle retro") ||
-    normalizedInput.includes("talles retro")) {
-    
-    let botMessage = document.createElement("p");
-    botMessage.innerHTML = `<strong>Bot:</strong> Aquí tienes la tabla de talles RETRO:`;
-    chatbox.appendChild(botMessage);
-    
-    // Crear elemento de imagen
-    let imageContainer = document.createElement("div");
-    let image = document.createElement("img");
-    image.src = "https://raw.githubusercontent.com/dante766/Precios/0cd21b898fd358eff9a4b1fd37390e44d239ce13/retro.jpeg";
-    image.className = "pedir-image";
-    image.alt = "Tabla de talles RETRO";
-    image.onclick = function() {
-      showImageModal(this.src);
-    };
-    imageContainer.appendChild(image);
-    chatbox.appendChild(imageContainer);
-    
-    // Agregar texto explicativo
-    let explanation = document.createElement("p");
-    explanation.innerHTML = `<em>⚠️ Las tallas mostradas son a modo de referencia. Para mayor precisión, te recomendamos usar una cinta métrica y medir tu prenda de ropa.</em>`;
-    chatbox.appendChild(explanation);
-    
-    // Agregar mensaje de apoyo
-    addSupportMessage(chatbox);
-    
-    document.getElementById("inputBox").value = "";
-    chatbox.scrollTop = chatbox.scrollHeight;
-    return;
-}
-
-// Verificar si el usuario pregunta por la tabla de talles PLAYER
-if (normalizedInput.includes("tabla de talle player") || 
-    normalizedInput.includes("tabla de talles player") ||
-    normalizedInput.includes("tabla talles player") ||
-    normalizedInput.includes("talle player") ||
-    normalizedInput.includes("talles player")) {
-    
-    let botMessage = document.createElement("p");
-    botMessage.innerHTML = `<strong>Bot:</strong> Aquí tienes la tabla de talles PLAYER:`;
-    chatbox.appendChild(botMessage);
-    
-    // Crear elemento de imagen
-    let imageContainer = document.createElement("div");
-    let image = document.createElement("img");
-    image.src = "https://raw.githubusercontent.com/dante766/Precios/0cd21b898fd358eff9a4b1fd37390e44d239ce13/player.jpeg";
-    image.className = "pedir-image";
-    image.alt = "Tabla de talles PLAYER";
-    image.onclick = function() {
-      showImageModal(this.src);
-    };
-    imageContainer.appendChild(image);
-    chatbox.appendChild(imageContainer);
-    
-    // Agregar texto explicativo
-    let explanation = document.createElement("p");
-    explanation.innerHTML = `<em>⚠️ Las tallas mostradas son a modo de referencia. Para mayor precisión, te recomendamos usar una cinta métrica y medir tu prenda de ropa.</em>`;
-    chatbox.appendChild(explanation);
-    
-    // Agregar mensaje de apoyo
-    addSupportMessage(chatbox);
-    
-    document.getElementById("inputBox").value = "";
-    chatbox.scrollTop = chatbox.scrollHeight;
-    return;
-}
-
-// Verificar si el usuario pregunta sobre seguimiento de pedidos
-if (normalizedInput.includes("como hacer el seguimiento") || 
-    normalizedInput.includes("como rastrear mi pedido") ||
-    normalizedInput.includes("seguimiento de pedido") ||
-    normalizedInput.includes("rastrear pedido") ||
-    normalizedInput.includes("tracking pedido") ||
-    normalizedInput.includes("numero de seguimiento")) {
-    
-    let botMessage = document.createElement("p");
-    botMessage.innerHTML = `<strong>Bot:</strong> El seguimiento o rastreo de un pedido puedes hacerlo desde este <a href="https://www.17track.net/es" target="_blank">Link</a>:`;
-    chatbox.appendChild(botMessage);
-    
-    // Crear elemento de imagen
-    let imageContainer = document.createElement("div");
-    let image = document.createElement("img");
-    image.src = "https://raw.githubusercontent.com/dante766/Precios/58a11289736195d0c3cadde697306be3baacea96/17track.jpeg";
-    image.className = "pedir-image";
-    image.alt = "Instrucciones para rastreo de pedidos";
-    image.onclick = function() {
-      showImageModal(this.src);
-    };
-    imageContainer.appendChild(image);
-    chatbox.appendChild(imageContainer);
-
-    // Agregar las dos líneas de texto debajo de la imagen
-    let textLine1 = document.createElement("p");
-    textLine1.innerHTML = `<em>1️⃣ Ingresa tu número de seguimiento.</em>`;
-    chatbox.appendChild(textLine1);
-    
-    let textLine2 = document.createElement("p");
-    textLine2.innerHTML = `<em>2️⃣ Presiona el boton Buscar.</em>`;
-    chatbox.appendChild(textLine2);
-    
-    // Agregar mensaje de apoyo
-    addSupportMessage(chatbox);
-    
-    document.getElementById("inputBox").value = "";
-    chatbox.scrollTop = chatbox.scrollHeight;
-    return;
-}
-
-    function encontrarMasBarato(producto) {
-      let minPrice = Infinity;
-      let proveedoresBaratos = [];
-      
-      for (let proveedor in precios) {
-        const precio = precios[proveedor][producto];
-        if (typeof precio === 'number') {
-          if (precio < minPrice) {
-            minPrice = precio;
-            proveedoresBaratos = [{ nombre: proveedor, precio: precio }];
-          } else if (precio === minPrice) {
-            proveedoresBaratos.push({ nombre: proveedor, precio: precio });
-          }
-        }
-      }
-      
-      return { minPrice, proveedoresBaratos };
+    function cerrarModal() {
+      document.getElementById("modal-donacion").style.display = "none";
     }
 
-    if (normalizedInput.includes("lista de proveedores")) {
-      response = "<strong>Proveedores:</strong><ul>";
-      for (let proveedor in precios) {
-        response += `<li>${proveedor}</li>`;
-      }
-      response += "</ul>";
-    }
-    else if (normalizedInput.includes("mejores paginas") || normalizedInput.includes("mejores páginas") || 
-             normalizedInput.includes("paginas recomendadas") || normalizedInput.includes("páginas recomendadas") ||
-             normalizedInput.includes("sitios recomendados") || normalizedInput.includes("webs recomendadas")) {
-      response = `
-        <strong>🔝 10 Mejores Páginas para Comprar Camisetas:</strong>
-        <ol>
-          <li>🌐 <a href="https://www.kitmm.com" target="_blank">WWW.KITMM.COM</a></li>
-          <li>🌐 <a href="https://www.kitgg7.com" target="_blank">WWW.KITGG7.COM</a></li>
-          <li>🌐 <a href="https://www.fballshirt.com" target="_blank">WWW.FBALLSHIRT.COM</a></li>
-          <li>🌐 <a href="https://www.grkits3.com" target="_blank">WWW.GRKITS3.COM</a></li>
-          <li>🌐 <a href="https://www.minejerseys.cc" target="_blank">WWW.MINEJERSEYS.CC</a></li>
-          <li>🌐 <a href="https://www.bestzv1.com" target="_blank">WWW.BESTZV1.COM</a></li>
-          <li>🌐 <a href="https://www.koko101.com" target="_blank">WWW.KOKO101.COM</a></li>
-          <li>🌐 <a href="https://www.kkfoo.com" target="_blank">WWW.KKFOO.COM</a></li>
-          <li>🌐 <a href="https://www.gakits.com" target="_blank">WWW.GAKITS.COM</a></li>
-          <li>🌐 <a href="https://www.spfoot1.com" target="_blank">WWW.SPFOOT1.COM</a></li>
-        </ol>
-        <p>Estas son las páginas más confiables y con mejores reseñas según la comunidad de FUTBOL XL.</p>
-        <p>📽️ <a href="https://www.youtube.com/watch?v=T1tP98acheI" target="_blank">VIDEO RESEÑA FUTBOL XL</a></p>  
-      `;
-    }
-    else if (/BARATO|BARATA|ECONOMICO|ECONOMICA/i.test(inputUpper)) {
-      let productoBuscado = "";
-      const productos = ["SHORT FAN", "SHORT PLAYER", "PLAYER ADIDAS", "PLAYER NIKE", "PLAYER PUMA", "RETRO", "FAN"];
-      
-      for (let producto of productos) {
-        if (inputUpper.includes(producto)) {
-          productoBuscado = producto;
-          break;
-        }
-      }
-      
-      if (productoBuscado) {
-        const { minPrice, proveedoresBaratos } = encontrarMasBarato(productoBuscado);
-        
-        if (proveedoresBaratos.length > 0) {
-          response = `<strong>Proveedor(es) con el ${productoBuscado} más barato ($${minPrice}):</strong><ul>`;
-          proveedoresBaratos.forEach(({ nombre, precio }) => {
-            const contacto = precios[nombre]["CONTACTO"];
-            if (contacto) {
-              response += `<li>${nombre}: $${precio} - <a href="${contacto}" target="_blank">Contactar</a></li>`;
-            } else {
-              response += `<li>${nombre}: $${precio}</li>`;
-            }
-          });
-          response += "</ul>";
-        } else {
-          response = `No encontré proveedores con precios disponibles para ${productoBuscado}`;
-        }
-      } else {
-        response = "Por favor, especifica qué producto buscas (ej: 'fan más barato', 'player nike económico')";
+    window.onclick = function(event) {
+      const modal = document.getElementById("modal-donacion");
+      if (event.target == modal) {
+        modal.style.display = "none";
       }
     }
-    else if (/FAN|fan/i.test(userInput)) {
-      let result = "<strong>Proveedores y precios para FAN:</strong><ul>";
-      for (let proveedor in precios) {
-        if (precios[proveedor]["FAN"] !== "N/A") {
-          result += `<li>${proveedor}: $${precios[proveedor]["FAN"]}</li>`;
-        }
-      }
-      result += "</ul>";
-      response = result;
-    } 
-    else if (/RETRO|retro/i.test(userInput)) {
-      let result = "<strong>Proveedores y precios para RETRO:</strong><ul>";
-      for (let proveedor in precios) {
-        if (precios[proveedor]["RETRO"] !== "N/A") {
-          result += `<li>${proveedor}: $${precios[proveedor]["RETRO"]}</li>`;
-        }
-      }
-      result += "</ul>";
-      response = result;
-    }
-    else if (/PLAYER ADIDAS|player adidas/i.test(userInput)) {
-      let result = "<strong>Proveedores y precios para PLAYER ADIDAS:</strong><ul>";
-      for (let proveedor in precios) {
-        if (precios[proveedor]["PLAYER ADIDAS"] !== "N/A") {
-          result += `<li>${proveedor}: $${precios[proveedor]["PLAYER ADIDAS"]}</li>`;
-        }
-      }
-      result += "</ul>";
-      response = result;
-    }
-    else if (/PLAYER NIKE|player nike/i.test(userInput)) {
-      let result = "<strong>Proveedores y precios para PLAYER NIKE:</strong><ul>";
-      for (let proveedor in precios) {
-        if (precios[proveedor]["PLAYER NIKE"] !== "N/A") {
-          result += `<li>${proveedor}: $${precios[proveedor]["PLAYER NIKE"]}</li>`;
-        }
-      }
-      result += "</ul>";
-      response = result;
-    }
-    else if (/PLAYER PUMA|player puma/i.test(userInput)) {
-      let result = "<strong>Proveedores y precios para PLAYER PUMA:</strong><ul>";
-      for (let proveedor in precios) {
-        if (precios[proveedor]["PLAYER PUMA"] !== "N/A") {
-          result += `<li>${proveedor}: $${precios[proveedor]["PLAYER PUMA"]}</li>`;
-        }
-      }
-      result += "</ul>";
-      response = result;
-    }    
-    else if (/SHORT FAN|short fan/i.test(userInput)) {
-      let result = "<strong>Proveedores y precios para SHORT FAN:</strong><ul>";
-      for (let proveedor in precios) {
-        if (precios[proveedor]["SHORT FAN"] !== "N/A") {
-          result += `<li>${proveedor}: $${precios[proveedor]["SHORT FAN"]}</li>`;
-        }
-      }
-      result += "</ul>";
-      response = result;
-    }
-    else if (/SHORT PLAYER|short player/i.test(userInput)) {
-      let result = "<strong>Proveedores y precios para SHORT PLAYER:</strong><ul>";
-      for (let proveedor in precios) {
-        if (precios[proveedor]["SHORT PLAYER"] !== "N/A") {
-          result += `<li>${proveedor}: $${precios[proveedor]["SHORT PLAYER"]}</li>`;
-        }
-      }
-      result += "</ul>";
-      response = result;
-    }
-    else if (/envios gratis|envíos gratis/i.test(userInput)) {
-      let proveedoresConEnvioGratis = [];
-      for (let proveedor in precios) {
-        if (precios[proveedor]["ENVIO GRATIS"] !== "N/A") {
-          proveedoresConEnvioGratis.push({
-            nombre: proveedor,
-            condicion: precios[proveedor]["ENVIO GRATIS"]
-          });
-        }
-      }
-      response = `<strong>Proveedores que ofrecen envío gratis:</strong><ul>`;
-      proveedoresConEnvioGratis.forEach(({ nombre, condicion }) => {
-        response += `<li>${nombre}: Llevando desde ${condicion}</li>`;
-      });
-      response += "</ul>";
-    }
-    else if (/envios ems|envíos ems/i.test(userInput)) {
-      let proveedoresConEMS = [];
-      for (let proveedor in precios) {
-        if (precios[proveedor]["ENVIO EMS"] !== "N/A") {
-          proveedoresConEMS.push({
-            nombre: proveedor,
-            condicion: precios[proveedor]["ENVIO EMS"]
-          });
-        }
-      }
-      response = `<strong>Proveedores que ofrecen envíos EMS:</strong><ul>`;
-      proveedoresConEMS.forEach(({ nombre, condicion }) => {
-        response += `<li>${nombre}: $${condicion}</li>`;
-      });
-      response += "</ul>";
-    }
-    else {
-      let foundSupplier = "";
-      for (let proveedor in precios) {
-        if (inputUpper.includes(proveedor.toUpperCase())) {
-          foundSupplier = proveedor;
-          break;
-        }
-      }
-      if (foundSupplier !== "") {
-        const productsList = ["FAN", "RETRO", "PLAYER ADIDAS", "PLAYER NIKE", "PLAYER PUMA", "SHORT FAN", "SHORT PLAYER", "ENVIO GRATIS", "ENVIO EMS", "CONTACTO"];
-        let foundProducts = [];
-        productsList.forEach(product => {
-          if (inputUpper.includes(product)) {
-            foundProducts.push(product);
-          }
-        });
-        if (foundProducts.length > 0) {
-          response = `<strong>Precios para ${foundSupplier}:</strong><ul>`;
-          foundProducts.forEach(product => {
-            if (product.toUpperCase() === "CONTACTO") {
-              response += `<li>${formatearProducto(product)}: <a href="${precios[foundSupplier][product]}" target="_blank">Contactalo por WhatsApp</a></li>`;
-            } else if (product.toUpperCase() === "ENVIO GRATIS") {
-              let envioGratis = precios[foundSupplier][product];
-              if (envioGratis === "N/A") {
-                response += `<li>${formatearProducto(product)}: No disponible</li>`;
-              } else {
-                response += `<li>${formatearProducto(product)}: Llevando desde ${envioGratis}</li>`;
-              }
-            } else if (product.toUpperCase() === "ENVIO EMS") {
-              let envioEMS = precios[foundSupplier][product];
-              if (envioEMS === "N/A") {
-                response += `<li>${formatearProducto(product)}: No disponible</li>`;
-              } else {
-                response += `<li>${formatearProducto(product)}: $${envioEMS}</li>`;
-              }
-            } else {
-              response += `<li>${formatearProducto(product)}: $${precios[foundSupplier][product]}</li>`;
-            }
-          });
-          response += "</ul>";
-        } else {
-          response = `<strong>Todos los precios para ${foundSupplier}:</strong><ul>`;
-          for (let product in precios[foundSupplier]) {
-            if (product.toUpperCase() === "CONTACTO") {
-              response += `<li>${formatearProducto(product)}: <a href="${precios[foundSupplier][product]}" target="_blank">Contactalo por WhatsApp</a></li>`;
-            } else if (product.toUpperCase() === "ENVIO GRATIS") {
-              let envioGratis = precios[foundSupplier][product];
-              if (envioGratis === "N/A") {
-                response += `<li>${formatearProducto(product)}: No disponible</li>`;
-              } else {
-                response += `<li>${formatearProducto(product)}: Llevando desde ${envioGratis}</li>`;
-              }
-            } else if (product.toUpperCase() === "ENVIO EMS") {
-              let envioEMS = precios[foundSupplier][product];
-              if (envioEMS === "N/A") {
-                response += `<li>${formatearProducto(product)}: No disponible</li>`;
-              } else {
-                response += `<li>${formatearProducto(product)}: $${envioEMS}</li>`;
-              }
-            } else {
-              response += `<li>${formatearProducto(product)}: $${precios[foundSupplier][product]}</li>`;
-            }
-          }
-          response += "</ul>";
-        }
-      }
-    }
-
-    let botMessage = document.createElement("p");
-    botMessage.innerHTML = `<strong>Bot:</strong> ${response}`;
-    chatbox.appendChild(botMessage);
-
-    // Agregar mensaje de apoyo cuando la respuesta es relevante
-    if (response !== "Lo siento, no tengo información sobre ese producto o proveedor.") {
-      addSupportMessage(chatbox);
-    }
-
-    document.getElementById("inputBox").value = "";
-    chatbox.scrollTop = chatbox.scrollHeight;
-  }
-</script>
-
+  </script>
 </body>
 </html>
