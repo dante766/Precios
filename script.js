@@ -21,7 +21,7 @@
 		"SHORT FAN": 8,
 		"SHORT PLAYER": 12,
 		"ENVIO GRATIS": "N/A",
-		"ENVIO EMS": "N/A",
+		"ENVIO EMS": 20,
 		"CONTACTO": "https://api.whatsapp.com/send/?phone=8615361409693&text&type=phone_number&app_absent=0"
 	  },
 	  "STARTJERSEY": {
