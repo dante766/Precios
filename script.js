@@ -623,6 +623,7 @@ function responder(input) {
         <img src="https://raw.githubusercontent.com/dante766/Precios/main/retro.jpeg" style="width:100%; margin-bottom: 10px;" />
         <img src="https://raw.githubusercontent.com/dante766/Precios/main/fan.jpeg" style="width:100%; margin-bottom: 10px;" />
         <img src="https://raw.githubusercontent.com/dante766/Precios/main/player.jpeg" style="width:100%;" />
+	<p>Las tallas mostradas son a modo de referencia. Para mayor precisión, te recomendamos usar una cinta métrica y medir tu prenda de ropa.</p>
       </div>
     `;
   }
