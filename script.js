@@ -613,3 +613,19 @@ if (botResponse) {
     }
   };
 
+function getBotResponse(input) {
+  if (input.toLowerCase().includes("tabla de medidas")) {
+    return `
+      <div>
+        <p style="font-weight: bold; color: #d9534f;">
+          ⚠️ Las tallas mostradas son a modo de referencia. Para mayor precisión, te recomendamos usar una cinta métrica y medir tu prenda de ropa.
+        </p>
+        <img src="https://raw.githubusercontent.com/dante766/Precios/0cd21b898fd358eff9a4b1fd37390e44d239ce13/retro.jpeg" alt="Tabla de medidas 1" style="max-width: 100%; border-radius: 10px; margin-bottom: 10px;">
+        <img src="https://raw.githubusercontent.com/dante766/Precios/0cd21b898fd358eff9a4b1fd37390e44d239ce13/fan.jpeg" alt="Tabla de medidas 2" style="max-width: 100%; border-radius: 10px; margin-bottom: 10px;">
+        <img src="https://raw.githubusercontent.com/dante766/Precios/0cd21b898fd358eff9a4b1fd37390e44d239ce13/player.jpeg" alt="Tabla de medidas 3" style="max-width: 100%; border-radius: 10px;">
+      </div>
+    `;
+  }
+  // Aquí tus otras respuestas...
+  return "No entendí tu mensaje.";
+}
