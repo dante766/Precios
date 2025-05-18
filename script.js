@@ -612,25 +612,3 @@ if (botResponse) {
       modalAyuda.style.display = "none";
     }
   };
-function responderBot(mensaje) {
-  const chatBox = document.querySelector(".chat-box");
-
-  if (mensaje.toLowerCase().includes("tabla de medidas")) {
-    const botRow = document.createElement("div");
-    botRow.className = "message-row bot-message";
-
-    const botBubble = document.createElement("div");
-    botBubble.className = "bubble bot";
-
-    botBubble.innerHTML = `
-      <div><strong>Tabla de Medidas:</strong></div>
-      <img src="https://raw.githubusercontent.com/dante766/Precios/738b1db08eacfb3e465083b351aab1087dc0a6d6/retro.jpeg" alt="Retro" style="max-width:100%; border-radius: 10px; margin-top: 10px;">
-      <img src="https://raw.githubusercontent.com/dante766/Precios/738b1db08eacfb3e465083b351aab1087dc0a6d6/fan.jpeg" alt="Fan" style="max-width:100%; border-radius: 10px; margin-top: 10px;">
-      <img src="https://raw.githubusercontent.com/dante766/Precios/738b1db08eacfb3e465083b351aab1087dc0a6d6/player.jpeg" alt="Player" style="max-width:100%; border-radius: 10px; margin-top: 10px;">
-    `;
-
-    botRow.appendChild(botBubble);
-    chatBox.appendChild(botRow);
-    chatBox.scrollTop = chatBox.scrollHeight;
-    return;
-  }
