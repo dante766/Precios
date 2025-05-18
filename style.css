@@ -1,4 +1,9 @@
-/* Estilo general de la página */
+/* Box-sizing global para evitar problemas de padding */
+* {
+  box-sizing: border-box;
+}
+
+/* Estilo general */
 body {
   font-family: Arial, sans-serif;
   background-color: #e5ddd5;
@@ -12,8 +17,9 @@ body {
 
 /* Contenedor principal del chat */
 .chat-container {
-  width: 400px;
-  height: 500px; 
+  width: 100%;
+  max-width: 600px;
+  height: 100vh;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -22,10 +28,9 @@ body {
   overflow: hidden;
 }
 
-/* Zona de mensajes con scroll */
+/* Zona de mensajes */
 .chat-box {
   flex: 1;
-  height: 300px;
   padding: 10px;
   overflow-y: auto;
   display: flex;
@@ -38,6 +43,7 @@ body {
 .message-row {
   display: flex;
   align-items: flex-end;
+  margin-bottom: 10px;
 }
 
 /* Alineación de mensajes */
@@ -49,7 +55,7 @@ body {
   justify-content: flex-end;
 }
 
-/* Estilo del ícono/avatar */
+/* Avatar */
 .avatar {
   width: 35px;
   height: 35px;
@@ -57,23 +63,22 @@ body {
   border-radius: 50%;
 }
 
-/* Estilo general de burbujas */
+/* Burbuja de mensaje */
 .bubble {
   max-width: 95%;
   padding: 10px;
   border-radius: 15px;
   position: relative;
-  word-wrap: break-word;	
+  word-wrap: break-word;
   white-space: normal;
 }
 
-/* Burbuja del bot */
+/* Estilos específicos */
 .bot .bubble {
   background-color: #e1ffc7;
   border-bottom-left-radius: 0;
 }
 
-/* Burbuja del usuario */
 .user .bubble {
   background-color: #64D8F8;
   border-bottom-right-radius: 0;
@@ -106,7 +111,7 @@ button:hover {
   background-color: #45a049;
 }
 
-/* Botones de respuesta rápida dentro del mensaje */
+/* Botones de respuesta rápida */
 .quick-buttons {
   margin-top: 10px;
   display: flex;
@@ -127,7 +132,7 @@ button:hover {
   background-color: #ddd;
 }
 
-/* Botones adicionales debajo del chat */
+/* Botones externos debajo del chat */
 .botones-externos {
   display: flex;
   justify-content: space-between;
@@ -166,6 +171,7 @@ button:hover {
   background-color: #0056b3;
 }
 
+/* Modal */
 .modal {
   display: none;
   position: fixed;
@@ -196,4 +202,52 @@ button:hover {
 
 .cerrar:hover {
   color: #000;
+}
+
+/* Adaptabilidad para móviles */
+@media screen and (max-width: 600px) {
+  .chat-container {
+    height: 100vh;
+    border-radius: 0;
+  }
+
+  .bubble {
+    max-width: 95%;
+    font-size: 14px;
+  }
+
+  input[type="text"] {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .quick-buttons button {
+    font-size: 13px;
+    padding: 6px 10px;
+    flex: 1 1 auto;
+  }
+
+  .avatar {
+    width: 24px;
+    height: 24px;
+  }
+
+  .botones-externos {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .donar-btn,
+  .ayuda-btn {
+    width: 100%;
+  }
+
+  .modal-contenido {
+    width: 90%;
+    margin: 30% auto;
+  }
 }
