@@ -46,6 +46,15 @@
   <!-- Contenedor principal del chat -->
   <div class="chat-container">
   <img src="https://raw.githubusercontent.com/dante766/Precios/main/FUTBOLXL.png" alt="Encabezado" style="width: 50%; max-height: 150px; object-fit: cover; display: block; margin: 0 auto">
+	
+    <!-- Zona donde se muestran los mensajes -->
+    <div class="chat-box" id="chat-box"></div>
+
+    <!-- Área de entrada de texto y botón para enviar -->
+    <div class="input-area">
+      <input type="text" id="user-input" placeholder="Escribe un mensaje...">
+      <button onclick="sendMessage()" style="background-color: #4CAF50; color: white;">Enviar</button>
+    </div>
 
     <!-- Zona donde se muestran los mensajes -->
     <div class="chat-box" id="chat-box"></div>
@@ -78,21 +87,16 @@
     </div>
   </div>
 
-<!-- Modal de Ayuda -->
-<div id="modal-ayuda" class="modal">
-  <div class="modal-contenido">
-    <span class="cerrar" onclick="cerrarAyuda()">&times;</span>
-    <h3>Preguntas que puedes hacer al bot:</h3>
-    <ul>
-      <li>📦 Precios de [Proveedor] --> (ej. Precios de Liu)</li>
-      <li>📐 Tabla de medidas --> (Fan, Retro, Player)</li>
-<!--  <li>💬 Mostrar reseñas de camisetas</li> -->
-<!--  <li>🏷️ Ver promociones activas</li> -->
-<!--  <li>📞 Contacto de BESTZV1</li> -->
-<!--  <li>📊 Comparar precios entre proveedores</li> -->
-    </ul>
-  </div>
-</div>
+	<!-- Modal de Ayuda -->
+	<div id="modal-ayuda" class="modal">
+	  <div class="modal-contenido">
+		<span class="cerrar" onclick="cerrarAyuda()">&times;</span>
+		<h3>Preguntas que puedes hacer al bot:</h3>
+		<ul>
+		  <li>📦 Precios de [Proveedor] (ej. Precios de Liu)</li>
+		</ul>
+	  </div>
+	</div>
 
 
 	<!-- Scripts -->
@@ -130,3 +134,4 @@
 	</script>
 </body>
 </html>
+
