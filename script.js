@@ -252,6 +252,18 @@
 		"ENVIO EMS": 10,
 		"CONTACTO": "https://api.whatsapp.com/send/?phone=8615875333462&text&type=phone_number&app_absent=0"
 	  },
+"WUSOCCER": {
+		"FAN": 13,
+		"RETRO": 19,
+		"PLAYER ADIDAS": 18,
+		"PLAYER NIKE": 18,
+		"PLAYER PUMA": 18,
+		"SHORT FAN": 12,
+		"SHORT PLAYER": 17,
+		"ENVIO GRATIS": "6 Items",
+		"ENVIO EMS": N/A,
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613450265109&text&type=phone_number&app_absent=0"
+	  },
 	  "XIAO LI": {
 		"FAN": 12,
 		"RETRO": 16,
