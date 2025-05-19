@@ -399,37 +399,7 @@ function mostrarEnviosGratis() {
 	  }
 	}
 
-	function getBotResponse(userInput) {
-	  const lowerInput = userInput.toLowerCase();
-
-  // Buscar si pregunta precios de un proveedor
-  const regexPrecios = /precios? de ([a-zA-Z\s()]+)/i;
-  const match = userInput.match(regexPrecios);
-  if (match && match[1]) {
-    const nombreProveedor = match[1].trim().toUpperCase();
-    if (proveedores[nombreProveedor]) {
-      mostrarPreciosProveedor(nombreProveedor);
-    } else {
-      agregarMensajeBot(`No encontré información para el proveedor "${nombreProveedor}".`);
-    }
-    return null; // Ya respondimos en mostrarPreciosProveedor
-  }
-
-
-	  if (lowerInput.includes("Envios Gratis") || lowerInput.includes("envío gratis")) {
-		mostrarEnviosGratis();
-		return null;
-	  }
-
-	  if (lowerInput.includes("precios ems") || lowerInput.includes("ems")) {
-		mostrarPreciosEMS(); // Si la creás después
-		return null;
-	  }
-
-	  // Si no coincide con nada, responder genérico
-	  return respuestasBot[userInput] || "No entiendo esa consulta todavía.";
-	}
-
+	// Pone el icono de USUARIO en el chat
 	function agregarMensajeUsuario(texto) {
 	  const chatBox = document.getElementById("chat-box");
 	  const mensaje = `
@@ -443,7 +413,7 @@ function mostrarEnviosGratis() {
 	  chatBox.innerHTML += mensaje;
 	  chatBox.scrollTop = chatBox.scrollHeight;
 	}
-
+	// Pone el icono de ROBOT en el chat
 	function agregarMensajeBot(texto) {
 	  const chatBox = document.getElementById("chat-box");
 	  const mensaje = `
@@ -457,175 +427,92 @@ function mostrarEnviosGratis() {
 	  chatBox.innerHTML += mensaje;
 	  chatBox.scrollTop = chatBox.scrollHeight;
 	}
+	// Muestra el resultado cuando se presiona el boton Precios EMS
+	function mostrarPreciosEMS() {
+	  let html = "<strong>Proveedores con Precio EMS:</strong><ul style='padding-left: 20px;'>";
+	  let encontrados = false;
 
-function mostrarPreciosEMS() {
-  let html = "<strong>Proveedores con Precio EMS:</strong><ul style='padding-left: 20px;'>";
-  let encontrados = false;
+	  for (const nombre in proveedores) {
+		const precioEMS = proveedores[nombre]["ENVIO EMS"];
+		const contacto = proveedores[nombre]["CONTACTO"];
 
-  for (const nombre in proveedores) {
-    const precioEMS = proveedores[nombre]["ENVIO EMS"];
-    const contacto = proveedores[nombre]["CONTACTO"];
+		if (precioEMS !== "N/A" && precioEMS !== undefined) {
+		  encontrados = true;
 
-    if (precioEMS !== "N/A" && precioEMS !== undefined) {
-      encontrados = true;
+		  html += `
+			<li style="margin-bottom: 10px;">
+			  <i class="fas fa-user"></i> <u>${nombre}</u><br>
+			  <i class="fas fa-plane"></i> PRECIO EMS: $${precioEMS}<br>
+			  <i class="fab fa-whatsapp"></i> CONTACTO: <a href="${contacto}" target="_blank">WhatsApp</a>
+			</li>
+		  `;
+		}
+	  }
 
-      html += `
-        <li style="margin-bottom: 10px;">
-          <i class="fas fa-user"></i> <u>${nombre}</u><br>
-          <i class="fas fa-plane"></i> PRECIO EMS: $${precioEMS}<br>
-          <i class="fab fa-whatsapp"></i> CONTACTO: <a href="${contacto}" target="_blank">WhatsApp</a>
-        </li>
-      `;
-    }
-  }
+	html += "</ul>";
 
-  html += "</ul>";
+	  if (!encontrados) {
+		html = "No se encontraron proveedores con precio EMS.";
+	  }
 
-  if (!encontrados) {
-    html = "No se encontraron proveedores con precio EMS.";
-  }
-
-  agregarMensajeBot(html);
-}
-
-
-
-function mostrarProveedores() {
-  let html = "<strong>Lista de Proveedores:</strong><ul style='padding-left: 20px;'>";
-
-  for (const nombre in proveedores) {
-    const contacto = proveedores[nombre]["CONTACTO"];
-    html += `
-      <li style="margin-bottom: 10px;">
-        <i class="fas fa-user"></i> <u>${nombre}</u><br>
-        <i class="fab fa-whatsapp"></i> CONTACTO: <a href="${contacto}" target="_blank">WhatsApp</a>
-      </li>
-    `;
-  }
-
-  html += "</ul>";
-  agregarMensajeBot(html);
-}
+	  agregarMensajeBot(html);
+	}
 
 
-function mostrarMejoresPaginas() {
-  const texto = `
-  <strong>🔝 10 Mejores Páginas para Comprar Camisetas:</strong>
-        <ol>
-          <li>🌐 <a href="https://www.kitmm.com" target="_blank">WWW.KITMM.COM</a></li>
-          <li>🌐 <a href="https://www.kitgg7.com" target="_blank">WWW.KITGG7.COM</a></li>
-          <li>🌐 <a href="https://www.fballshirt.com" target="_blank">WWW.FBALLSHIRT.COM</a></li>
-          <li>🌐 <a href="https://www.grkits3.com" target="_blank">WWW.GRKITS3.COM</a></li>
-          <li>🌐 <a href="https://www.minejerseys.cc" target="_blank">WWW.MINEJERSEYS.CC</a></li>
-          <li>🌐 <a href="https://www.bestzv1.com" target="_blank">WWW.BESTZV1.COM</a></li>
-          <li>🌐 <a href="https://www.koko101.com" target="_blank">WWW.KOKO101.COM</a></li>
-          <li>🌐 <a href="https://www.kkfoo.com" target="_blank">WWW.KKFOO.COM</a></li>
-          <li>🌐 <a href="https://www.gakits.com" target="_blank">WWW.GAKITS.COM</a></li>
-          <li>🌐 <a href="https://www.spfoot1.com" target="_blank">WWW.SPFOOT1.COM</a></li>
-        </ol>
-        <p>Estas son las páginas más confiables y con mejores reseñas según la comunidad de FUTBOL XL.</p>
-        <p>📽️ <a href="https://www.youtube.com/watch?v=T1tP98acheI" target="_blank">VIDEO RESEÑA FUTBOL XL</a></p> 
-  `;
-  agregarMensajeBot(texto);
-}
 
-function mostrarModal() {
-  document.getElementById("modal-donacion").style.display = "block";
-}
+	function mostrarProveedores() {
+	  let html = "<strong>Lista de Proveedores:</strong><ul style='padding-left: 20px;'>";
 
-function cerrarModal() {
-  document.getElementById("modal-donacion").style.display = "none";
-}
+	  for (const nombre in proveedores) {
+		const contacto = proveedores[nombre]["CONTACTO"];
+		html += `
+		  <li style="margin-bottom: 10px;">
+			<i class="fas fa-user"></i> <u>${nombre}</u><br>
+			<i class="fab fa-whatsapp"></i> CONTACTO: <a href="${contacto}" target="_blank">WhatsApp</a>
+		  </li>
+		`;
+	  }
 
-function mostrarPreciosProveedor(nombreProveedor) {
-  const proveedor = proveedores[nombreProveedor.toUpperCase()];
-  if (!proveedor) {
-    agregarMensajeBot(`No encontré información para el proveedor "${nombreProveedor}".`);
-    return;
-  }
+	  html += "</ul>";
+	  agregarMensajeBot(html);
+	}
 
-  // Construir el mensaje con los campos deseados, con emojis y formato
-  const html = `
-    <strong>Precios y datos de <u>${nombreProveedor.toUpperCase()}</u>:</strong><br><br>
-    👕 FAN: ${proveedor["FAN"]}<br>
-    👕 RETRO: ${proveedor["RETRO"]}<br>
-    👕 PLAYER ADIDAS: ${proveedor["PLAYER ADIDAS"]}<br>
-    👕 PLAYER NIKE: ${proveedor["PLAYER NIKE"]}<br>
-    👕 PLAYER PUMA: ${proveedor["PLAYER PUMA"]}<br>
-    🩳 SHORT FAN: ${proveedor["SHORT FAN"]}<br>
-    🩳 SHORT PLAYER: ${proveedor["SHORT PLAYER"]}<br>
-    🚚 Envío Gratis: Comprando ${proveedor["ENVIO GRATIS"]}<br>
-    ️✈️ Envío EMS: ${proveedor["ENVIO EMS"]}<br>
-    📱 CONTACTO: <a href="${proveedor["CONTACTO"]}" target="_blank">WhatsApp</a>
-  `;
+	// Muestra el resultado cuando se presiona el boton MEJORES PAGINAS
+	function mostrarMejoresPaginas() {
+	  const texto = `
+	  <strong>🔝 10 Mejores Páginas para Comprar Camisetas:</strong>
+			<ol>
+			  <li>🌐 <a href="https://www.kitmm.com" target="_blank">WWW.KITMM.COM</a></li>
+			  <li>🌐 <a href="https://www.kitgg7.com" target="_blank">WWW.KITGG7.COM</a></li>
+			  <li>🌐 <a href="https://www.fballshirt.com" target="_blank">WWW.FBALLSHIRT.COM</a></li>
+			  <li>🌐 <a href="https://www.grkits3.com" target="_blank">WWW.GRKITS3.COM</a></li>
+			  <li>🌐 <a href="https://www.minejerseys.cc" target="_blank">WWW.MINEJERSEYS.CC</a></li>
+			  <li>🌐 <a href="https://www.bestzv1.com" target="_blank">WWW.BESTZV1.COM</a></li>
+			  <li>🌐 <a href="https://www.koko101.com" target="_blank">WWW.KOKO101.COM</a></li>
+			  <li>🌐 <a href="https://www.kkfoo.com" target="_blank">WWW.KKFOO.COM</a></li>
+			  <li>🌐 <a href="https://www.gakits.com" target="_blank">WWW.GAKITS.COM</a></li>
+			  <li>🌐 <a href="https://www.spfoot1.com" target="_blank">WWW.SPFOOT1.COM</a></li>
+			</ol>
+			<p>Estas son las páginas más confiables y con mejores reseñas según la comunidad de FUTBOL XL.</p>
+			<p>📽️ <a href="https://www.youtube.com/watch?v=T1tP98acheI" target="_blank">VIDEO RESEÑA FUTBOL XL</a></p> 
+	  `;
+	  agregarMensajeBot(texto);
+	}
 
-  agregarMensajeBot(html);	
-}
-
-const botResponse = getBotResponse(userInput);
-if (botResponse) {
-  agregarMensajeBot(botResponse);
-}
-
-//  window.onclick = function(event) {
-//  const modal = document.getElementById("modal-donacion");
-//  if (event.target == modal) {
-//    modal.style.display = "none";
-//  }
-//} 
-
-  function mostrarModal() {
-    document.getElementById("modal-donacion").style.display = "block";
-  }
-
-  function cerrarModal() {
-    document.getElementById("modal-donacion").style.display = "none";
-  }
-
-  function mostrarAyuda() {
-    document.getElementById("modal-ayuda").style.display = "block";
-  }
-
-  function cerrarAyuda() {
-    document.getElementById("modal-ayuda").style.display = "none";
-  }
-
-  window.onclick = function(event) {
-    const modalDonacion = document.getElementById("modal-donacion");
-    const modalAyuda = document.getElementById("modal-ayuda");
-
-    // Cerrar modal de donación si el clic fue fuera del contenido
-    if (
-      modalDonacion.style.display === "block" &&
-      !event.target.closest(".modal-contenido") &&
-      modalDonacion.contains(event.target)
-    ) {
-      modalDonacion.style.display = "none";
-    }
-
-    // Cerrar modal de ayuda si el clic fue fuera del contenido
-    if (
-      modalAyuda.style.display === "block" &&
-      !event.target.closest(".modal-contenido") &&
-      modalAyuda.contains(event.target)
-    ) {
-      modalAyuda.style.display = "none";
-    }
-  };
-
-function getBotResponse(input) {
-  if (input.toLowerCase().includes("tabla de medidas")) {
-    return `
-      <div>
-        <p style="font-weight: bold; color: #d9534f;">
-          ⚠️ Las tallas mostradas son a modo de referencia. Para mayor precisión, te recomendamos usar una cinta métrica y medir tu prenda de ropa.
-        </p>
-        <img src="https://raw.githubusercontent.com/dante766/Precios/0cd21b898fd358eff9a4b1fd37390e44d239ce13/retro.jpeg" alt="Tabla de medidas 1" style="max-width: 100%; border-radius: 10px; margin-bottom: 10px;">
-        <img src="https://raw.githubusercontent.com/dante766/Precios/0cd21b898fd358eff9a4b1fd37390e44d239ce13/fan.jpeg" alt="Tabla de medidas 2" style="max-width: 100%; border-radius: 10px; margin-bottom: 10px;">
-        <img src="https://raw.githubusercontent.com/dante766/Precios/0cd21b898fd358eff9a4b1fd37390e44d239ce13/player.jpeg" alt="Tabla de medidas 3" style="max-width: 100%; border-radius: 10px;">
-      </div>
-    `;
-  }
-  // Aquí tus otras respuestas...
-  return "No entendí tu mensaje.";
-}
+	// Muestra respuesta al usuario de Tabla de medidas
+	function getBotResponse(input) {
+	  if (input.toLowerCase().includes("tabla de medidas")) {
+		return `
+		  <div>
+			<p style="font-weight: bold; color: #000000;">
+			  ⚠️ Las tallas mostradas son a modo de referencia. Para mayor precisión, te recomendamos usar una cinta métrica y medir tu prenda de ropa.
+			</p>
+			<img src="retro.jpeg" alt="Tabla de medidas 1" style="max-width: 100%; border-radius: 10px; margin-bottom: 10px;">
+			<img src="fan.jpeg" alt="Tabla de medidas 2" style="max-width: 100%; border-radius: 10px; margin-bottom: 10px;">
+			<img src="player.jpeg" alt="Tabla de medidas 3" style="max-width: 100%; border-radius: 10px;">
+		  </div>
+		`;
+	  }
+	  // Aquí tus otras respuestas...
+	  return "No entendí tu mensaje.";
+	}
