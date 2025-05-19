@@ -537,11 +537,19 @@ function mostrarEnviosGratis() {
 		`;
 	  }
 	  
-	    // 🔵 Buscar si el mensaje menciona un proveedor
+// 🔵 Buscar si el mensaje menciona un proveedor
   for (const nombre in proveedores) {
     if (lowerInput.includes(nombre.toLowerCase())) {
       return mostrarPreciosProveedor(nombre);
     }
+// Verifica si el mensaje dice "precios de [proveedor]"
+  if (lowerInput.includes("precios de " + nombreLower)) {
+    return mostrarPreciosProveedor(nombre);
+  }
+// Verifica si dice "precios" y luego el nombre del proveedor
+  if (lowerInput.includes("precios") && lowerInput.includes(nombreLower)) {
+    return mostrarPreciosProveedor(nombre);
+  }
   }
 	  
 	  // Aquí tus otras respuestas...
