@@ -340,6 +340,29 @@ function sendMessage() {
 	  chatBox.innerHTML += welcomeMessage;
 	};
 
+// Función para mostrar los precios de un proveedor específico
+function mostrarPreciosProveedor(nombreProveedor) {
+  const proveedor = proveedores[nombreProveedor];
+  if (!proveedor) {
+    return `No se encontró información para el proveedor "${nombreProveedor}".`;
+  }
+
+  let html = `<strong>Precios de ${nombreProveedor}:</strong><ul>`;
+  for (const key in proveedor) {
+    if (key !== "CONTACTO") {
+      html += `<li><strong>${key}:</strong> ${proveedor[key]}</li>`;
+    }
+  }
+  html += `<li><strong>Contacto:</strong> <a href="${proveedor["CONTACTO"]}" target="_blank">WhatsApp</a></li>`;
+  html += "</ul>";
+  return html;
+}
+
+
+
+
+
+
 
 function mostrarEnviosGratis() {
   let html = "<strong>Proveedores con Envío Gratis:</strong><ul style='padding-left: 20px;'>";
@@ -513,6 +536,41 @@ function mostrarEnviosGratis() {
 		  </div>
 		`;
 	  }
+	  
+	    // 🔵 Buscar si el mensaje menciona un proveedor
+  for (const nombre in proveedores) {
+    if (lowerInput.includes(nombre.toLowerCase())) {
+      return mostrarPreciosProveedor(nombre);
+    }
+  }
+	  
 	  // Aquí tus otras respuestas...
 	  return "No entendí tu mensaje.";
 	}
+
+function getBotResponse(userText) {
+  const texto = userText.trim().toUpperCase();
+
+  // Si el texto coincide con un proveedor exacto
+  if (proveedores[texto]) {
+    const datos = proveedores[texto];
+    return `
+      👤<strong>${texto}</strong><br>
+      👕FAN: $${datos["FAN"]}<br>
+      👕RETRO: $${datos["RETRO"]}<br>
+      👕PLAYER ADIDAS: $${datos["PLAYER ADIDAS"]}<br>
+      👕PLAYER NIKE: $${datos["PLAYER NIKE"]}<br>
+      👕PLAYER PUMA: $${datos["PLAYER PUMA"]}<br>
+      🩳SHORT FAN: $${datos["SHORT FAN"]}<br>
+      🩳SHORT PLAYER: $${datos["SHORT PLAYER"]}<br>
+      📦ENVÍO GRATIS: ${datos["ENVIO GRATIS"]}<br>
+      ✈️ENVÍO EMS: $${datos["ENVIO EMS"]}<br>
+      <i class="fab fa-whatsapp"></i> CONTACTO: <a href="${datos["CONTACTO"]}" target="_blank">WhatsApp</a>
+    `;
+  }
+
+  // Opcional: puedes manejar otras respuestas generales aquí
+  return "No se encontró el proveedor. Intenta escribir el nombre exacto o usa los botones rápidos.";
+}
+
+	
