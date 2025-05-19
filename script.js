@@ -522,63 +522,59 @@ function mostrarEnviosGratis() {
 	  agregarMensajeBot(texto);
 	}
 
-	// Muestra respuesta al usuario de Tabla de medidas
-	function getBotResponse(input) {
-	  if (input.toLowerCase().includes("tabla de medidas")) {
-		return `
-		  <div>
-			<p style="font-weight: bold; color: #000000;">
-			  ⚠️ Las tallas mostradas son a modo de referencia. Para mayor precisión, te recomendamos usar una cinta métrica y medir tu prenda de ropa.
-			</p>
-			<img src="retro.jpeg" alt="Tabla de medidas 1" style="max-width: 100%; border-radius: 10px; margin-bottom: 10px;">
-			<img src="fan.jpeg" alt="Tabla de medidas 2" style="max-width: 100%; border-radius: 10px; margin-bottom: 10px;">
-			<img src="player.jpeg" alt="Tabla de medidas 3" style="max-width: 100%; border-radius: 10px;">
-		  </div>
-		`;
-	  }
-	  
-// 🔵 Buscar si el mensaje menciona un proveedor
-  for (const nombre in proveedores) {
-    if (lowerInput.includes(nombre.toLowerCase())) {
-      return mostrarPreciosProveedor(nombre);
-    }
-// Verifica si el mensaje dice "precios de [proveedor]"
-  if (lowerInput.includes("precios de " + nombreLower)) {
-    return mostrarPreciosProveedor(nombre);
-  }
-// Verifica si dice "precios" y luego el nombre del proveedor
-  if (lowerInput.includes("precios") && lowerInput.includes(nombreLower)) {
-    return mostrarPreciosProveedor(nombre);
-  }
-  }
-	  
-	  // Aquí tus otras respuestas...
-	  return "No entendí tu mensaje.";
-	}
+	function getBotResponse(userText) {
+  const input = userText.trim().toLowerCase();
 
-function getBotResponse(userText) {
-  const texto = userText.trim().toUpperCase();
-
-  // Si el texto coincide con un proveedor exacto
-  if (proveedores[texto]) {
-    const datos = proveedores[texto];
+  // 1. Tabla de medidas
+  if (input.includes("tabla de medidas")) {
     return `
-      👤<strong>${texto}</strong><br>
-      👕FAN: $${datos["FAN"]}<br>
-      👕RETRO: $${datos["RETRO"]}<br>
-      👕PLAYER ADIDAS: $${datos["PLAYER ADIDAS"]}<br>
-      👕PLAYER NIKE: $${datos["PLAYER NIKE"]}<br>
-      👕PLAYER PUMA: $${datos["PLAYER PUMA"]}<br>
-      🩳SHORT FAN: $${datos["SHORT FAN"]}<br>
-      🩳SHORT PLAYER: $${datos["SHORT PLAYER"]}<br>
-      📦ENVÍO GRATIS: ${datos["ENVIO GRATIS"]}<br>
-      ✈️ENVÍO EMS: $${datos["ENVIO EMS"]}<br>
-      <i class="fab fa-whatsapp"></i> CONTACTO: <a href="${datos["CONTACTO"]}" target="_blank">WhatsApp</a>
+      <div>
+        <p style="font-weight: bold; color: #000000;">
+          ⚠️ Las tallas mostradas son a modo de referencia. Para mayor precisión, te recomendamos usar una cinta métrica y medir tu prenda de ropa.
+        </p>
+        <img src="retro.jpeg" alt="Tabla de medidas 1" style="max-width: 100%; border-radius: 10px; margin-bottom: 10px;">
+        <img src="fan.jpeg" alt="Tabla de medidas 2" style="max-width: 100%; border-radius: 10px; margin-bottom: 10px;">
+        <img src="player.jpeg" alt="Tabla de medidas 3" style="max-width: 100%; border-radius: 10px;">
+      </div>
     `;
   }
 
-  // Opcional: puedes manejar otras respuestas generales aquí
-  return "No se encontró el proveedor. Intenta escribir el nombre exacto o usa los botones rápidos.";
+  // 2. Buscar proveedor exacto o con "Precios de [Proveedor]"
+  for (const nombre in proveedores) {
+    const nombreLower = nombre.toLowerCase();
+
+    // Si el mensaje es exactamente el nombre del proveedor
+    if (input === nombreLower) {
+      return mostrarPreciosProveedor(nombre);
+    }
+
+    // Si el mensaje incluye "precios de [proveedor]" o combinaciones
+    if (input.includes("precios de " + nombreLower) || (input.includes("precios") && input.includes(nombreLower))) {
+      return mostrarPreciosProveedor(nombre);
+    }
+  }
+
+  // 3. Respuesta por defecto
+  return "No entendí tu mensaje. Intenta escribir algo como: <br>📌 Tabla de medidas<br>📌 Precios de [Proveedor]";
 }
+
+// Función auxiliar para mostrar precios
+function mostrarPreciosProveedor(nombre) {
+  const datos = proveedores[nombre];
+  return `
+    👤<strong>${nombre}</strong><br>
+    👕FAN: $${datos["FAN"]}<br>
+    👕RETRO: $${datos["RETRO"]}<br>
+    👕PLAYER ADIDAS: $${datos["PLAYER ADIDAS"]}<br>
+    👕PLAYER NIKE: $${datos["PLAYER NIKE"]}<br>
+    👕PLAYER PUMA: $${datos["PLAYER PUMA"]}<br>
+    🩳SHORT FAN: $${datos["SHORT FAN"]}<br>
+    🩳SHORT PLAYER: $${datos["SHORT PLAYER"]}<br>
+    📦ENVÍO GRATIS: ${datos["ENVIO GRATIS"]}<br>
+    ✈️ENVÍO EMS: $${datos["ENVIO EMS"]}<br>
+    <i class="fab fa-whatsapp"></i> CONTACTO: <a href="${datos["CONTACTO"]}" target="_blank">WhatsApp</a>
+  `;
+}
+
 
 	
