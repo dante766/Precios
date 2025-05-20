@@ -10,7 +10,12 @@
 		"SHORT PLAYER": "N/A",
 		"ENVIO GRATIS": "5 Items",
 		"ENVIO EMS": 20,
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=8617724352637&text&type=phone_number&app_absent=0"
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=8617724352637&text&type=phone_number&app_absent=0",
+		"CATALOGOS": [
+		{"name": "LINK 1","url": "https://qiuyipifa686868.x.yupoo.com/"},
+		{"name": "LINK 2","url": "https://xingkong-sports.x.yupoo.com/albums"},
+		{"name": "LINK 3","url": "http://wuquangui1837218052.x.yupoo.com/"}
+	  ]	
 	  },
 	  "BOND": {
 		"FAN": 11,
@@ -22,7 +27,57 @@
 		"SHORT PLAYER": 12,
 		"ENVIO GRATIS": "N/A",
 		"ENVIO EMS": 25,
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=8615361409693&text&type=phone_number&app_absent=0"
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=8615361409693&text&type=phone_number&app_absent=0",
+		"CATALOGOS": [
+		{
+		  "name": "LINK 1",
+		  "url": "https://minkang.x.yupoo.com/categories/712891"
+		},
+		{
+		  "name": "LINK 2",
+		  "url": "https://wavesoccer.x.yupoo.com/collections/334408"
+		},
+		{
+		  "name": "LINK 3",
+		  "url": "https://xlf888.x.yupoo.com/albums?page=2"
+		},
+		{
+		  "name": "LINK 4",
+		  "url": "https://xingkong-sports.x.yupoo.com/"
+		},
+		{
+		  "name": "LINK 5",
+		  "url": "https://yiyisports2016.x.yupoo.com/albums"
+		},
+		{
+		  "name": "LINK 6",
+		  "url": "https://x.yupoo.com/photos/xiaobaimaoyi/albums?tab=gallery"
+		},
+		{
+		  "name": "LINK 7",
+		  "url": "https://zg10083.x.yupoo.com/categories/4027624"
+		},
+		{
+		  "name": "LINK 8",
+		  "url": "https://dachang88.x.yupoo.com/albums"
+		},
+		{
+		  "name": "LINK 9",
+		  "url": "http://775180006.x.yupoo.com/categories/2854915"
+		},
+		{
+		  "name": "LINK 10",
+		  "url": "http://munichmy.x.yupoo.com/albums?tab=gallery"
+		},
+		{
+		  "name": "LINK 11",
+		  "url": "https://a-008.x.yupoo.com/categories/497717"
+		},
+		{
+		  "name": "LINK 12",
+		  "url": "https://mujichaopaia.x.yupoo.com/categories/4683964"
+		}
+	  ]
 	  },
 	  "STARTJERSEY": {
 		"FAN": 13,
@@ -34,7 +89,45 @@
 		"SHORT PLAYER": "N/A",
 		"ENVIO GRATIS": "3 Items",
 		"ENVIO EMS": 10,
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=8615207598085&text&type=phone_number&app_absent=0"
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=8615207598085&text&type=phone_number&app_absent=0",
+		"CATALOGOS": [
+		{
+		  "name": "LINK 1",
+		  "url": "https://starjerseys.x.yupoo.com"
+		},
+		{
+		  "name": "LINK 2",
+		  "url": "https://x.yupoo.com/photos/dachang88/albums?tab=gallery"
+		},
+		{
+		  "name": "LINK 3",
+		  "url": "https://qiumishijie.x.yupoo.com/albums"
+		},
+		{
+		  "name": "LINK 4",
+		  "url": "https://x.yupoo.com/photos/aj-dongli/albums?tab=gallery"
+		},
+		{
+		  "name": "LINK 5",
+		  "url": "https://wang-jerseys.x.yupoo.com/albums?tab=gallery"
+		},
+		{
+		  "name": "LINK 6",
+		  "url": "https://bit.ly/4bZu5lA"
+		},
+		{
+		  "name": "LINK 7",
+		  "url": "https://bit.ly/3VkQXfP"
+		},
+		{
+		  "name": "LINK 8",
+		  "url": "https://classic-football-fhirts052.x.yupoo.com/"
+		},
+		{
+		  "name": "LINK 9",
+		  "url": "https://bit.ly/4bZ4jn"
+		}
+	  ]
 	  },
 	  "PINHUI": {
 		"FAN": 11,
@@ -46,7 +139,16 @@
 		"SHORT PLAYER": 15,
 		"ENVIO GRATIS": "N/A",
 		"ENVIO EMS": "N/A",
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613416127767&text&type=phone_number&app_absent=0"
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613416127767&text&type=phone_number&app_absent=0",
+		"CATALOGOS": [
+		{ "name": "LINK 1", "url": "https://minkang.x.yupoo.com/albums?tab=gallery" },
+		{ "name": "LINK 2", "url": "https://hsquan996.x.yupoo.com/albums?tab=gallery" },
+		{ "name": "LINK 3", "url": "https://wanfing.x.yupoo.com/albums?tab=gallery" },
+		{ "name": "LINK 4", "url": "https://pinhuistore.x.yupoo.com/" },
+		{ "name": "LINK 5", "url": "https://wavesoccer.x.yupoo.com/albums?tab=gallery" },
+		{ "name": "LINK 6", "url": "https://xingkong-sports.x.yupoo.com/albums?tab=gallery" },
+		{ "name": "LINK 7", "url": "https://xiaobaimaoyi.x.yupoo.com/albums?tab=gallery" }
+		]
 	  },
 	  "HUANG (HOMBRE)": {
 		"FAN": 12,
@@ -58,7 +160,10 @@
 		"SHORT PLAYER": 14,
 		"ENVIO GRATIS": "4 Items",
 		"ENVIO EMS": "N/A",
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613535386151&text&type=phone_number&app_absent=0"
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613535386151&text&type=phone_number&app_absent=0",
+		"CATALOGOS)": [
+    { "name": "LINK 1", "url": "https://huang-66.x.yupoo.com/" }
+  ]
 	  },
 	  "BENE": {
 		"FAN": 11,
@@ -70,7 +175,13 @@
 		"SHORT PLAYER": "N/A",
 		"ENVIO GRATIS": "3 Items",
 		"ENVIO EMS": "N/A",
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=8618813326573&text&type=phone_number&app_absent=0"
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=8618813326573&text&type=phone_number&app_absent=0",
+		  "CATALOGOS": [
+    { "name": "LINK 1", "url": "https://huang727.x.yupoo.com/" },
+    { "name": "LINK 2", "url": "http://x.yupoo.com/photos/mzrycm102618/albums" },
+    { "name": "LINK 3", "url": "http://huang456852.x.yupoo.com/albums" },
+    { "name": "LINK 4", "url": "https://classic-football-fhirts052.x.yupoo.com/" }
+  ]
 	  },
 	  "HUANG (MUJER)": {
 		"FAN": 13,
@@ -82,7 +193,14 @@
 		"SHORT PLAYER": 15,
 		"ENVIO GRATIS": "N/A",
 		"ENVIO EMS": 25,
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613729056249&text&type=phone_number&app_absent=0"
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613729056249&text&type=phone_number&app_absent=0",
+		  "CATALOGOS": [
+    { "name": "LINK 1", "url": "https://168dyfs.x.zhidian-inc.cn/" },
+    { "name": "LINK 2", "url": "https://baocheng3f888.x.zhidian-inc.cn/" },
+    { "name": "LINK 3", "url": "https://aosendi.x.yupoo.com/albums" },
+    { "name": "LINK 4", "url": "https://aosendi801.x.yupoo.com/" },
+    { "name": "LINK 5", "url": "https://classic-football-fhirts052.x.yupoo.com/" }
+  ]
 	  },
 	  "MAO GU": {
 		"FAN": 12,
@@ -94,7 +212,16 @@
 		"SHORT PLAYER": 17,
 		"ENVIO GRATIS": "5 Items",
 		"ENVIO EMS": 10,
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=8615860039751&text&type=phone_number&app_absent=0"
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=8615860039751&text&type=phone_number&app_absent=0",
+		  "CATALOGOS": [
+    { "name": "LINK 1", "url": "https://x.yupoo.com/photos/dachang88/albums?tab=gallery" },
+    { "name": "LINK 2", "url": "https://qiumishijie.x.yupoo.com/albums" },
+    { "name": "LINK 3", "url": "https://x.yupoo.com/photos/aj-dongli/albums?tab=gallery" },
+    { "name": "LINK 4", "url": "https://bit.ly/4bZu5IA" },
+    { "name": "LINK 5", "url": "https://bit.ly/3VkQXfP" },
+    { "name": "LINK 6", "url": "https://classic-football-fhirts052.x.yupoo.com/albums" },
+    { "name": "LINK 7", "url": "https://bit.ly/4bZ4jns" }
+  ]
 	  },
 	  "ANNE": {
 		"FAN": 12,
@@ -106,7 +233,10 @@
 		"SHORT PLAYER": "N/A",
 		"ENVIO GRATIS": "N/A",
 		"ENVIO EMS": 15,
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613620452224&text&type=phone_number&app_absent=0"
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613620452224&text&type=phone_number&app_absent=0",
+		  "CATALOGOS": [
+    { "name": "LINK 1", "url": "https://maiyuyan.x.zhidian-inc.cn/" }
+  ]
 	  },
 	  "FORNECEDOR (ANNE)": {
 		"FAN": 10,
@@ -118,7 +248,12 @@
 		"SHORT PLAYER": "N/A",
 		"ENVIO GRATIS": "N/A",
 		"ENVIO EMS": "N/A",
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=8619584828798&text&type=phone_number&app_absent=0"
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=8619584828798&text&type=phone_number&app_absent=0",
+		  "CATALOGOS": [
+    { "name": "LINK 1", "url": "https://pt.aliexpress.com/item/1005008350356425.html?gatewayAdapt=glo2bra" },
+    { "name": "LINK 2", "url": "https://classic-football-fhirts052.x.yupoo.com/" },
+    { "name": "LINK 3", "url": "https://huiliyuan.x.yupoo.com/" }
+  ]
 	  },
 	  "YAOQUAN": {
 		"FAN": 11,
@@ -130,7 +265,19 @@
 		"SHORT PLAYER": 15,
 		"ENVIO GRATIS": "7 Items",
 		"ENVIO EMS": 15,
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=8615707508070&text&type=phone_number&app_absent=0"
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=8615707508070&text&type=phone_number&app_absent=0",
+		  "CATALOGOS": [
+    { "name": "LINK 1", "url": "https://xingkong-sports.x.yupoo.com/albums" },
+    { "name": "LINK 2", "url": "https://minkang.x.yupoo.com/" },
+    { "name": "LINK 3", "url": "https://classic-football-fhirts052.x.yupoo.com/" },
+    { "name": "LINK 4", "url": "https://3179704378.x.yupoo.com/" },
+    { "name": "LINK 5", "url": "https://ty-guoji.x.yupoo.com/" },
+    { "name": "LINK 6", "url": "https://ax2084.x.yupoo.com/albums?tab=gallery" },
+    { "name": "LINK 7", "url": "https://aosendi.x.yupoo.com/albums" },
+    { "name": "LINK 8", "url": "https://classic-football-fhirts052.x.yupoo.com/" },
+    { "name": "LINK 9", "url": "https://royal-sports.x.yupoo.com/albums" },
+    { "name": "LINK 10", "url": "https://minkang.x.yupoo.com/" }
+  ]
 	  },
 	  "WU JI ZHEN": {
 		"FAN": 12,
@@ -142,7 +289,19 @@
 		"SHORT PLAYER": "N/A",
 		"ENVIO GRATIS": "N/A",
 		"ENVIO EMS": "N/A",
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=553182946337&text&type=phone_number&app_absent=0"
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=553182946337&text&type=phone_number&app_absent=0",
+		  "CATALOGOS": [
+    { "name": "LINK 1", "url": "https://classic-football-fhirts052.x.yupoo.com/" },
+    { "name": "LINK 2", "url": "https://qq2470895303.x.yupoo.com/albums" },
+    { "name": "LINK 3", "url": "https://x.yupoo.com/photos/dongshanstore/albums" },
+    { "name": "LINK 4", "url": "https://yongfa1688.x.yupoo.com/" },
+    { "name": "LINK 5", "url": "https://xingkong-sports.x.yupoo.com/albums" },
+    { "name": "LINK 6", "url": "https://ingsports0828.x.yupoo.com/albums" },
+    { "name": "LINK 7", "url": "https://fugu2055.x.yupoo.com/" },
+    { "name": "LINK 8", "url": "https://jinmu2022.x.yupoo.com/albums" },
+    { "name": "LINK 9", "url": "https://a759499776.x.yupoo.com/" },
+    { "name": "LINK 10", "url": "https://x.yupoo.com/photos/yiyisports2016/albums" }
+  ]
 	  },
 	  "HANG": {
 		"FAN": 13,
@@ -154,7 +313,10 @@
 		"SHORT PLAYER": 15,
 		"ENVIO GRATIS": "4 Items",
 		"ENVIO EMS": "N/A",
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=553182946337&text&type=phone_number&app_absent=0"
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=553182946337&text&type=phone_number&app_absent=0",
+		  "CATALOGOS": [
+    { "name": "LINK 1", "url": "https://meukatalogo.com/tr-sport-world/" }
+  ]
 	  },
 	  "LIANG": {
 		"FAN": 11,
@@ -166,7 +328,21 @@
 		"SHORT PLAYER": 12,
 		"ENVIO GRATIS": "N/A",
 		"ENVIO EMS": "N/A",
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613713803864&text&type=phone_number&app_absent=0"
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613713803864&text&type=phone_number&app_absent=0",
+		  "CATALOGOS": [
+    { "name": "LINK 1", "url": "https://minkang.x.yupoo.com/categories/712891" },
+    { "name": "LINK 2", "url": "https://wavesoccer.x.yupoo.com/collections/334408" },
+    { "name": "LINK 3", "url": "https://xlf888.x.yupoo.com/albums?page=2" },
+    { "name": "LINK 4", "url": "https://xingkong-sports.x.yupoo.com/" },
+    { "name": "LINK 5", "url": "https://yiyisports2016.x.yupoo.com/albums" },
+    { "name": "LINK 6", "url": "https://x.yupoo.com/photos/xiaobaimaoyi/albums?tab=gallery" },
+    { "name": "LINK 7", "url": "https://zg10083.x.yupoo.com/categories/4027624" },
+    { "name": "LINK 8", "url": "https://dachang88.x.yupoo.com/albums" },
+    { "name": "LINK 9", "url": "http://775180006.x.yupoo.com/categories/2854915" },
+    { "name": "LINK 10", "url": "http://munichmy.x.yupoo.com/albums?tab=gallery" },
+    { "name": "LINK 11", "url": "https://a-008.x.yupoo.com/categories/497717" },
+    { "name": "LINK 12", "url": "https://mujichaopaia.x.yupoo.com/categories/4683964" }
+  ]
 	  },
 	  "WILID": {
 		"FAN": 13,
@@ -178,7 +354,10 @@
 		"SHORT PLAYER": 15,
 		"ENVIO GRATIS": "4 Items",
 		"ENVIO EMS": "N/A",
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613536398769&text&type=phone_number&app_absent=0"
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613536398769&text&type=phone_number&app_absent=0",
+		  "CATALOGOS": [
+    { "name": "LINK 1", "url": "https://kakahuaze123.x.yupoo.com/" }
+  ]
 	  },
 	  "MO WENQIAN": {
 		"FAN": 13,
@@ -190,7 +369,20 @@
 		"SHORT PLAYER": "N/A",
 		"ENVIO GRATIS": "5 Items",
 		"ENVIO EMS": "N/A",
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613570519855&text&type=phone_number&app_absent=0"
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613570519855&text&type=phone_number&app_absent=0",
+		  "CATALOGOS": [
+    { "name": "LINK 1", "url": "https://jinmu2022.x.yupoo.com/albums" },
+    { "name": "LINK 2", "url": "https://lisheng-football2.x.yupoo.com/albums?tab=gallery" },
+    { "name": "LINK 3", "url": "https://ouyu123.x.yupoo.com/albums" },
+    { "name": "LINK 4", "url": "https://chydfzd.x.yupoo.com/" },
+    { "name": "LINK 5", "url": "https://classic-football-fhirts052.x.yupoo.com/" },
+    { "name": "LINK 6", "url": "https://huiliyuan.x.yupoo.com/albums" },
+    { "name": "LINK 7", "url": "https://chydfzd.x.yupoo.com/" },
+    { "name": "LINK 8", "url": "https://hxltds.x.yupoo.com/" },
+    { "name": "LINK 9", "url": "https://baocheng3f888.x.yupoo.com/" },
+    { "name": "LINK 10", "url": "https://ty-guoji2.x.yupoo.com/" },
+    { "name": "LINK 11", "url": "https://xingkong-sports.x.yupoo.com/albums?tab=gallery" }
+  ]
 	  },
 	  "ASSON": {
 		"FAN": 12,
@@ -202,7 +394,13 @@
 		"SHORT PLAYER": 12,
 		"ENVIO GRATIS": "5 Items",
 		"ENVIO EMS": "N/A",
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613413637680&text&type=phone_number&app_absent=0"
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613413637680&text&type=phone_number&app_absent=0",
+		  "CATALOGOS": [
+    { "name": "LINK 1", "url": "https://wanfing.x.yupoo.com/" },
+    { "name": "LINK 2", "url": "https://wavesoccer.x.yupoo.com/collections/334408" },
+    { "name": "LINK 3", "url": "https://xlf888.x.yupoo.com/albums?page=2" },
+    { "name": "LINK 4", "url": "https://xingkong-sports.x.yupoo.com/" }
+  ]
 	  },
 	  "KKST": {
 		"FAN": 13,
@@ -214,7 +412,13 @@
 		"SHORT PLAYER": "N/A",
 		"ENVIO GRATIS": "3 Items",
 		"ENVIO EMS": "N/A",
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=8617520528000&text&type=phone_number&app_absent=0"
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=8617520528000&text&type=phone_number&app_absent=0",
+		  "CATALOGOS": [
+    { "name": "LINK 1", "url": "https://wanfing.x.yupoo.com/" },
+    { "name": "LINK 2", "url": "https://wavesoccer.x.yupoo.com/collections/334408" },
+    { "name": "LINK 3", "url": "https://xlf888.x.yupoo.com/albums?page=2" },
+    { "name": "LINK 4", "url": "https://xingkong-sports.x.yupoo.com/" }
+  ]
 	  },
 	  "MOZHONGTONG": {
 		"FAN": 12,
@@ -226,7 +430,19 @@
 		"SHORT PLAYER": 15,
 		"ENVIO GRATIS": "5 Items",
 		"ENVIO EMS": "N/A",
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=8618820627836&text&type=phone_number&app_absent=0"
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=8618820627836&text&type=phone_number&app_absent=0",
+		  "CATALOGOS": [
+    { "name": "LINK 1", "url": "https://baocheng3f888.x.yupoo.com/" },
+    { "name": "LINK 2", "url": "https://lisheng-football2.x.yupoo.com/" },
+    { "name": "LINK 3", "url": "https://huiliyuan.x.yupoo.com/albums" },
+    { "name": "LINK 4", "url": "https://classic-football-fhirts052.x.yupoo.com/" },
+    { "name": "LINK 5", "url": "http://huang456852.x.yupoo.com/albums" },
+    { "name": "LINK 6", "url": "https://xingkong-sports.x.yupoo.com/" },
+    { "name": "LINK 7", "url": "https://3179704378.x.yupoo.com/" },
+    { "name": "LINK 8", "url": "https://aosendi.x.yupoo.com/albums" },
+    { "name": "LINK 9", "url": "https://ax2084.x.yupoo.com/albums" },
+    { "name": "LINK 10", "url": "https://shhlhua.x.yupoo.com/albums" }
+  ]
 	  },
 	  "XIAOGUANG": {
 		"FAN": 13,
@@ -238,7 +454,19 @@
 		"SHORT PLAYER": 16,
 		"ENVIO GRATIS": "6 Items",
 		"ENVIO EMS": 10,
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=8615766574420&text&type=phone_number&app_absent=0"
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=8615766574420&text&type=phone_number&app_absent=0",
+		  "CATALOGOS": [
+    { "name": "LINK 1", "url": "https://classic-football-fhirts052.x.yupoo.com/" },
+    { "name": "LINK 2", "url": "https://qq2470895303.x.yupoo.com/albums" },
+    { "name": "LINK 3", "url": "https://x.yupoo.com/photos/dongshanstore/albums" },
+    { "name": "LINK 4", "url": "https://yongfa1688.x.yupoo.com/" },
+    { "name": "LINK 5", "url": "https://xingkong-sports.x.yupoo.com/albums" },
+    { "name": "LINK 6", "url": "https://ingsports0828.x.yupoo.com/albums" },
+    { "name": "LINK 7", "url": "https://fugu2055.x.yupoo.com/" },
+    { "name": "LINK 8", "url": "https://jinmu2022.x.yupoo.com/albums" },
+    { "name": "LINK 9", "url": "https://a759499776.x.yupoo.com/" },
+    { "name": "LINK 10", "url": "https://x.yupoo.com/photos/yiyisports2016/albums" }
+  ]
 	  },
 	  "MAGGIE": {
 		"FAN": 13,
@@ -250,9 +478,12 @@
 		"SHORT PLAYER": 17,
 		"ENVIO GRATIS": "6 Items",
 		"ENVIO EMS": 10,
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=8615875333462&text&type=phone_number&app_absent=0"
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=8615875333462&text&type=phone_number&app_absent=0",
+		  "CATALOGOS": [
+    { "name": "LINK 1", "url": "http://1022669895.x.zhidian-inc.cn/" }
+  ]
 	  },
-"WUSOCCER": {
+	  	  "WUSOCCER": {
 		"FAN": 13,
 		"RETRO": 19,
 		"PLAYER ADIDAS": 18,
@@ -261,8 +492,11 @@
 		"SHORT FAN": "N/A",
 		"SHORT PLAYER": "N/A",
 		"ENVIO GRATIS": "6 Items",
-		"ENVIO EMS": "N/A",
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613450265109&text&type=phone_number&app_absent=0"
+		"ENVIO EMS": 10,
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=8615875333462&text&type=phone_number&app_absent=0",
+		  "CATALOGOS": [
+    {  "name": "LINK 1", "url": "https://wusoccerjersey.com/" }
+  ]
 	  },
 	  "XIAO LI": {
 		"FAN": 12,
@@ -274,7 +508,23 @@
 		"SHORT PLAYER": "N/A",
 		"ENVIO GRATIS": "N/A",
 		"ENVIO EMS": "N/A",
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613650919444&text&type=phone_number&app_absent=0"
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613650919444&text&type=phone_number&app_absent=0",
+		  "CATALOGOS": [
+    { "name": "LINK 1", "url": "https://huiliyuan.x.yupoo.com/albums" },
+    { "name": "LINK 2", "url": "https://3409834285.x.zhidian-inc.cn/" },
+    { "name": "LINK 3", "url": "https://3409834285.x.yupoo.com/" },
+    { "name": "LINK 4", "url": "https://yongfa1688.x.yupoo.com/albums/138437375?uid=1" },
+    { "name": "LINK 5", "url": "https://ty-guoji.x.yupoo.com/" },
+    { "name": "LINK 6", "url": "https://879322886k.x.yupoo.com/categories/" },
+    { "name": "LINK 7", "url": "https://aosendi.x.yupoo.com/albums" },
+    { "name": "LINK 8", "url": "https://abc-tz.x.yupoo.com/" },
+    { "name": "LINK 9", "url": "https://aoguansi503.x.zhidian-inc.cn/albums/?page=5" },
+    { "name": "LINK 10", "url": "https://nfl-world.x.yupoo.com/" },
+    { "name": "LINK 11", "url": "https://yuanchuang1983.x.yupoo.com/albums" },
+    { "name": "LINK 12", "url": "https://kuanghanyundong.x.yupoo.com/albums" },
+    { "name": "LINK 13", "url": "https://xingkong-sports.x.yupoo.com/albums?tab=gallery" },
+    { "name": "LINK 14", "url": "https://x.yupoo.com/photos/yiyisports2016/albums?from=singlemessage&isappinstalled=0" }
+  ]
 	  }
 	}
 
@@ -573,6 +823,15 @@ function mostrarEnviosGratis() {
 // Función auxiliar para mostrar precios
 function mostrarPreciosProveedor(nombre) {
   const datos = proveedores[nombre];
+  let catalogosHTML = "";
+
+  if (datos["CATALOGOS"] && Array.isArray(datos["CATALOGOS"])) {
+    catalogosHTML = `<br>📚 <strong>CATALOGOS:</strong><br>`;
+    datos["CATALOGOS"].forEach(cat => {
+      catalogosHTML += `- <a href="${cat.url}" target="_blank">${cat.name}</a><br>`;
+    });
+  }
+
   return `
     👤<strong>${nombre}</strong><br>
     👕FAN: $${datos["FAN"]}<br>
@@ -581,10 +840,11 @@ function mostrarPreciosProveedor(nombre) {
     👕PLAYER NIKE: $${datos["PLAYER NIKE"]}<br>
     👕PLAYER PUMA: $${datos["PLAYER PUMA"]}<br>
     🩳SHORT FAN: $${datos["SHORT FAN"]}<br>
-    🩳SHORT PLAYER: $${datos["SHORT PLAYER"]}<br>
+    🩳SHORT PLAYER: ${datos["SHORT PLAYER"]}<br>
     📦ENVÍO GRATIS: ${datos["ENVIO GRATIS"]}<br>
     ✈️ENVÍO EMS: $${datos["ENVIO EMS"]}<br>
     <i class="fab fa-whatsapp"></i> CONTACTO: <a href="${datos["CONTACTO"]}" target="_blank">WhatsApp</a>
+    ${catalogosHTML}
   `;
 }
 
