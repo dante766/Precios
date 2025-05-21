@@ -839,14 +839,15 @@ function mostrarPreciosProveedor(nombre) {
     👕PLAYER ADIDAS: $${datos["PLAYER ADIDAS"]}<br>
     👕PLAYER NIKE: $${datos["PLAYER NIKE"]}<br>
     👕PLAYER PUMA: $${datos["PLAYER PUMA"]}<br>
-    🩳SHORT FAN: $${datos["SHORT FAN"]}<br>
-    🩳SHORT PLAYER: ${datos["SHORT PLAYER"]}<br>
+	🩳SHORT FAN: ${isNaN(datos["SHORT FAN"]) ? datos["SHORT FAN"] : `$${datos["SHORT FAN"]}`}<br>
+	🩳SHORT PLAYER: ${isNaN(datos["SHORT PLAYER"]) ? datos["SHORT PLAYER"] : `$${datos["SHORT PLAYER"]}`}<br>
     📦ENVÍO GRATIS: ${datos["ENVIO GRATIS"]}<br>
-    ✈️ENVÍO EMS: $${datos["ENVIO EMS"]}<br>
+    ✈️ENVÍO EMS: ${isNaN(datos["ENVIO EMS"]) ? datos["ENVIO EMS"] : `$${datos["ENVIO EMS"]}`}<br>
     <i class="fab fa-whatsapp"></i> CONTACTO: <a href="${datos["CONTACTO"]}" target="_blank">WhatsApp</a>
     ${catalogosHTML}
   `;
 }
+
 
 
 	
