@@ -727,7 +727,7 @@ function mostrarEnviosGratis() {
 		  html += `
 			<li style="margin-bottom: 10px;">
 			  <i class="fas fa-user"></i> <u>${nombre}</u><br>
-			  <i class="fas fa-plane"></i> PRECIO EMS: $${precioEMS}<br>
+			  <i class="fas fa-plane"></i> PRECIO EMS: ${isNaN(datos["ENVIO EMS"]) ? datos["ENVIO EMS"] : `$${datos["ENVIO EMS"]}`}<br>
 			  <i class="fab fa-whatsapp"></i> CONTACTO: <a href="${contacto}" target="_blank">WhatsApp</a>
 			</li>
 		  `;
