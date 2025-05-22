@@ -506,7 +506,7 @@
 		"PLAYER PUMA": 15,
 		"SHORT FAN": 10,
 		"SHORT PLAYER": "No tiene",
-		"ENVIO GRATIS": "No tiene",
+		"ENVIO GRATIS": "Comprando 5 Items",
 		"ENVIO EMS": 15,
 		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613650919444&text&type=phone_number&app_absent=0",
 		  "CATALOGOS": [
