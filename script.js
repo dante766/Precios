@@ -540,7 +540,7 @@ function sendMessage() {
   const input = document.getElementById("user-input");
   const chatBox = document.getElementById("chat-box");
   const userText = input.value.trim();
-  
+
   // No hacer nada si el mensaje está vacío
   if (userText === "") return;
 
@@ -598,7 +598,7 @@ function sendMessage() {
 		  </div>
 		</div>
 	  `;
-	  
+
 	  chatBox.innerHTML += welcomeMessage;
 	};
 
@@ -640,6 +640,7 @@ function mostrarEnviosGratis() {
       html += `
         <li style="margin-bottom: 10px;">
           <i class="fas fa-user"></i> <u>${nombre}</u><br>
+          <i class="fas fa-truck"></i> ENVÍO GRATIS: Llevando ${envioGratis}<br>
           <i class="fas fa-truck"></i> ENVÍO GRATIS: ${envioGratis}<br>
           <i class="fab fa-whatsapp"></i> CONTACTO: <a href="${contacto}" target="_blank">WhatsApp</a>
         </li>
@@ -847,7 +848,3 @@ function mostrarPreciosProveedor(nombre) {
     ${catalogosHTML}
   `;
 }
-
-
-
-	
