@@ -529,7 +529,7 @@
 		"SHORT PLAYER": 13,
 		"ENVIO GRATIS": "Comprando 6 Items",
 		"ENVIO EMS": 10,
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=8615018499951&text&type=phone_number&app_absent=0",
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=8618300180582&text&type=phone_number&app_absent=0",
 		  "CATALOGOS": [
     { "name": "LINK 1", "url": "https://minkang.x.yupoo.com/categories/712891" },
     { "name": "LINK 2", "url": "https://wavesoccer.x.yupoo.com/collections/334408" },
