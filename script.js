@@ -402,24 +402,6 @@
     { "name": "LINK 4", "url": "https://xingkong-sports.x.yupoo.com/" }
   ]
 	  },
-	  "KKST": {
-		"FAN": 13,
-		"RETRO": 16,
-		"PLAYER ADIDAS": 15,
-		"PLAYER NIKE": 15,
-		"PLAYER PUMA": 15,
-		"SHORT FAN": 8,
-		"SHORT PLAYER": "No tiene",
-		"ENVIO GRATIS": "Comprando 3 Items",
-		"ENVIO EMS": "No tiene",
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=8617520528000&text&type=phone_number&app_absent=0",
-		  "CATALOGOS": [
-    { "name": "LINK 1", "url": "https://wanfing.x.yupoo.com/" },
-    { "name": "LINK 2", "url": "https://wavesoccer.x.yupoo.com/collections/334408" },
-    { "name": "LINK 3", "url": "https://xlf888.x.yupoo.com/albums?page=2" },
-    { "name": "LINK 4", "url": "https://xingkong-sports.x.yupoo.com/" }
-  ]
-	  },
 	  "MOZHONGTONG": {
 		"FAN": 12,
 		"RETRO": 18,
