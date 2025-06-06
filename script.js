@@ -174,7 +174,7 @@
 		"SHORT FAN": 9,
 		"SHORT PLAYER": "No tiene",
 		"ENVIO GRATIS": "Comprando 3 Items",
-		"ENVIO EMS": "No tiene",
+		"ENVIO EMS": 10,
 		"CONTACTO": "https://api.whatsapp.com/send/?phone=8618813326573&text&type=phone_number&app_absent=0",
 		  "CATALOGOS": [
     { "name": "LINK 1", "url": "https://huang727.x.yupoo.com/" },
