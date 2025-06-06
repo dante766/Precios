@@ -737,35 +737,36 @@ function mostrarEnviosGratis() {
 	  chatBox.scrollTop = chatBox.scrollHeight;
 	}
 	// Muestra el resultado cuando se presiona el boton Precios EMS
-	function mostrarPreciosEMS() {
-	  let html = "<strong>Proveedores con Precio EMS:</strong><ul style='padding-left: 20px;'>";
-	  let encontrados = false;
+function mostrarPreciosEMS() {
+  let html = "<strong>Proveedores con Precio EMS:</strong><ul style='padding-left: 20px;'>";
+  let encontrados = false;
 
-	  for (const nombre in proveedores) {
-		const precioEMS = proveedores[nombre]["ENVIO EMS"];
-		const contacto = proveedores[nombre]["CONTACTO"];
+  for (const nombre in proveedores) {
+    const precioEMS = proveedores[nombre]["ENVIO EMS"];
+    const contacto = proveedores[nombre]["CONTACTO"];
 
-		if (precioEMS !== "N/A" && precioEMS !== undefined) {
-		  encontrados = true;
+    // Verifica si el valor de EMS es un número
+    if (!isNaN(precioEMS)) {
+      encontrados = true;
 
-		  html += `
-			<li style="margin-bottom: 10px;">
-			  <i class="fas fa-user"></i> <u>${nombre}</u><br>
-			  <i class="fas fa-plane"></i> PRECIO EMS: $${precioEMS}<br>
-			  <i class="fab fa-whatsapp"></i> CONTACTO: <a href="${contacto}" target="_blank">WhatsApp</a>
-			</li>
-		  `;
-		}
-	  }
+      html += `
+        <li style="margin-bottom: 10px;">
+          <i class="fas fa-user"></i> <u>${nombre}</u><br>
+          <i class="fas fa-plane"></i> PRECIO EMS: $${precioEMS}<br>
+          <i class="fab fa-whatsapp"></i> CONTACTO: <a href="${contacto}" target="_blank">WhatsApp</a>
+        </li>
+      `;
+    }
+  }
 
-	html += "</ul>";
+  html += "</ul>";
 
-	  if (!encontrados) {
-		html = "No se encontraron proveedores con precio EMS.";
-	  }
+  if (!encontrados) {
+    html = "No se encontraron proveedores con precio EMS.";
+  }
 
-	  agregarMensajeBot(html);
-	}
+  agregarMensajeBot(html);
+}
 
 
 
