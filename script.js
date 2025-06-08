@@ -617,6 +617,8 @@ function sendMessage() {
 				<button onclick="handleQuickReply('Envios Gratis')">Envios Gratis</button>
 				<button onclick="handleQuickReply('Precios EMS')">Precios EMS</button>
                 <button onclick="handleQuickReply('EXCEL')">EXCEL</button>
+				<button onclick="handleQuickReply('Aviso y Declaracion')">Aviso y Declaracion</button>
+				<button onclick="handleQuickReply('Rastreo Pedido')">Rastreo Pedido</button>
 			  </div>
 			</div>
 		  </div>
@@ -699,8 +701,14 @@ function mostrarEnviosGratis() {
 		case "Mejores Paginas":
 		  mostrarMejoresPaginas();
 		  break;
+		case "Aviso y Declaracion":
+		  mostrarAvisoyDeclaracion();
+		  break;
 		case "EXCEL":
 		  window.open('https://docs.google.com/spreadsheets/d/145xo2RmlYNt3g2I-U087mGu2B8vEmpfrC3P72c5ZgQg/edit?usp=drive_link', '_blank');
+		  break;	
+		case "Rastreo Pedido":
+		  window.open('https://www.17track.net/es', '_blank');
 		  break;		  
 		default:
 		  const respuesta = respuestasBot[opcion] || "No tengo datos sobre eso aún.";
@@ -808,6 +816,19 @@ function mostrarPreciosEMS() {
 	  `;
 	  agregarMensajeBot(texto);
 	}
+
+	// Muestra el resultado aviso y declaracion
+	function mostrarAvisoyDeclaracion() {
+	  const texto = `
+	  <strong>Los pasos para realizar despues de la compra:</strong>
+		   <p>1️⃣Ingresar a la pagina de <a href="https://epago.correoargentino.com.ar/#/login" target="_blank">EPAGOS</a> (crearse cuenta si no tienen).</p>
+		   <p>️2️⃣Realizar el aviso de compras con el nro de tracking.</p>
+		   <p>3️⃣Cuando tu paquete llegue al país y seas notificado, realizar la declaración jurada.</p>
+		   <p>📽️ <a href="https://www.youtube.com/watch?v=yv1RpOdNfy0" target="_blank">VIDEO TUTORIAL FUTBOL XL</a></p> 
+	  `;
+	  agregarMensajeBot(texto);
+	}
+
 
 	function getBotResponse(userText) {
   const input = userText.trim().toLowerCase();
