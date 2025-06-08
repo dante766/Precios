@@ -619,6 +619,8 @@ function sendMessage() {
                 <button onclick="handleQuickReply('EXCEL')">EXCEL</button>
 				<button onclick="handleQuickReply('Aviso y Declaracion')">Aviso y Declaracion</button>
 				<button onclick="handleQuickReply('Rastreo Pedido')">Rastreo Pedido</button>
+				<button onclick="handleQuickReply('Pasos Compra Proveedor')">Pasos Compra Proveedor</button>
+				<button onclick="handleQuickReply('Canal Futbol XL')">Canal Futbol XL</button>
 			  </div>
 			</div>
 		  </div>
@@ -704,12 +706,18 @@ function mostrarEnviosGratis() {
 		case "Aviso y Declaracion":
 		  mostrarAvisoyDeclaracion();
 		  break;
+		case "Pasos Compra Proveedor":
+		  mostrarPasosCompraProveedor();
+		  break;
 		case "EXCEL":
 		  window.open('https://docs.google.com/spreadsheets/d/145xo2RmlYNt3g2I-U087mGu2B8vEmpfrC3P72c5ZgQg/edit?usp=drive_link', '_blank');
 		  break;	
 		case "Rastreo Pedido":
 		  window.open('https://www.17track.net/es', '_blank');
-		  break;		  
+		  break;
+		case "Canal Futbol XL":
+		  window.open('https://www.youtube.com/c/F%C3%BAtbolXL/videos', '_blank');
+		  break;			  
 		default:
 		  const respuesta = respuestasBot[opcion] || "No tengo datos sobre eso aún.";
 		  agregarMensajeBot(respuesta);
@@ -828,6 +836,21 @@ function mostrarPreciosEMS() {
 	  `;
 	  agregarMensajeBot(texto);
 	}
+	// Muestra el resultado aviso y declaracion
+function mostrarPasosCompraProveedor() {
+  const texto = `
+    <strong>🛍️ Pasos para realizar una compra a un proveedor:</strong>
+    <p>1️⃣ Elegir un proveedor con quien realizar la consulta o compra.</p>
+    <p>2️⃣ Enviar una imagen del producto deseado y preguntar si tiene stock.</p>
+    <p>3️⃣ Si confirma disponibilidad, enviar el detalle del producto (Talle, Versión, Numero, etc.).</p>
+    <p>4️⃣ El proveedor compartirá su correo de PayPal para el pago.</p>
+    <p>5️⃣ Realizar el pago por PayPal y enviar la captura del comprobante.</p>
+    <p>6️⃣ Enviar los datos del domicilio para el envío.</p>
+    <p>7️⃣ Esperar entre 3 y 7 días para recibir la foto del producto y el número de seguimiento.</p>
+  `;
+  agregarMensajeBot(texto);
+}
+
 
 
 	function getBotResponse(userText) {
