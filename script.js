@@ -522,6 +522,27 @@
     { "name": "LINK 7", "url": "https://yiyisports2016.x.yupoo.com/albums" }
   ]
 	  },
+	  	"ZHU EL": {
+		"FAN": 13,
+		"RETRO": 19,
+		"PLAYER ADIDAS": 18,
+		"PLAYER NIKE": 18,
+		"PLAYER PUMA": 18,
+		"SHORT FAN": "No tiene",
+		"SHORT PLAYER": "No tiene",
+		"ENVIO GRATIS": "Comprando 6 Items",
+		"ENVIO EMS": 10,
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=8618300180582&text&type=phone_number&app_absent=0",
+		  "CATALOGOS": [
+    { "name": "LINK 1", "url": "https://minkang.x.yupoo.com/categories/712891" },
+    { "name": "LINK 2", "url": "https://wavesoccer.x.yupoo.com/collections/334408" },
+    { "name": "LINK 3", "url": "https://xlf888.x.yupoo.com/albums?page=2" },
+    { "name": "LINK 4", "url": "https://xingkong-sports.x.yupoo.com/" },
+    { "name": "LINK 5", "url": "https://minkang.x.yupoo.com/categories/3279569" },
+    { "name": "LINK 6", "url": "https://chenzhefuzhuang.x.yupoo.com/categories/3230017" },
+    { "name": "LINK 7", "url": "https://yiyisports2016.x.yupoo.com/albums" }
+  ]
+	  },
 	  "XIAO LI": {
 		"FAN": 12,
 		"RETRO": 16,
