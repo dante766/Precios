@@ -130,14 +130,14 @@
 	  ]
 	  },
 	  "PINHUI": {
-		"FAN": 11,
-		"RETRO": 17,
-		"PLAYER ADIDAS": 13,
+		"FAN": 12,
+		"RETRO": 18,
+		"PLAYER ADIDAS": 15,
 		"PLAYER NIKE": 17,
-		"PLAYER PUMA": 15,
-		"SHORT FAN": 10,
+		"PLAYER PUMA": 17,
+		"SHORT FAN": 11,
 		"SHORT PLAYER": 15,
-		"ENVIO GRATIS": "No tiene",
+		"ENVIO GRATIS": "Comprando 5 Items",
 		"ENVIO EMS": "No tiene",
 		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613416127767&text&type=phone_number&app_absent=0",
 		"CATALOGOS": [
