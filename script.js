@@ -279,21 +279,6 @@
     { "name": "LINK 10", "url": "https://minkang.x.yupoo.com/" }
   ]
 	  },
-	  "HANG": {
-		"FAN": 13,
-		"RETRO": 19,
-		"PLAYER ADIDAS": 16,
-		"PLAYER NIKE": 18,
-		"PLAYER PUMA": 18,
-		"SHORT FAN": 11,
-		"SHORT PLAYER": 15,
-		"ENVIO GRATIS": "Comprando 4 Items",
-		"ENVIO EMS": "No tiene",
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=553182946337&text&type=phone_number&app_absent=0",
-		  "CATALOGOS": [
-    { "name": "LINK 1", "url": "https://meukatalogo.com/tr-sport-world/" }
-  ]
-	  },
 	  "LIANG": {
 		"FAN": 11,
 		"RETRO": 16,
