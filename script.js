@@ -878,6 +878,7 @@ function mostrarPasosCompraProveedor() {
         <img src="retro.jpeg" alt="Tabla de medidas 1" style="max-width: 100%; border-radius: 10px; margin-bottom: 10px;">
         <img src="fan.jpeg" alt="Tabla de medidas 2" style="max-width: 100%; border-radius: 10px; margin-bottom: 10px;">
         <img src="player.jpeg" alt="Tabla de medidas 3" style="max-width: 100%; border-radius: 10px;">
+	<img src="kid.jpeg" alt="Tabla de medidas 3" style="max-width: 100%; border-radius: 10px;">
       </div>
     `;
   }
