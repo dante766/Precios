@@ -264,7 +264,7 @@
 		"SHORT FAN": 11,
 		"SHORT PLAYER": 15,
 		"ENVIO GRATIS": "Comprando 7 Items",
-		"ENVIO EMS": 15,
+		"ENVIO EMS": 25,
 		"CONTACTO": "https://api.whatsapp.com/send/?phone=8615707508070&text&type=phone_number&app_absent=0",
 		  "CATALOGOS": [
     { "name": "LINK 1", "url": "https://xingkong-sports.x.yupoo.com/albums" },
