@@ -320,31 +320,6 @@
     { "name": "LINK 1", "url": "https://kakahuaze123.x.yupoo.com/" }
   ]
 	  },
-	  "MO WENQIAN": {
-		"FAN": 13,
-		"RETRO": 17,
-		"PLAYER ADIDAS": 16,
-		"PLAYER NIKE": 16,
-		"PLAYER PUMA": 16,
-		"SHORT FAN": 11,
-		"SHORT PLAYER": "No tiene",
-		"ENVIO GRATIS": "Comprando 5 Items",
-		"ENVIO EMS": "No tiene",
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613570519855&text&type=phone_number&app_absent=0",
-		  "CATALOGOS": [
-    { "name": "LINK 1", "url": "https://jinmu2022.x.yupoo.com/albums" },
-    { "name": "LINK 2", "url": "https://lisheng-football2.x.yupoo.com/albums?tab=gallery" },
-    { "name": "LINK 3", "url": "https://ouyu123.x.yupoo.com/albums" },
-    { "name": "LINK 4", "url": "https://chydfzd.x.yupoo.com/" },
-    { "name": "LINK 5", "url": "https://classic-football-fhirts052.x.yupoo.com/" },
-    { "name": "LINK 6", "url": "https://huiliyuan.x.yupoo.com/albums" },
-    { "name": "LINK 7", "url": "https://chydfzd.x.yupoo.com/" },
-    { "name": "LINK 8", "url": "https://hxltds.x.yupoo.com/" },
-    { "name": "LINK 9", "url": "https://baocheng3f888.x.yupoo.com/" },
-    { "name": "LINK 10", "url": "https://ty-guoji2.x.yupoo.com/" },
-    { "name": "LINK 11", "url": "https://xingkong-sports.x.yupoo.com/albums?tab=gallery" }
-  ]
-	  },
 	  "ASSON": {
 		"FAN": 12,
 		"RETRO": 19,
@@ -517,34 +492,6 @@
 		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613692351274&text&type=phone_number&app_absent=0",
 		  "CATALOGOS": [
     { "name": "LINK 1", "url": "https://194939.x.yupoo.com/albums?tab=gallery&page=2" }
-  ]
-	  },	
-	  "XIAO LI": {
-		"FAN": 12,
-		"RETRO": 16,
-		"PLAYER ADIDAS": 15,
-		"PLAYER NIKE": 15,
-		"PLAYER PUMA": 15,
-		"SHORT FAN": 10,
-		"SHORT PLAYER": "No tiene",
-		"ENVIO GRATIS": "Comprando 5 Items",
-		"ENVIO EMS": 15,
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613650919444&text&type=phone_number&app_absent=0",
-		  "CATALOGOS": [
-    { "name": "LINK 1", "url": "https://huiliyuan.x.yupoo.com/albums" },
-    { "name": "LINK 2", "url": "https://3409834285.x.zhidian-inc.cn/" },
-    { "name": "LINK 3", "url": "https://3409834285.x.yupoo.com/" },
-    { "name": "LINK 4", "url": "https://yongfa1688.x.yupoo.com/albums/138437375?uid=1" },
-    { "name": "LINK 5", "url": "https://ty-guoji.x.yupoo.com/" },
-    { "name": "LINK 6", "url": "https://879322886k.x.yupoo.com/categories/" },
-    { "name": "LINK 7", "url": "https://aosendi.x.yupoo.com/albums" },
-    { "name": "LINK 8", "url": "https://abc-tz.x.yupoo.com/" },
-    { "name": "LINK 9", "url": "https://aoguansi503.x.zhidian-inc.cn/albums/?page=5" },
-    { "name": "LINK 10", "url": "https://nfl-world.x.yupoo.com/" },
-    { "name": "LINK 11", "url": "https://yuanchuang1983.x.yupoo.com/albums" },
-    { "name": "LINK 12", "url": "https://kuanghanyundong.x.yupoo.com/albums" },
-    { "name": "LINK 13", "url": "https://xingkong-sports.x.yupoo.com/albums?tab=gallery" },
-    { "name": "LINK 14", "url": "https://x.yupoo.com/photos/yiyisports2016/albums?from=singlemessage&isappinstalled=0" }
   ]
 	  }
 	}
