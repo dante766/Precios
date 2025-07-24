@@ -479,6 +479,22 @@
     { "name": "LINK 7", "url": "https://yiyisports2016.x.yupoo.com/albums" }
   ]
 	  },
+
+	  	"LUCKY ZHE": {
+		"FAN": 13,
+		"RETRO": 19,
+		"PLAYER ADIDAS": 18,
+		"PLAYER NIKE": 18,
+		"PLAYER PUMA": 18,
+		"SHORT FAN": 13,
+		"SHORT PLAYER": 14,
+		"ENVIO GRATIS": "Comprando 6 Items",
+		"ENVIO EMS": 10,
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613422119126&text&type=phone_number&app_absent=0",
+		  "CATALOGOS": [
+    { "name": "LINK 1", "url": "https://x.yupoo.com/photos/1022669895/albums" }
+  ]
+	  },
 	"ATHLETIC PRO": {
 		"FAN": 13,
 		"RETRO": 17,
