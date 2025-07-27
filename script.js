@@ -129,27 +129,7 @@
 		}
 	  ]
 	  },
-	  "PINHUI": {
-		"FAN": 12,
-		"RETRO": 18,
-		"PLAYER ADIDAS": 15,
-		"PLAYER NIKE": 17,
-		"PLAYER PUMA": 17,
-		"SHORT FAN": 11,
-		"SHORT PLAYER": 15,
-		"ENVIO GRATIS": "Comprando 5 Items",
-		"ENVIO EMS": "No tiene",
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613416127767&text&type=phone_number&app_absent=0",
-		"CATALOGOS": [
-		{ "name": "LINK 1", "url": "https://minkang.x.yupoo.com/albums?tab=gallery" },
-		{ "name": "LINK 2", "url": "https://hsquan996.x.yupoo.com/albums?tab=gallery" },
-		{ "name": "LINK 3", "url": "https://wanfing.x.yupoo.com/albums?tab=gallery" },
-		{ "name": "LINK 4", "url": "https://pinhuistore.x.yupoo.com/" },
-		{ "name": "LINK 5", "url": "https://wavesoccer.x.yupoo.com/albums?tab=gallery" },
-		{ "name": "LINK 6", "url": "https://xingkong-sports.x.yupoo.com/albums?tab=gallery" },
-		{ "name": "LINK 7", "url": "https://xiaobaimaoyi.x.yupoo.com/albums?tab=gallery" }
-		]
-	  },
+	  
 	  "HUANG (HOMBRE)": {
 		"FAN": 12,
 		"RETRO": 17,
