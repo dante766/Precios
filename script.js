@@ -320,24 +320,6 @@
     { "name": "LINK 1", "url": "https://kakahuaze123.x.yupoo.com/" }
   ]
 	  },
-	  "ASSON": {
-		"FAN": 12,
-		"RETRO": 19,
-		"PLAYER ADIDAS": 15,
-		"PLAYER NIKE": 16,
-		"PLAYER PUMA": 16,
-		"SHORT FAN": 10,
-		"SHORT PLAYER": 12,
-		"ENVIO GRATIS": "Comprando 5 Items",
-		"ENVIO EMS": "No tiene",
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613413637680&text&type=phone_number&app_absent=0",
-		  "CATALOGOS": [
-    { "name": "LINK 1", "url": "https://wanfing.x.yupoo.com/" },
-    { "name": "LINK 2", "url": "https://wavesoccer.x.yupoo.com/collections/334408" },
-    { "name": "LINK 3", "url": "https://xlf888.x.yupoo.com/albums?page=2" },
-    { "name": "LINK 4", "url": "https://xingkong-sports.x.yupoo.com/" }
-  ]
-	  },
 	  "MOZHONGTONG": {
 		"FAN": 12,
 		"RETRO": 18,
