@@ -426,7 +426,36 @@
     { "name": "LINK 7", "url": "https://yiyisports2016.x.yupoo.com/albums" }
   ]
 	  },
-
+	  	"XIAOZHU": {
+		"FAN": 12,
+		"RETRO": 18,
+		"PLAYER ADIDAS": 16,
+		"PLAYER NIKE": 16,
+		"PLAYER PUMA": 16,
+		"SHORT FAN": 12,
+		"SHORT PLAYER": 14,
+		"ENVIO GRATIS": "Comprando 6 Items",
+		"ENVIO EMS": 4,
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613422119126&text&type=phone_number&app_absent=0",
+		  "CATALOGOS": [
+    { "name": "LINK 1", "url": "https://classic-football-fhirts052.x.yupoo.com/" }
+  ]
+	  },
+	"XIAOMING": {
+		"FAN": 13,
+		"RETRO": 19,
+		"PLAYER ADIDAS": 18,
+		"PLAYER NIKE": 18,
+		"PLAYER PUMA": 18,
+		"SHORT FAN": 10,
+		"SHORT PLAYER": 15,
+		"ENVIO GRATIS": "Comprando 6 Items",
+		"ENVIO EMS": 10,
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613422119126&text&type=phone_number&app_absent=0",
+		  "CATALOGOS": [
+    { "name": "LINK 1", "url": "https://3409834285.x.yupoo.com/" }
+  ]
+	  },
 	  	"LUCKY ZHE": {
 		"FAN": 13,
 		"RETRO": 19,
