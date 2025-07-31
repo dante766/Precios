@@ -720,20 +720,24 @@ function mostrarPreciosEMS() {
   agregarMensajeBot(html);
 }
 
-function mostrarProveedores() {
-  let html = "<strong>Lista de Proveedores:</strong><ul style='padding-left: 20px;'>";
 
-  for (const nombre in proveedores) {
-    const contacto = proveedores[nombre]["CONTACTO"];
-    html += `
-      <li style="margin-bottom: 10px;">
-        <i class="fas fa-user"></i> <u>${nombre}</u><br>
-        <i class="fab fa-whatsapp"></i> CONTACTO: <a href="${contacto}" target="_blank">WhatsApp</a>
-      </li>
-    `;
-  }
 
-} // ← esta llave te faltaba
+	function mostrarProveedores() {
+	  let html = "<strong>Lista de Proveedores:</strong><ul style='padding-left: 20px;'>";
+
+	  for (const nombre in proveedores) {
+		const contacto = proveedores[nombre]["CONTACTO"];
+		html += `
+		  <li style="margin-bottom: 10px;">
+			<i class="fas fa-user"></i> <u>${nombre}</u><br>
+			<i class="fab fa-whatsapp"></i> CONTACTO: <a href="${contacto}" target="_blank">WhatsApp</a>
+		  </li>
+		`;
+	  }
+
+	  html += "</ul>";
+	  agregarMensajeBot(html);
+	}
 
 	// Muestra el resultado cuando se presiona el boton MEJORES PAGINAS
 	function mostrarMejoresPaginas() {
