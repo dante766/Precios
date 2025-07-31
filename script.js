@@ -723,10 +723,13 @@ function mostrarPreciosEMS() {
 
 
 function mostrarProveedores() {
-  let html = "<strong>Lista de Proveedores:</strong><ul style='padding-left: 20px;'>";
-
-  // Ordenar los nombres de los proveedores alfabéticamente
+  // Obtener los nombres y ordenarlos alfabéticamente
   const nombresOrdenados = Object.keys(proveedores).sort();
+
+  // Contar proveedores
+  const total = nombresOrdenados.length;
+
+  let html = `<strong>Lista de Proveedores (${total}):</strong><ul style='padding-left: 20px;'>`;
 
   for (const nombre of nombresOrdenados) {
     const contacto = proveedores[nombre]["CONTACTO"];
@@ -737,6 +740,10 @@ function mostrarProveedores() {
       </li>
     `;
   }
+
+  html += "</ul>";
+  agregarMensajeBot(html);
+}
 
   html += "</ul>";
   agregarMensajeBot(html);
