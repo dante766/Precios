@@ -720,24 +720,26 @@ function mostrarPreciosEMS() {
   agregarMensajeBot(html);
 }
 
+function mostrarProveedores() {
+  // Obtener los nombres de los proveedores y ordenarlos alfabéticamente
+  const nombresProveedores = Object.keys(proveedores).sort();
+  const total = nombresProveedores.length;
 
+  let html = `<strong>Lista de Proveedores: (${total})</strong><ul style='padding-left: 20px;'>`;
 
-	function mostrarProveedores() {
-	  let html = "<strong>Lista de Proveedores:</strong><ul style='padding-left: 20px;'>";
+  for (const nombre of nombresProveedores) {
+    const contacto = proveedores[nombre]["CONTACTO"];
+    html += `
+      <li style="margin-bottom: 10px;">
+        <i class="fas fa-user"></i> <u>${nombre}</u><br>
+        <i class="fab fa-whatsapp"></i> CONTACTO: <a href="${contacto}" target="_blank">WhatsApp</a>
+      </li>
+    `;
+  }
 
-	  for (const nombre in proveedores) {
-		const contacto = proveedores[nombre]["CONTACTO"];
-		html += `
-		  <li style="margin-bottom: 10px;">
-			<i class="fas fa-user"></i> <u>${nombre}</u><br>
-			<i class="fab fa-whatsapp"></i> CONTACTO: <a href="${contacto}" target="_blank">WhatsApp</a>
-		  </li>
-		`;
-	  }
-
-	  html += "</ul>";
-	  agregarMensajeBot(html);
-	}
+  html += "</ul>";
+  agregarMensajeBot(html);
+}
 
 	// Muestra el resultado cuando se presiona el boton MEJORES PAGINAS
 	function mostrarMejoresPaginas() {
