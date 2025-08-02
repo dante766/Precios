@@ -146,12 +146,12 @@
   ]
 	  },
 	  "BENE": {
-		"FAN": 11,
-		"RETRO": 16,
-		"PLAYER ADIDAS": 15,
-		"PLAYER NIKE": 15,
-		"PLAYER PUMA": 15,
-		"SHORT FAN": 9,
+		"FAN": 13,
+		"RETRO": 19,
+		"PLAYER ADIDAS": 18,
+		"PLAYER NIKE": 18,
+		"PLAYER PUMA": 18,
+		"SHORT FAN": "No tiene",
 		"SHORT PLAYER": "No tiene",
 		"ENVIO GRATIS": "Comprando 6 Items",
 		"ENVIO EMS": 10,
