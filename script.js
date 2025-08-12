@@ -324,6 +324,22 @@
     { "name": "LINK 1", "url": "http://1022669895.x.zhidian-inc.cn/" }
   ]
 	  },
+	  	  "TINA": {
+		"FAN": 15,
+		"RETRO": 18,
+		"PLAYER ADIDAS": 18,
+		"PLAYER NIKE": 18,
+		"PLAYER PUMA": 18,
+		"SHORT FAN": "13",
+		"SHORT PLAYER": "16",
+		"ENVIO GRATIS": "Comprando 5 Items",
+		"ENVIO EMS": 10,
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613729036166&text&type=phone_number&app_absent=0",
+		  "CATALOGOS": [
+    {  "name": "LINK 1", "url": "https://168dyfs.x.zhidian-inc.cn/" }
+  ]
+	  },
+		
 	  	  "WUSOCCER": {
 		"FAN": 13,
 		"RETRO": 19,
@@ -831,3 +847,4 @@ function mostrarPreciosProveedor(nombre) {
     ${catalogosHTML}
   `;
 }
+
