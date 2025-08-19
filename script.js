@@ -218,6 +218,21 @@
     { "name": "LINK 1", "url": "https://maiyuyan.x.zhidian-inc.cn/" }
   ]
 	  },
+		"ERIC DSL": {
+		"FAN": 12,
+		"RETRO": 17,
+		"PLAYER ADIDAS": 15,
+		"PLAYER NIKE": 15,
+		"PLAYER PUMA": 15,
+		"SHORT FAN": "No tiene",
+		"SHORT PLAYER": "No tiene",
+		"ENVIO GRATIS": "No tiene",
+		"ENVIO EMS": "No tiene",
+		"CONTACTO": "https://api.whatsapp.com/send/?phone=8613349338684&text&type=phone_number&app_absent=0",
+		  "CATALOGOS": [
+    { "name": "LINK 1", "url": "https://871916374.x.yupoo.com/albums?tab=gallery" }
+  ]
+	  },
 	  "FORNECEDOR (ANNE)": {
 		"FAN": 10,
 		"RETRO": 16,
@@ -847,4 +862,5 @@ function mostrarPreciosProveedor(nombre) {
     ${catalogosHTML}
   `;
 }
+
 
