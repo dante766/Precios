@@ -1,3 +1,4 @@
+
 	const proveedores =
 	{
 	  "LIU": {
@@ -564,6 +565,10 @@ function sendMessage() {
 				<button onclick="handleQuickReply('Rastreo Pedido')">Rastreo Pedido</button>
 				<button onclick="handleQuickReply('Pasos Compra Proveedor')">Pasos Compra Proveedor</button>
 				<button onclick="handleQuickReply('Canal Futbol XL')">Canal Futbol XL</button>
+				<button onclick="handleQuickReply('Tabla Retro')">Tabla Retro</button>
+				<button onclick="handleQuickReply('Tabla Fan')">Tabla Fan</button>
+				<button onclick="handleQuickReply('Tabla Player')">Tabla Player</button>
+				<button onclick="handleQuickReply('Tabla Niño')">Tabla Niño</button>
 			  </div>
 			</div>
 		  </div>
@@ -660,12 +665,35 @@ function mostrarEnviosGratis() {
 		  break;
 		case "Canal Futbol XL":
 		  window.open('https://www.youtube.com/c/F%C3%BAtbolXL/videos', '_blank');
-		  break;			  
+		  break;
+		case "Tabla Retro":
+		  mostrarImagenTabla("retro.jpeg", "Tabla Retro");
+		  break;
+		case "Tabla Fan":
+		  mostrarImagenTabla("fan.jpeg", "Tabla Fan");
+		  break;
+		case "Tabla Player":
+		  mostrarImagenTabla("player.jpeg", "Tabla Player");
+		  break;
+		case "Tabla Niño":
+		  mostrarImagenTabla("kid.jpeg", "Tabla Niño");
+		  break;  
 		default:
 		  const respuesta = respuestasBot[opcion] || "No tengo datos sobre eso aún.";
 		  agregarMensajeBot(respuesta);
 	  }
 	}
+
+	function mostrarImagenTabla(src, titulo) {
+	  const html = `
+		<div>
+		  <p style="font-weight: bold; color: #000000;">📌 ${titulo}</p>
+		  <img src="${src}" alt="${titulo}" style="max-width: 100%; border-radius: 10px; margin-bottom: 10px;">
+		</div>
+	  `;
+	  agregarMensajeBot(html);
+}
+
 
 	// Pone el icono de USUARIO en el chat
 	function agregarMensajeUsuario(texto) {
