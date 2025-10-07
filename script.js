@@ -284,30 +284,7 @@
     { "name": "LINK 12", "url": "https://mujichaopaia.x.yupoo.com/categories/4683964" }
   ]
 	  },
-	  "XIAOGUANG": {
-		"FAN": 13,
-		"RETRO": 19,
-		"PLAYER ADIDAS": 18,
-		"PLAYER NIKE": 18,
-		"PLAYER PUMA": 18,
-		"SHORT FAN": 13,
-		"SHORT PLAYER": 16,
-		"ENVIO GRATIS": "Comprando  Items",
-		"ENVIO EMS": 10,
-		"CONTACTO": "https://api.whatsapp.com/send/?phone=8615766574420&text&type=phone_number&app_absent=0",
-		  "CATALOGOS": [
-    { "name": "LINK 1", "url": "https://classic-football-fhirts052.x.yupoo.com/" },
-    { "name": "LINK 2", "url": "https://qq2470895303.x.yupoo.com/albums" },
-    { "name": "LINK 3", "url": "https://x.yupoo.com/photos/dongshanstore/albums" },
-    { "name": "LINK 4", "url": "https://yongfa1688.x.yupoo.com/" },
-    { "name": "LINK 5", "url": "https://xingkong-sports.x.yupoo.com/albums" },
-    { "name": "LINK 6", "url": "https://ingsports0828.x.yupoo.com/albums" },
-    { "name": "LINK 7", "url": "https://fugu2055.x.yupoo.com/" },
-    { "name": "LINK 8", "url": "https://jinmu2022.x.yupoo.com/albums" },
-    { "name": "LINK 9", "url": "https://a759499776.x.yupoo.com/" },
-    { "name": "LINK 10", "url": "https://x.yupoo.com/photos/yiyisports2016/albums" }
-  ]
-	  },
+	  
 	  "MAGGIE": {
 		"FAN": 13,
 		"RETRO": 18,
